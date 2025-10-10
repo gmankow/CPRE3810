@@ -100,7 +100,7 @@ architecture behavioral of controlSignals is
             alu_SLT when (i_Opcode = "1100011" and i_Funct3 = "100") else -- blt
             alu_SLT when (i_Opcode = "1100011" and i_Funct3 = "101") else -- bge
 
-            alu_SLTU when (i_Opcode = "0010011" and i_Funct3 = "011" and i_Funct7 = "0000000") else -- sltu
+            alu_SLTU when (i_Opcode = "0010011" and i_Funct3 = "011") else -- sltiu
             alu_SLTU when (i_Opcode = "1100011" and i_Funct3 = "110") else -- bltu
             alu_SLTU when (i_Opcode = "1100011" and i_Funct3 = "111") else -- bgeu
 
