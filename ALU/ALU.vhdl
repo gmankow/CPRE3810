@@ -63,7 +63,7 @@ begin
     -- if A < B then result is 1 else 0
     s_SLT_result <= s_internal_lessThan;
 
-    -- (SLTU : 1000) -- set less than unsigned
+    -- (SLTU : 1100) -- set less than unsigned (corrected from 1000, so 2nd bit is 1 to use subtractor)
     s_SLTU_result <= '1' when unsigned(i_A) < unsigned(i_B) else '0';
 
     -- AND : 0000
@@ -76,7 +76,7 @@ begin
     s_Xor_result <= i_A xor i_B;
 
     -- Zero flag: set when result is zero
-    o_Zero <= '1' when o_Result = x"00000000" else '0';
+    o_Zero <= s_zero;
     
     -- Less than flag: use internal signal for consistency
     o_LessThan <= s_lessThan;
@@ -88,7 +88,7 @@ begin
                     s_Or_result when "0001",
                     s_Xor_result when "0011",
                     (31 downto 1 => '0') & s_SLT_result when "0111",
-                    (31 downto 1 => '0') & s_SLTU_result when "1000",
+                    (31 downto 1 => '0') & s_SLTU_result when "1100",
                     s_Shifter_result when "0100" | "0101" | "1101",
                     (others => '0') when others; -- default to 0
 

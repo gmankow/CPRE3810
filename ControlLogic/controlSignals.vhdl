@@ -30,7 +30,7 @@ architecture behavioral of controlSignals is
     constant alu_SRL : std_logic_vector(3 downto 0) := "0101"; -- SRL : 0101
     constant alu_SUB : std_logic_vector(3 downto 0) := "0110"; -- SUB : 0110
     constant alu_SLT : std_logic_vector(3 downto 0) := "0111"; -- SLT : 0111
-    constant alu_SLTU: std_logic_vector(3 downto 0) := "1000"; -- SLTU: 1000
+    constant alu_SLTU: std_logic_vector(3 downto 0) := "1100"; -- SLTU: 1100 (was 1000, but 2nd bit needs to be 1 to use subtractor)
     constant alu_SRA : std_logic_vector(3 downto 0) := "1101"; -- SRA : 1101
 
     constant imm_I_TYPE : std_logic_vector(2 downto 0) := "000"; -- I type : 000

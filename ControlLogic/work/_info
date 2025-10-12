@@ -1,8 +1,10 @@
 m255
 K4
 z2
-!s12c _opt
-Z0 !s99 nomlopt
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
 !s11e MIXED_VERSIONS
 13
 !s112 1.1
@@ -10,13 +12,13 @@ Z0 !s99 nomlopt
 !i10e 25
 !i10f 100
 cModel Technology
-Z1 d/home/gmankow/cpre381/CPRE3810/ControlLogic
+Z2 d/home/gmankow/cpre381/CPRE3810/ControlLogic
 T_opt
-!s110 1760300953
-Vj_gZAI1@^<e2=LS4X`A_J1
+!s110 1760307688
+V9S7_CWDQTeb4TJII2[0M=0
 04 17 10 work tb_controlsignals behavioral 1
-=1-000ae431a4f1-68ec0f99-52f13-1f05
-R0
+=1-000ae431a4f1-68ec29e8-2798f-5611
+R1
 !s12f OEM100
 !s12b OEM100
 !s124 OEM100
@@ -26,87 +28,87 @@ tCvgOpt 0
 n@_opt
 OL;O;2025.1_2;82
 Econtrolsignals
-Z2 w1760300842
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 4
-R1
-Z5 8/home/gmankow/cpre381/CPRE3810/ControlLogic/controlSignals.vhdl
-Z6 F/home/gmankow/cpre381/CPRE3810/ControlLogic/controlSignals.vhdl
+Z3 w1760307605
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 5
+R2
+Z6 8/home/gmankow/cpre381/CPRE3810/ControlLogic/controlSignals.vhdl
+Z7 F/home/gmankow/cpre381/CPRE3810/ControlLogic/controlSignals.vhdl
 l0
 L4 1
 Vd4h`QPgBl>OMzX^;K_R6N2
 !s100 ?0WWUY75mzkmD5:I?0iEH0
-Z7 OL;C;2025.1_2;82
+Z8 OL;C;2025.1_2;82
 33
-Z8 !s110 1760300945
+Z9 !s110 1760307679
 !i10b 1
-Z9 !s108 1760300945.000000
-Z10 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/ControlLogic/controlSignals.vhdl|
-Z11 !s107 /home/gmankow/cpre381/CPRE3810/ControlLogic/controlSignals.vhdl|
+Z10 !s108 1760307679.000000
+Z11 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/ControlLogic/controlSignals.vhdl|
+Z12 !s107 /home/gmankow/cpre381/CPRE3810/ControlLogic/controlSignals.vhdl|
 !i113 0
-Z12 o-work work
-Z13 tExplicit 1 NoCoverage 1 CvgOpt 0
+Z13 o-work work
+Z14 tExplicit 1 NoCoverage 1 CvgOpt 0
 Abehavioral
-R3
 R4
-Z14 DEx4 work 14 controlsignals 0 22 d4h`QPgBl>OMzX^;K_R6N2
-!i122 4
+R5
+Z15 DEx4 work 14 controlsignals 0 22 d4h`QPgBl>OMzX^;K_R6N2
+!i122 5
 l42
 L21 138
-V436c6QJLhBcH^5z>5Vo_c0
-!s100 GWf]OI^m]GzKRU[9OBWK_0
-R7
-33
+V?eh8Bzi_7:zWA^Nm>`EUI1
+!s100 z?JolV3=g=1YclP]n4Re92
 R8
-!i10b 1
+33
 R9
+!i10b 1
 R10
 R11
-!i113 0
 R12
+!i113 0
 R13
+R14
 Etb_controlsignals
-Z15 w1760300941
-Z16 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-R3
+Z16 w1760301028
+Z17 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R4
-!i122 3
-R1
-Z17 8/home/gmankow/cpre381/CPRE3810/ControlLogic/tb_controlSignals.vhdl
-Z18 F/home/gmankow/cpre381/CPRE3810/ControlLogic/tb_controlSignals.vhdl
+R5
+!i122 6
+R2
+Z18 8/home/gmankow/cpre381/CPRE3810/ControlLogic/tb_controlSignals.vhdl
+Z19 F/home/gmankow/cpre381/CPRE3810/ControlLogic/tb_controlSignals.vhdl
 l0
 L5 1
 V_]E7jd4ZZZTcP1oKgBa0G1
 !s100 ;f0aVkO?QhE2D^aZk6HH41
-R7
+R8
 33
-Z19 !s110 1760300942
+Z20 !s110 1760307680
 !i10b 1
-Z20 !s108 1760300942.000000
+R10
 Z21 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/ControlLogic/tb_controlSignals.vhdl|
 Z22 !s107 /home/gmankow/cpre381/CPRE3810/ControlLogic/tb_controlSignals.vhdl|
 !i113 0
-R12
 R13
-Abehavioral
 R14
-R16
-R3
+Abehavioral
+R15
+R17
 R4
+R5
 DEx4 work 17 tb_controlsignals 0 22 _]E7jd4ZZZTcP1oKgBa0G1
-!i122 3
+!i122 6
 l101
 L8 168
 VO32QOegW9[[onk?L[n]^P2
 !s100 ae5M0zS79Zk89S:UGDO4=0
-R7
+R8
 33
-R19
-!i10b 1
 R20
+!i10b 1
+R10
 R21
 R22
 !i113 0
-R12
 R13
+R14

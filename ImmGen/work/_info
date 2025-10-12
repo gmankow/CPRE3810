@@ -27,11 +27,12 @@ o-quiet -auto_acc_if_foreign -work work +acc
 tCvgOpt 0
 n@_opt
 OL;O;2025.1_2;82
+R2
 Eimmediategenerate
 Z3 w1760303280
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 6
+!i122 8
 R2
 Z6 8/home/gmankow/cpre381/CPRE3810/ImmGen/immediateGenerate.vhdl
 Z7 F/home/gmankow/cpre381/CPRE3810/ImmGen/immediateGenerate.vhdl
@@ -41,9 +42,9 @@ Vk`Dzkn>>8TIVzLoeb8jV]2
 !s100 Wi]>eZ^142]S8]MBN3id@1
 Z8 OL;C;2025.1_2;82
 32
-Z9 !s110 1760303282
+Z9 !s110 1760307710
 !i10b 1
-Z10 !s108 1760303282.000000
+Z10 !s108 1760307709.000000
 Z11 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/ImmGen/immediateGenerate.vhdl|
 Z12 !s107 /home/gmankow/cpre381/CPRE3810/ImmGen/immediateGenerate.vhdl|
 !i113 0
@@ -53,7 +54,7 @@ Abehavioral
 R4
 R5
 Z15 DEx4 work 17 immediategenerate 0 22 k`Dzkn>>8TIVzLoeb8jV]2
-!i122 6
+!i122 8
 l20
 L12 35
 VHd6eezOT9lNS?km^XSZmh3
@@ -73,7 +74,7 @@ Z16 w1760303558
 Z17 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R4
 R5
-!i122 7
+!i122 9
 R2
 Z18 8/home/gmankow/cpre381/CPRE3810/ImmGen/tb_immediateGenerate.vhdl
 Z19 F/home/gmankow/cpre381/CPRE3810/ImmGen/tb_immediateGenerate.vhdl
@@ -83,11 +84,11 @@ VRYNGJPfAK:_OJniDb2hFQ0
 !s100 aC9zdVflQeGkWY1M`Jl?h3
 R8
 32
-Z20 !s110 1760303563
+R9
 !i10b 1
-Z21 !s108 1760303563.000000
-Z22 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/ImmGen/tb_immediateGenerate.vhdl|
-Z23 !s107 /home/gmankow/cpre381/CPRE3810/ImmGen/tb_immediateGenerate.vhdl|
+Z20 !s108 1760307710.000000
+Z21 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/ImmGen/tb_immediateGenerate.vhdl|
+Z22 !s107 /home/gmankow/cpre381/CPRE3810/ImmGen/tb_immediateGenerate.vhdl|
 !i113 0
 R13
 R14
@@ -96,19 +97,19 @@ R15
 R17
 R4
 R5
-DEx4 work 20 tb_immediategenerate 0 22 RYNGJPfAK:_OJniDb2hFQ0
-!i122 7
+Z23 DEx4 work 20 tb_immediategenerate 0 22 RYNGJPfAK:_OJniDb2hFQ0
+!i122 9
 l100
-L8 151
-V>:CznHSgjO4aSN[Y0H[6Y0
-!s100 RFg2S:fl8F?SC]ALll34c2
+Z24 L8 151
+Z25 V>:CznHSgjO4aSN[Y0H[6Y0
+Z26 !s100 RFg2S:fl8F?SC]ALll34c2
 R8
 32
-R20
+R9
 !i10b 1
+R20
 R21
 R22
-R23
 !i113 0
 R13
 R14
