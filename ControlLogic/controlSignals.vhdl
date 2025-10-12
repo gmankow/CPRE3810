@@ -50,6 +50,7 @@ architecture behavioral of controlSignals is
             (i_Opcode = "0010011" and i_Funct3 = "111") or -- andi
             (i_Opcode = "0110111") or -- lui
             (i_Opcode = "0000011" and i_Funct3 = "010") or -- lw
+            (i_Opcode = "0100011" and i_Funct3 = "010") or -- sw
             (i_Opcode = "0010011" and i_Funct3 = "100") or -- xori
             (i_Opcode = "0010011" and i_Funct3 = "110") or -- ori
             (i_Opcode = "0010011" and i_Funct3 = "010") or -- slti
@@ -152,7 +153,7 @@ architecture behavioral of controlSignals is
             imm_U_TYPE when (i_Opcode = "0110111") else -- lui
             imm_U_TYPE when (i_Opcode = "0010111") else -- auipc
             imm_UJ_TYPE when (i_Opcode = "1101111") else -- jal
-            else imm_I_TYPE; -- default to I type
+            imm_I_TYPE; -- default to I type
 
 end architecture behavioral;
 
