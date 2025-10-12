@@ -42,7 +42,7 @@ architecture behavioral of addSub_32bit is
         end generate;
 
         o_Cout <= C(8); -- final carry-out
-        o_LessThan <= o_Sum(31); -- if the result is negative, A < B
+        o_LessThan <= '1' when signed(i_A) < signed(i_B) else '0'; -- if the result is negative, A < B
         o_Zero <= '1' when o_Sum = (others => '0') else '0'; -- if the result is 0
         
 end architecture behavioral;
