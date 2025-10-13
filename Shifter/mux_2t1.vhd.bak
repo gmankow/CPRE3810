@@ -1,0 +1,52 @@
+Library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity mux_2t1 is
+	port(i_D0          : in std_logic;
+	i_D1          : in std_logic;
+	i_S          : in std_logic;
+	o_O          : out std_logic);
+end mux_2t1;
+
+architecture structural of mux2t1 is
+
+-- Not Gate
+    component invg is
+        port (i_A: in std_logic; 
+        o_F: out std_logic);
+    end component;
+-- And Gate
+    component andg2 is
+        port (i_A, i_B: in std_logic;
+        o_F: out std_logic);
+    end component;
+-- Or Gate
+    component org2 is
+        port (i_A, i_B: in std_logic;
+        o_F: out std_logic);
+    end component;
+
+-- Signal Declarations
+    signal and1_out, and2_out, n_select: std_logic := '0';
+
+begin
+-- Not select
+    n1: invg 
+    port map (i_A => i_S,
+                       o_F => n_select);
+-- And1
+    a1: andg2 
+    port map (i_A => i_D0,
+                        i_B => n_select,
+                        o_F => and1_out);
+-- And2
+    a2: andg2 
+    port map (i_A => i_D1,
+                        i_B => i_S,
+                        o_F => and2_out);
+-- Or1
+    o1: org2 
+    port map (i_A => and1_out,
+                       i_B => and2_out,
+                       o_F => o_O);
+end structural;
