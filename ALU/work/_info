@@ -1,0 +1,199 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 d/home/gmankow/cpre381/CPRE3810/ALU
+T_opt
+!s110 1760552259
+VlFWaSEBPlz`P13AaHlf>=3
+04 15 10 work tb_addsub_32bit behavioral 1
+=1-000ae431a4f1-68efe543-8fa9c-4468
+R1
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work
+tCvgOpt 0
+n@_opt
+OL;O;2025.1_2;82
+Eaddsub_32bit
+Z3 w1760552222
+Z4 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 24
+R2
+Z7 8/home/gmankow/cpre381/CPRE3810/ALU/addSub_32bit.vhdl
+Z8 F/home/gmankow/cpre381/CPRE3810/ALU/addSub_32bit.vhdl
+l0
+L5 1
+VDB7=G0>_kn_m3FK7<GDo<2
+!s100 FD;jdOSzPLo8ACB:T^^]92
+Z9 OL;C;2025.1_2;82
+32
+Z10 !s110 1760552250
+!i10b 1
+Z11 !s108 1760552250.000000
+Z12 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/ALU/addSub_32bit.vhdl|
+Z13 !s107 /home/gmankow/cpre381/CPRE3810/ALU/addSub_32bit.vhdl|
+!i113 0
+Z14 o-work work
+Z15 tExplicit 1 CvgOpt 0
+Abehavioral
+R4
+R5
+R6
+DEx4 work 12 addsub_32bit 0 22 DB7=G0>_kn_m3FK7<GDo<2
+!i122 24
+l33
+L17 48
+Vd=CJZjnG]d289IhLAR0Km0
+!s100 E:O65UB1zl9Xlg3zdfZml0
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Ealu
+Z16 w1760551768
+R4
+R5
+R6
+!i122 17
+R2
+Z17 8/home/gmankow/cpre381/CPRE3810/ALU/ALU.vhdl
+Z18 F/home/gmankow/cpre381/CPRE3810/ALU/ALU.vhdl
+l0
+L5 1
+V;=3C^j_hB04PADhM94Yj10
+!s100 fCDRe8j>o_B5mi[_k16[m2
+R9
+32
+!s110 1760551769
+!i10b 1
+!s108 1760551769.000000
+Z19 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/ALU/ALU.vhdl|
+Z20 !s107 /home/gmankow/cpre381/CPRE3810/ALU/ALU.vhdl|
+!i113 0
+R14
+R15
+Amixed
+R4
+R5
+R6
+DEx4 work 3 alu 0 22 FKmb6nF]nIjSD4^NcZ0Xg1
+!i122 1
+l44
+L17 79
+VnOWDGb@OX23;OY4hnYlLb3
+!s100 5fMk>fZ[L:7:VQ27F4Rj^0
+R9
+32
+!s110 1760308739
+!i10b 1
+!s108 1760308738.000000
+R19
+R20
+!i113 0
+R14
+R15
+Ecla_4bit
+Z21 w1760550425
+R5
+R6
+!i122 23
+R2
+Z22 8/home/gmankow/cpre381/CPRE3810/ALU/cla_4bit.vhdl
+Z23 F/home/gmankow/cpre381/CPRE3810/ALU/cla_4bit.vhdl
+l0
+L4 1
+V97H7Ljj33CBhLXz5E2hFA1
+!s100 5iI0`6XL1_F[l3@_b^fWP3
+R9
+32
+Z24 !s110 1760552249
+!i10b 1
+Z25 !s108 1760552249.000000
+Z26 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/ALU/cla_4bit.vhdl|
+Z27 !s107 /home/gmankow/cpre381/CPRE3810/ALU/cla_4bit.vhdl|
+!i113 0
+R14
+R15
+Abehavioral
+R5
+R6
+DEx4 work 8 cla_4bit 0 22 97H7Ljj33CBhLXz5E2hFA1
+!i122 23
+l22
+L14 29
+VlT]TK>Jlz_I7T]^O:b2W90
+!s100 kC>ILSPG@`KQ07Pn5>9cN0
+R9
+32
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 0
+R14
+R15
+Etb_addsub_32bit
+Z28 w1760552100
+R4
+R5
+R6
+!i122 26
+R2
+Z29 8/home/gmankow/cpre381/CPRE3810/ALU/tb_addSub_32bit.vhdl
+Z30 F/home/gmankow/cpre381/CPRE3810/ALU/tb_addSub_32bit.vhdl
+l0
+L5 1
+V_4`HiG]FKHWJ7l6_YGOB60
+!s100 [Df8VLYG[m8^JjaNTB8>A0
+R9
+32
+Z31 !s110 1760552253
+!i10b 1
+Z32 !s108 1760552253.000000
+Z33 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/ALU/tb_addSub_32bit.vhdl|
+Z34 !s107 /home/gmankow/cpre381/CPRE3810/ALU/tb_addSub_32bit.vhdl|
+!i113 0
+R14
+R15
+Abehavioral
+R4
+R5
+R6
+DEx4 work 15 tb_addsub_32bit 0 22 _4`HiG]FKHWJ7l6_YGOB60
+!i122 26
+l64
+L8 164
+VkFTaR7Gn2bFCPmTd>oVG^1
+!s100 TJYP0?>lDDoEGR1NiQT7a1
+R9
+32
+R31
+!i10b 1
+R32
+R33
+R34
+!i113 0
+R14
+R15

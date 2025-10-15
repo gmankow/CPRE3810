@@ -21,11 +21,11 @@ architecture behavioral of cla_4bit is
 
 begin
     -- P and G for each bit
-    P <= A xor B;
-    G <= A and B;
-    
+    P <= i_A xor i_B;
+    G <= i_A and i_B;
+
     --- initial carry-in
-    C(0) <= C_in;
+    C(0) <= i_Cin;
 
     -- lookahead logic (thank Stoychev's 2024 digital logic slides)
     C(1) <= G(0) or (P(0) and C(0));
