@@ -1,0 +1,488 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 d/home/blanef/CPRE3810/Fetch
+T_opt
+!s110 1760554952
+Vb_7D^c=GL4E;8^=a`hn990
+04 8 9 work tb_fetch testbench 1
+=1-000ae431a4f1-68efefc8-3b2e6-a728
+R1
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;2025.1_2;82
+Eaddsub_32bit
+Z3 w1760553286
+Z4 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 73
+R2
+Z7 8/home/blanef/CPRE3810/Fetch/addSub_32bit.vhdl
+Z8 F/home/blanef/CPRE3810/Fetch/addSub_32bit.vhdl
+l0
+L5 1
+V`]oGQNeD4V1h;mQ54Cl]h1
+!s100 FD;jdOSzPLo8ACB:T^^]92
+Z9 OL;C;2025.1_2;82
+33
+Z10 !s110 1760554584
+!i10b 1
+Z11 !s108 1760554584.000000
+Z12 !s90 -reportprogress|300|-work|work|/home/blanef/CPRE3810/Fetch/addSub_32bit.vhdl|
+Z13 !s107 /home/blanef/CPRE3810/Fetch/addSub_32bit.vhdl|
+!i113 0
+Z14 o-work work
+Z15 tExplicit 1 NoCoverage 1 CvgOpt 0
+Abehavioral
+R4
+R5
+R6
+DEx4 work 12 addsub_32bit 0 22 `]oGQNeD4V1h;mQ54Cl]h1
+!i122 73
+l33
+L17 48
+Vf4iLE1eaZ1[D1PS5X5DE?2
+!s100 E:O65UB1zl9Xlg3zdfZml0
+R9
+33
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+Eandg2
+Z16 w1760554538
+R5
+R6
+!i122 74
+R2
+Z17 8/home/blanef/CPRE3810/Fetch/andg2.vhd
+Z18 F/home/blanef/CPRE3810/Fetch/andg2.vhd
+l0
+Z19 L23 1
+VzJ2OoPJ=<ja2?Y;OcjQk;3
+!s100 YT?bGzEmcFo:DlnoC^B4_0
+R9
+33
+R10
+!i10b 1
+R11
+Z20 !s90 -reportprogress|300|-work|work|/home/blanef/CPRE3810/Fetch/andg2.vhd|
+Z21 !s107 /home/blanef/CPRE3810/Fetch/andg2.vhd|
+!i113 0
+R14
+R15
+Adataflow
+R5
+R6
+DEx4 work 5 andg2 0 22 zJ2OoPJ=<ja2?Y;OcjQk;3
+!i122 74
+l32
+Z22 L31 6
+V3oa1[>iDZj;2zVo:oz1>e2
+!s100 I`@Z@UBObS]<7m8bPgKUS1
+R9
+33
+R10
+!i10b 1
+R11
+R20
+R21
+!i113 0
+R14
+R15
+Ecla_4bit
+Z23 w1760553319
+R5
+R6
+!i122 72
+R2
+Z24 8/home/blanef/CPRE3810/Fetch/cla_4bit.vhdl
+Z25 F/home/blanef/CPRE3810/Fetch/cla_4bit.vhdl
+l0
+L4 1
+V7l;Q2PXJm2jM>4@IUo5WG1
+!s100 5iI0`6XL1_F[l3@_b^fWP3
+R9
+33
+R10
+!i10b 1
+R11
+Z26 !s90 -reportprogress|300|-work|work|/home/blanef/CPRE3810/Fetch/cla_4bit.vhdl|
+Z27 !s107 /home/blanef/CPRE3810/Fetch/cla_4bit.vhdl|
+!i113 0
+R14
+R15
+Abehavioral
+R5
+R6
+DEx4 work 8 cla_4bit 0 22 7l;Q2PXJm2jM>4@IUo5WG1
+!i122 72
+l22
+L14 29
+V1cH_=PeVPmklEiIGIee3N2
+!s100 kC>ILSPG@`KQ07Pn5>9cN0
+R9
+33
+R10
+!i10b 1
+R11
+R26
+R27
+!i113 0
+R14
+R15
+Edffg
+Z28 w1760553364
+R5
+R6
+!i122 70
+R2
+Z29 8/home/blanef/CPRE3810/Fetch/dffg.vhd
+Z30 F/home/blanef/CPRE3810/Fetch/dffg.vhd
+l0
+R19
+VH7[7fQclb0RF5ljXe<KKY0
+!s100 T4gcXQGMCgKJbn8XhBM;b0
+R9
+33
+R10
+!i10b 1
+R11
+Z31 !s90 -reportprogress|300|-work|work|/home/blanef/CPRE3810/Fetch/dffg.vhd|
+Z32 !s107 /home/blanef/CPRE3810/Fetch/dffg.vhd|
+!i113 0
+R14
+R15
+Amixed
+R5
+R6
+DEx4 work 4 dffg 0 22 H7[7fQclb0RF5ljXe<KKY0
+!i122 70
+l37
+L33 29
+VM>A>L<U`E78`0<h>bR]Yh3
+!s100 iOdlTUid@@]UimFK_53^C1
+R9
+33
+R10
+!i10b 1
+R11
+R31
+R32
+!i113 0
+R14
+R15
+Efetch
+Z33 w1760554933
+R5
+R6
+!i122 77
+R2
+Z34 8/home/blanef/CPRE3810/Fetch/Fetch.vhd
+Z35 F/home/blanef/CPRE3810/Fetch/Fetch.vhd
+l0
+L4 1
+V^;G?Zk7ea:MDeLf=3lDYO2
+!s100 73dXKfK[JCUC7^Z_PQD=M3
+R9
+33
+Z36 !s110 1760554936
+!i10b 1
+Z37 !s108 1760554936.000000
+Z38 !s90 -reportprogress|300|-work|work|/home/blanef/CPRE3810/Fetch/Fetch.vhd|
+Z39 !s107 /home/blanef/CPRE3810/Fetch/Fetch.vhd|
+!i113 0
+R14
+R15
+Astructural
+R5
+R6
+DEx4 work 5 fetch 0 22 ^;G?Zk7ea:MDeLf=3lDYO2
+!i122 77
+l62
+L17 94
+V<I>b=Iaf6Ql8Y=bJJLEA42
+!s100 1]FG__T<A8IT4[^mA30_]3
+R9
+33
+R36
+!i10b 1
+R37
+R38
+R39
+!i113 0
+R14
+R15
+Einvg
+Z40 w1760554565
+R5
+R6
+!i122 68
+R2
+Z41 8/home/blanef/CPRE3810/Fetch/invg.vhd
+Z42 F/home/blanef/CPRE3810/Fetch/invg.vhd
+l0
+R19
+VzJhOLc0g_4RfSF]IXa;:73
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+R9
+33
+R10
+!i10b 1
+R11
+Z43 !s90 -reportprogress|300|-work|work|/home/blanef/CPRE3810/Fetch/invg.vhd|
+Z44 !s107 /home/blanef/CPRE3810/Fetch/invg.vhd|
+!i113 0
+R14
+R15
+Adataflow
+R5
+R6
+DEx4 work 4 invg 0 22 zJhOLc0g_4RfSF]IXa;:73
+!i122 68
+l31
+L30 6
+VT@AA60h>IXVJ?D^`RRiZk1
+!s100 bk7I76o8e1LURdoZEQb8H0
+R9
+33
+R10
+!i10b 1
+R11
+R43
+R44
+!i113 0
+R14
+R15
+Emux2t1
+Z45 w1760553307
+R5
+R6
+!i122 63
+R2
+Z46 8/home/blanef/CPRE3810/Fetch/mux2t1.vhd
+Z47 F/home/blanef/CPRE3810/Fetch/mux2t1.vhd
+l0
+L4 1
+VKXkk1TkzdVN=CA0[N0@OB3
+!s100 `HeV=WFX@AnTm=dClmXz=0
+R9
+33
+Z48 !s110 1760554583
+!i10b 1
+Z49 !s108 1760554583.000000
+Z50 !s90 -reportprogress|300|-work|work|/home/blanef/CPRE3810/Fetch/mux2t1.vhd|
+Z51 !s107 /home/blanef/CPRE3810/Fetch/mux2t1.vhd|
+!i113 0
+R14
+R15
+Astructual
+R5
+R6
+DEx4 work 6 mux2t1 0 22 KXkk1TkzdVN=CA0[N0@OB3
+!i122 63
+l37
+L11 52
+VD7:6Tccd=@je1Z4CKa^Y_1
+!s100 DTb6?_F1K9ICD`RUi0[V72
+R9
+33
+R48
+!i10b 1
+R49
+R50
+R51
+!i113 0
+R14
+R15
+Emux2t1_n
+Z52 w1760553296
+R5
+R6
+!i122 64
+R2
+Z53 8/home/blanef/CPRE3810/Fetch/mux2t1_N.vhd
+Z54 F/home/blanef/CPRE3810/Fetch/mux2t1_N.vhd
+l0
+L21 1
+VX=8caLddO;GBDIdffNOz`3
+!s100 a8b75l9QH119Si`4JcQ1J0
+R9
+33
+R48
+!i10b 1
+R49
+Z55 !s90 -reportprogress|300|-work|work|/home/blanef/CPRE3810/Fetch/mux2t1_N.vhd|
+Z56 !s107 /home/blanef/CPRE3810/Fetch/mux2t1_N.vhd|
+!i113 0
+R14
+R15
+Astructural
+R5
+R6
+DEx4 work 8 mux2t1_n 0 22 X=8caLddO;GBDIdffNOz`3
+!i122 64
+l39
+L30 21
+VS;7^3=hDiT7zH78Vm1Xhk1
+!s100 W>5MMWO2LBg`K8[P>h>Ye1
+R9
+33
+R48
+!i10b 1
+R49
+R55
+R56
+!i113 0
+R14
+R15
+Eorg2
+Z57 w1760554529
+R5
+R6
+!i122 65
+R2
+Z58 8/home/blanef/CPRE3810/Fetch/org2.vhd
+Z59 F/home/blanef/CPRE3810/Fetch/org2.vhd
+l0
+R19
+V0FzB9ATDX9TV=M:n@=VB83
+!s100 bGQ1F9eW^Q17OoL9h4g7z2
+R9
+33
+R48
+!i10b 1
+R49
+Z60 !s90 -reportprogress|300|-work|work|/home/blanef/CPRE3810/Fetch/org2.vhd|
+Z61 !s107 /home/blanef/CPRE3810/Fetch/org2.vhd|
+!i113 0
+R14
+R15
+Adataflow
+R5
+R6
+DEx4 work 4 org2 0 22 0FzB9ATDX9TV=M:n@=VB83
+!i122 65
+l32
+R22
+V0JC>N7cRXc=9bni@>dg7o3
+!s100 h5_AzR3TdRA0a_K=dQ>mI2
+R9
+33
+R48
+!i10b 1
+R49
+R60
+R61
+!i113 0
+R14
+R15
+Eregister_n
+Z62 w1760553339
+R5
+R6
+!i122 66
+R2
+Z63 8/home/blanef/CPRE3810/Fetch/register_N.vhd
+Z64 F/home/blanef/CPRE3810/Fetch/register_N.vhd
+l0
+L4 1
+VKLK1jIjZobOa`IED907E80
+!s100 kLYV75`jeGQZh8OzmBj@U2
+R9
+33
+R48
+!i10b 1
+R49
+Z65 !s90 -reportprogress|300|-work|work|/home/blanef/CPRE3810/Fetch/register_N.vhd|
+Z66 !s107 /home/blanef/CPRE3810/Fetch/register_N.vhd|
+!i113 0
+R14
+R15
+Astructural
+R5
+R6
+DEx4 work 10 register_n 0 22 KLK1jIjZobOa`IED907E80
+!i122 66
+l24
+L14 25
+VzVobPWSN@PK9E4>F;]Q3S0
+!s100 0:5a0Qdm5dm4IeZN2NK340
+R9
+33
+R48
+!i10b 1
+R49
+R65
+R66
+!i113 0
+R14
+R15
+Etb_fetch
+Z67 w1760554932
+R4
+R5
+R6
+!i122 78
+R2
+Z68 8/home/blanef/CPRE3810/Fetch/tb_Fetch.vhd
+Z69 F/home/blanef/CPRE3810/Fetch/tb_Fetch.vhd
+l0
+L10 1
+V>JGB3QbMKQhaPPcNcXGha3
+!s100 6n[LEgBXOID?nlWB0>^X01
+R9
+33
+Z70 !s110 1760554939
+!i10b 1
+Z71 !s108 1760554939.000000
+Z72 !s90 -reportprogress|300|-work|work|/home/blanef/CPRE3810/Fetch/tb_Fetch.vhd|
+Z73 !s107 /home/blanef/CPRE3810/Fetch/tb_Fetch.vhd|
+!i113 0
+R14
+R15
+Atestbench
+R4
+R5
+R6
+DEx4 work 8 tb_fetch 0 22 >JGB3QbMKQhaPPcNcXGha3
+!i122 78
+l42
+L13 133
+VP8f_AfA9aV=Nb=dMzf;JM2
+!s100 :Fl1:WSmmeDH3gU5PchUV1
+R9
+33
+R70
+!i10b 1
+R71
+R72
+R73
+!i113 0
+R14
+R15

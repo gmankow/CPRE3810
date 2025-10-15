@@ -5,7 +5,6 @@ entity fetch is
     port(
         i_Immediate : in std_logic_vector(31 downto 0);
         i_CLK : in std_logic;
-        i_RST             : in  std_logic;
         c_jump : in std_logic;
         c_branch : in std_logic;
         c_branch_cond_met : in std_logic;
@@ -76,7 +75,7 @@ begin
         port map (
             i_CLK => i_CLK,
             i_WE => '1',
-            i_RST => i_RST,
+            i_RST => '0',
             i_D => s_Jump_Out,
             o_Q => s_PC_Out
         );
@@ -85,7 +84,7 @@ begin
     plus_4 : component addSub_32bit
         port map (
             i_A => s_PC_Out,
-            i_B      => x"00000004",
+            i_B => "00000000000000000000000000000100",
             i_Cin => '0',
             o_Sum => s_Plus_4_Out
         );
