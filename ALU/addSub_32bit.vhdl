@@ -2,6 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+
 entity addSub_32bit is
     port (
         i_A      : in  std_logic_vector(31 downto 0);
@@ -54,11 +55,8 @@ begin
     -- Zero flag: set when all bits of result are 0
     o_Zero <= '1' when s_Result = x"00000000" else '0';
 
-    -- Less than flag:
-    -- For addition (i_Cin = '0'): A < B when signed comparison is true
-    -- For subtraction (i_Cin = '1'): A < B when result is negative (MSB = '1')
-    o_LessThan <= '1' when (i_Cin = '0' and signed(i_A) < signed(i_B)) or
-                           (i_Cin = '1' and s_Result(31) = '1') else '0';
-        o_Zero <= '1' when s_Result = x"00000000" else '0'; -- if the result is zero
-        
+    -- Less than flag (SLT):
+    -- For RISC-V, SLT is set if (signed(A) < signed(B)), which is true if the result is negative after subtraction
+    o_LessThan <= s_Result(31);
+
 end architecture behavioral;
