@@ -15,6 +15,7 @@ entity controlSignals is
         o_RegWrite : out std_logic; -- Register file write enable
         o_Jump : out std_logic; -- Jump signal
         o_ImmSel : out std_logic_vector(2 downto 0) -- Immediate selection
+        o_WFI : out std_logic -- Wait for interrupt signal
     );
 end entity controlSignals;
 
@@ -41,7 +42,8 @@ architecture behavioral of controlSignals is
 
     begin
 
-        -- TODO INCLUDE WFI AND CHECK ON DON'T CARE BITS
+        -- WFI
+        o_WFI <= '1' when (i_Opcode = "1110011") else '0'; -- wfi (used for HALT in toolflow)
         
         o_ALUsrcA <= '1' when (i_Opcode = "0010111") -- auipc
             else '0';

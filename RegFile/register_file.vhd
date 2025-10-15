@@ -1,6 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
-use work.mux32_package.all;
+use work.RISCV_types.all;
 
 entity register_file is
     generic (N : integer := 32);  -- Number of bits in each register

@@ -59,7 +59,22 @@ architecture mixed of ALU is
         );
     end component;
 
+    component mux2t1_N is 
+        generic (N : integer := 32);
+        port (
+            i_S          : in std_logic;
+            i_D0         : in std_logic_vector(N-1 downto 0);
+            i_D1         : in std_logic_vector(N-1 downto 0);
+            o_O          : out std_logic_vector(N-1 downto 0)
+        );
+    end component;
+
 begin
+
+    -- ALUsrcA mux
+
+    -- ALUscrB mux
+
 
     --add/sub (ADD : 0010, SUB : 0110)
     addSub_inst : addSub_32bit
