@@ -16,7 +16,7 @@ entity addSub_32bit is
     );
 end entity addSub_32bit;
 
-architecture behavioral of addSub_32bit is
+architecture mixed of addSub_32bit is
     signal s_Result : std_logic_vector(31 downto 0);
     signal s_B : std_logic_vector(31 downto 0);  -- B or its complement based on operation
 
@@ -62,4 +62,4 @@ begin
     -- For RISC-V, SLT is set if (signed(A) < signed(B)), which is true if the result is negative after subtraction
     o_LessThan <= s_Result(31);
 
-end architecture behavioral;
+end architecture mixed;

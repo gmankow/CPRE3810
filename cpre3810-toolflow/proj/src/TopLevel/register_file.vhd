@@ -8,7 +8,9 @@ entity register_file is
         CLK : in std_logic;
         RST : in std_logic;
         WriteEnable : in std_logic;
-        i_Instruction : in std_logic_vector(31 downto 0);
+        i_Source1 : in std_logic_vector(4 downto 0);
+        i_Source2 : in std_logic_vector(4 downto 0);
+        i_WriteReg : in std_logic_vector(4 downto 0);
         DIN : in std_logic_vector(N-1 downto 0);
         Source1Out : out std_logic_vector(N-1 downto 0);
         Source2Out : out std_logic_vector(N-1 downto 0)
@@ -18,10 +20,6 @@ end entity register_file;
 architecture structural of register_file is
     signal write_decoded : std_logic_vector(31 downto 0);
     signal registers_out : mux32_array; -- Array to hold outputs of 32 registers
-
-    signal Source1 : std_logic_vector(4 downto 0) := i_Instruction(19 downto 15);
-    signal Source2 : std_logic_vector(4 downto 0) := i_Instruction(24 downto 20);
-    signal WriteReg : std_logic_vector(4 downto 0) := i_Instruction(11 downto 7);
 
     component register_N
         generic (N : integer := 32);

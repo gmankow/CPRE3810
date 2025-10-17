@@ -158,7 +158,9 @@ architecture structure of RISCV_Processor is
         CLK : in std_logic;
         RST : in std_logic;
         WriteEnable : in std_logic;
-        i_Instruction : in std_logic_vector(31 downto 0);
+        i_Source1 : in std_logic_vector(4 downto 0);
+        i_Source2 : in std_logic_vector(4 downto 0);
+        i_WriteReg : in std_logic_vector(4 downto 0);
         DIN : in std_logic_vector(N-1 downto 0);
         Source1Out : out std_logic_vector(N-1 downto 0);
         Source2Out : out std_logic_vector(N-1 downto 0)
@@ -181,6 +183,9 @@ begin
   with iInstLd select
     s_IMemAddr <= s_NextInstAddr when '0',
       iInstAddr when others;
+
+  s_RegWrAddr <= s_Inst(11 downto 7); -- Destination register address is bits [11:7] of instruction
+  s_RegWrData <= oALUOut; -- For now, write data comes from ALU output (just testing addi currently)
 
 
   IMem: mem
@@ -236,7 +241,9 @@ begin
         CLK => iCLK,
         RST => iRST,
         WriteEnable => s_RegWr,
-        i_Instruction => s_Inst,
+        i_Source1 => s_Inst(19 downto 15),
+        i_Source2 => s_Inst(24 downto 20),
+        i_WriteReg => s_RegWrAddr,
         DIN => s_RegWrData,
         Source1Out => s_RegData1,
         Source2Out => s_RegData2
