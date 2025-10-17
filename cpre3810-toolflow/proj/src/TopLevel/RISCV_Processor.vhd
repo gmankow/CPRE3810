@@ -214,9 +214,9 @@ begin
         c_jump => s_Jump,
         c_branch => s_Branch,
         c_branch_cond_met => s_BranchCondMet,
-        o_PC_out => s_PC_Out,
+        o_PC_out => s_NextInstAddr,
         o_PC_plus_4_out => s_PC_plus_4,
-        o_PC_final => s_NextInstAddr
+        o_PC_final => s_PC_Out
     );
 
   control_inst : controlSignals

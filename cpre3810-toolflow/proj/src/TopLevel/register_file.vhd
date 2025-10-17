@@ -52,7 +52,7 @@ architecture structural of register_file is
 
         decoder : decoder_5t32
             port map (
-                i_A => WriteReg,
+                i_A => i_WriteReg,
                 i_WE => WriteEnable,
                 o_D => write_decoded
             );
@@ -74,14 +74,14 @@ architecture structural of register_file is
 
         mux : mux_32t1 -- already created 32-to-1 mux in mux_32t1.vhd
             port map (
-                i_A => Source1,
+                i_A => i_Source1,
                 i_D => registers_out,
                 o_Y => Source1Out
             );
 
         mux2 : mux_32t1 -- already created 32-to-1 mux in mux_32t1.vhd
             port map (
-                i_A => Source2,
+                i_A => i_Source2,
                 i_D => registers_out,
                 o_Y => Source2Out
             );

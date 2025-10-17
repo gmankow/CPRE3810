@@ -56,8 +56,7 @@ architecture structural of fetch is
 
     --32 bit adder "plus_4" and "plus_imm" will be instantiated directly from the
     -- compiled entity to avoid component binding issues (use direct entity instantiation).
-
-    signal s_PC_Out : std_logic_vector(31 downto 0) := (others => '0');
+    
     signal s_Plus_4_Out : std_logic_vector(31 downto 0) := (others => '0');
     signal s_Plus_Imm_Out : std_logic_vector(31 downto 0) := (others => '0');
     signal s_Jump_Out : std_logic_vector(31 downto 0) := (others => '0');
@@ -71,6 +70,7 @@ begin
     s_Jump_Select <= (c_branch and c_branch_cond_met) or c_jump;
     o_PC_plus_4_out <= s_Plus_4_Out;
     o_PC_out <= s_PC_Current;
+    o_PC_final <= s_PC_Next;
 
     s_imm_shifted <= i_Immediate(30 downto 0) & '0';
 
