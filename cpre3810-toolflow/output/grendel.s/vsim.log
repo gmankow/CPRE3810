@@ -1,0 +1,995 @@
+Reading pref.tcl
+
+# 2025.1_2
+
+# vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
+# Start time: 16:59:24 on Oct 19,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vsim-8611) Generating debug db.
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(0)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(1)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(2)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(3)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(4)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(5)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(6)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(7)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(8)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(9)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(10)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(11)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(12)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(13)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(14)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(15)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(16)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(17)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(18)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(19)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(20)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(21)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(22)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(23)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(24)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(25)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(26)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(27)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(28)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(29)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(30)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(52): (vopt-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(31)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(0)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(1)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(2)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(3)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(4)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(5)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(6)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(7)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(8)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(9)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(10)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(11)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(12)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(13)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(14)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(15)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(16)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(17)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(18)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(19)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(20)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(21)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(22)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(23)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(24)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(25)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(26)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(27)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(28)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(29)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(30)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(70): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(31)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(0)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(1)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(2)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(3)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(4)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(5)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(6)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(7)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(8)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(9)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(10)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(11)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(12)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(13)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(14)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(15)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(16)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(17)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(18)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(19)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(20)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(21)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(22)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(23)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(24)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(25)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(26)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(27)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(28)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(29)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(30)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(88): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(31)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(0)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(1)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(2)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(3)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(4)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(5)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(6)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(7)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(8)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(9)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(10)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(11)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(12)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(13)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(14)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(15)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(16)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(17)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(18)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(19)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(20)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(21)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(22)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(23)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(24)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(25)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(26)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(27)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(28)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(29)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(30)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(106): (vopt-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(31)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(0)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(1)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(2)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(3)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(4)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(5)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(6)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(7)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(8)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(9)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(10)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(11)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(12)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(13)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(14)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(15)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(16)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(17)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(18)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(19)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(20)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(21)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(22)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(23)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(24)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(25)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(26)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(27)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(28)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(29)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(30)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(120): (vopt-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(31)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(0)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(1)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(2)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(3)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(4)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(5)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(6)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(7)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(8)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(9)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(10)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(11)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(12)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(13)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(14)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(15)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(16)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(17)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(18)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(19)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(20)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(21)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(22)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(23)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(24)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(25)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(26)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(27)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(28)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(29)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(30)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(134): (vopt-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(31)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(0)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(1)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(2)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(3)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(4)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(5)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(6)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(7)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(8)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(9)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(10)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(11)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(12)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(13)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(14)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(15)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(16)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(17)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(18)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(19)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(20)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(21)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(22)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(23)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(24)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(25)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(26)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(27)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(28)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(29)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(30)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(31)
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -16 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -15 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -14 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -13 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -12 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -11 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -10 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -9 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -8 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -7 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -6 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -5 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -4 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -3 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -2 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -1 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(87): (vopt-1152) Index value -8 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(87): (vopt-1152) Index value -7 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(87): (vopt-1152) Index value -6 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(87): (vopt-1152) Index value -5 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(87): (vopt-1152) Index value -4 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(87): (vopt-1152) Index value -3 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(87): (vopt-1152) Index value -2 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(87): (vopt-1152) Index value -1 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(105): (vopt-1152) Index value -4 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(105): (vopt-1152) Index value -3 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(105): (vopt-1152) Index value -2 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(105): (vopt-1152) Index value -1 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(119): (vopt-1152) Index value -2 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(119): (vopt-1152) Index value -1 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(133): (vopt-1152) Index value -1 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Note: (vopt-4301) Memory core inferred for signal 'ram' width=32, depth=1024, type=RAM at location proj/src/TopLevel/mem.vhd:35
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=256.
+# //  Questa Sim-64
+# //  Version 2025.1_2 linux_x86_64 Apr  7 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb(mixed)#1
+# Loading work.riscv_types(body)
+# Loading work.riscv_processor(structure)#1
+# Loading ieee.numeric_std(body)
+# Loading work.mem(rtl)#1
+# Loading work.fetch(structural)#1
+# Loading work.register_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.addsub_32bit(mixed)#1
+# Loading work.cla_4bit(behavioral)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structual)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.controlsignals(behavioral)#1
+# Loading work.register_file(structural)#1
+# Loading work.decoder_5t32(behavioral)#1
+# Loading work.mux_32t1(behavioral)#1
+# Loading work.immediategenerate(behavioral)#1
+# Loading work.alu(mixed)#1
+# Loading work.barrel_shifter(structural)#1
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(0) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(1) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(2) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(3) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(4) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(5) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(6) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(7) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(8) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(9) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(10) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(11) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(12) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(13) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(14) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(15) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(16) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(17) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(18) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(19) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(20) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(21) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(22) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(23) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(24) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(25) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(26) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(27) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(28) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(29) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(30) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "input_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_input_mux(31) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(0) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(1) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(2) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(3) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(4) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(5) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(6) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(7) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(8) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(9) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(10) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(11) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(12) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(13) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(14) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(15) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(16) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(17) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(18) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(19) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(20) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(21) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(22) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(23) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(24) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(25) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(26) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(27) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(28) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(29) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(30) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_16(31) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(0) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(1) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(2) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(3) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(4) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(5) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(6) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(7) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(8) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(9) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(10) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(11) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(12) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(13) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(14) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(15) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(16) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(17) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(18) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(19) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(20) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(21) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(22) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(23) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(24) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(25) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(26) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(27) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(28) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(29) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(30) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_8(31) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(0) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(1) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(2) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(3) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(4) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(5) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(6) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(7) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(8) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(9) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(10) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(11) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(12) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(13) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(14) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(15) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(16) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(17) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(18) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(19) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(20) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(21) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(22) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(23) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(24) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(25) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(26) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(27) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(28) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(29) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(30) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_16 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_4(31) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(0) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(1) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(2) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(3) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(4) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(5) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(6) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(7) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(8) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(9) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(10) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(11) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(12) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(13) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(14) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(15) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(16) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(17) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(18) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(19) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(20) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(21) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(22) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(23) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(24) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(25) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(26) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(27) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(28) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(29) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(30) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_2 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_2(31) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(0) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(1) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(2) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(3) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(4) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(5) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(6) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(7) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(8) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(9) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(10) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(11) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(12) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(13) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(14) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(15) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(16) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(17) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(18) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(19) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(20) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(21) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(22) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(23) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(24) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(25) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(26) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(27) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(28) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(29) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(30) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "shift_mux_1 : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_stage_1(31) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(0) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(1) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(2) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(3) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(4) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(5) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(6) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(7) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(8) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(9) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(10) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(11) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(12) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(13) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(14) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(15) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(16) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(17) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(18) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(19) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(20) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(21) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(22) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(23) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(24) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(25) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(26) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(27) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(28) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(29) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(30) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# ** Warning: (vsim-3473) Component instance "output_mux_i : mux_2t1" is not bound.
+#    Time: 0 ns  Iteration: 0  Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(31) File: /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+# Loading work.mux3t1_n(behavioral)#1
+# ** Warning: (vsim-8684) No drivers exist on out port /tb/MyRiscv/ALU_inst/shifter_inst/data_out(31 downto 0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /tb/MyRiscv/ALU_inst/s_Shifter_result(31 downto 0).
+# ** Note: (vsim-8900) Creating design debug database vsim.dbg.
+# do modelsim_framework.do
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb/MyRiscv/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb/MyRiscv/IMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 180 ns  Iteration: 1  Instance: /tb/MyRiscv/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 180 ns  Iteration: 2  Instance: /tb/MyRiscv/DMem
+# End time: 16:59:26 on Oct 19,2025, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 485

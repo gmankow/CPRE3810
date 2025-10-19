@@ -177,6 +177,17 @@ architecture structure of RISCV_Processor is
     );
   end component;
 
+  component mux3t1_N is
+      generic(N : integer := 32);
+      port(
+          i_S  : in  std_logic_vector(1 downto 0);
+          i_D0 : in  std_logic_vector(N-1 downto 0);
+          i_D1 : in  std_logic_vector(N-1 downto 0);
+          i_D2 : in  std_logic_vector(N-1 downto 0);
+          o_O  : out std_logic_vector(N-1 downto 0)
+      );
+  end component;
+
 begin
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
@@ -185,7 +196,7 @@ begin
       iInstAddr when others;
 
   s_RegWrAddr <= s_Inst(11 downto 7); -- Destination register address is bits [11:7] of instruction
-  s_RegWrData <= oALUOut; -- For now, write data comes from ALU output (just testing addi currently)
+  --s_RegWrData <= oALUOut; -- For now, write data comes from ALU output (just testing addi currently)
 
 
   IMem: mem
@@ -287,6 +298,20 @@ begin
         o_BranchCondMet => s_BranchCondMet,
         o_Overflow => s_Ovfl
     );
+    s_DMemAddr <= oALUOut; -- Data memory address comes from ALU output
+    s_DMemData <= s_RegData2; -- Data memory data input comes from source register 2
+
+  Mux_PC4_Mem_Reg : mux3t1_N
+    generic map (N => 32)
+    port map (
+        i_S => s_PCorMemtoReg,
+        i_D0 => oALUOut,
+        i_D1 => s_DMemOut,
+        i_D2 => s_PC_plus_4,
+        o_O => s_RegWrData
+    ); 
+
+    
   
 
   -- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
