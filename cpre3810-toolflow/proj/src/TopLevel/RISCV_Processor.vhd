@@ -98,6 +98,8 @@ architecture structure of RISCV_Processor is
   signal s_LessThan : std_logic; -- Less than flag from ALU
   signal s_CarryOut : std_logic; -- Carry out from ALU
 
+  signal s_DMemOut_Muxed : std_logic_vector(31 downto 0); -- Muxed Data Memory Output
+
   component ALU is
       port (
         i_A : in std_logic_vector(31 downto 0); -- Input A
@@ -188,6 +190,14 @@ architecture structure of RISCV_Processor is
       );
   end component;
 
+  component dMem_Out_Mux is
+    port (
+        i_dMemOut : in std_logic_vector(31 downto 0); -- Data Memory Output
+        i_Func3 : in std_logic_vector(2 downto 0); -- funct3 field from instruction
+        o_dMemOut_Muxed : out std_logic_vector(31 downto 0) -- Muxed Data Memory Output
+    );
+  end component;
+
 begin
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
@@ -216,6 +226,13 @@ begin
              data => s_DMemData,
              we   => s_DMemWr,
              q    => s_DMemOut);
+  
+  dMemOutMux_inst : dMem_Out_Mux
+    port map (
+        i_dMemOut => s_DMemOut,
+        i_Func3 => s_Inst(14 downto 12),
+        o_dMemOut_Muxed => s_DMemOut_Muxed
+    );
             
   fetch_inst : Fetch
     port map (
@@ -306,7 +323,7 @@ begin
     port map (
         i_S => s_PCorMemtoReg,
         i_D0 => oALUOut,
-        i_D1 => s_DMemOut,
+        i_D1 => s_DMemOut_Muxed,
         i_D2 => s_PC_plus_4,
         o_O => s_RegWrData
     ); 
