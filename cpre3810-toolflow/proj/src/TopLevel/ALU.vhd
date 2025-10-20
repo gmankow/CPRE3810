@@ -140,7 +140,7 @@ begin
     s_branch_geu <= s_CarryOut; -- if carry out from A - B, then A >= B unsigned
 
     -- Overflow flag from adder/subtractor
-    o_Overflow <= s_Overflow;
+    o_Overflow <= s_Overflow when (i_Control = "0010" or i_Control = "0110") else '0';
 
     -- MUX to select output based on control signal
     with i_Control select

@@ -13,14 +13,14 @@ end entity Barrel_Shifter;
 architecture structural of Barrel_Shifter is
 
     -- Component declaration for the 2-to-1 MUX
-    component mux_2t1 is
+    component mux2t1 is
         port (
             i_D0          : in std_logic;
 	        i_D1          : in std_logic;
 	        i_S          : in std_logic;
 	        o_O          : out std_logic
         );
-    end component mux_2t1;
+    end component mux2t1;
 
     -- Signals for the unidirectional shifter core and reversal logic
     signal reversed_in    : std_logic_vector(31 downto 0) := (others => '0');
@@ -49,7 +49,7 @@ begin
 
     -- Create the first row of muxes that select between the regular and reversed input directions
     gen_input_mux: for i in 0 to 31 generate
-        input_mux_i: component mux_2t1
+        input_mux_i: component mux2t1
             port map (
                 i_D0 => data_in(i),
                 i_D1 => reversed_in(i),
@@ -67,7 +67,7 @@ begin
         signal shift_src   : std_logic;
     begin
         shift_src <= shifter_in(src_index) when src_index >= 0 else shift_in_bit;
-        shift_mux_16: component mux_2t1
+        shift_mux_16: component mux2t1
             port map (
                 i_D0   => shifter_in(i),
                 i_D1   => shift_src,
@@ -85,7 +85,7 @@ begin
         signal shift_src   : std_logic;
     begin
         shift_src <= stage_16_out(src_index) when src_index >= 0 else shift_in_bit;
-        shift_mux_16: component mux_2t1
+        shift_mux_16: component mux2t1
             port map (
                 i_D0   => stage_16_out(i),
                 i_D1   => shift_src,
@@ -103,7 +103,7 @@ begin
         signal shift_src   : std_logic;
     begin
         shift_src <= stage_8_out(src_index) when src_index >= 0 else shift_in_bit;
-        shift_mux_16: component mux_2t1
+        shift_mux_16: component mux2t1
             port map (
                 i_D0   => stage_8_out(i),
                 i_D1   => shift_src,
@@ -117,7 +117,7 @@ begin
         signal shift_src   : std_logic;
     begin
         shift_src <= stage_4_out(src_index) when src_index >= 0 else shift_in_bit;
-        shift_mux_2: component mux_2t1
+        shift_mux_2: component mux2t1
             port map (
                 i_D0   => stage_4_out(i),
                 i_D1   => shift_src,
@@ -131,7 +131,7 @@ begin
         signal shift_src   : std_logic;
     begin
         shift_src <= stage_2_out(src_index) when src_index >= 0 else shift_in_bit;
-        shift_mux_1: component mux_2t1
+        shift_mux_1: component mux2t1
             port map (
                 i_D0   => stage_2_out(i),
                 i_D1   => shift_src,
@@ -147,7 +147,7 @@ begin
     -- Output MUX Row: Selects between the normal shifter output for a LEFT shift
     -- or the reversed output for a RIGHT shift.
     gen_output_mux: for i in 0 to 31 generate
-        output_mux_i: component mux_2t1
+        output_mux_i: component mux2t1
             port map (
                 i_D0   => shifter_out(i),  -- sel='0' (LEFT)
                 i_D1   => reversed_out(i), -- sel='1' (RIGHT)

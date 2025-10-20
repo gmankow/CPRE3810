@@ -75,7 +75,7 @@ begin
     o_PC_out <= s_PC_Current;
     o_PC_final <= s_PC_Next;
 
-    s_imm_shifted <= i_Immediate(30 downto 0) & '0';
+    --s_imm_shifted <= i_Immediate(30 downto 0) & '0';
 
     --Create the PC, a 32 bit register
     --Outputs to signal line
@@ -107,7 +107,7 @@ begin
     plus_imm : addSub_32bit
         port map (
             i_A => s_PC_Current,
-            i_B => s_imm_shifted,
+            i_B => i_Immediate,
             i_Cin => '0',
             o_Sum => s_Plus_Imm_Out,
             o_Cout => open,

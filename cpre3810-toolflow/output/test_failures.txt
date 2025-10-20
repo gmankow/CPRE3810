@@ -1,1 +1,0 @@
-proj/riscv/Proj1_base_test.s

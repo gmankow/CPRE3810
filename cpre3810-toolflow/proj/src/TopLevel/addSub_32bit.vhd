@@ -53,13 +53,13 @@ begin
     o_Sum <= s_Result;
     o_Cout <= C(8);
 
-    -- Zero flag: set when all bits of result are 0
+    -- Zero flag
     o_Zero <= '1' when s_Result = x"00000000" else '0';
 
-    o_Overflow <= (i_A(31) xnor s_B(31)) and (i_A(31) xor s_Result(31));
+    -- Overflow flag
+    o_Overflow <= '1' when (i_A(31) = s_B(31)) and (s_Result(31) /= i_A(31)) else '0';
 
-    -- Less than flag (SLT):
-    -- For RISC-V, SLT is set if (signed(A) < signed(B)), which is true if the result is negative after subtraction
-    o_LessThan <= s_Result(31);
+    -- Less than flag (signed)
+    o_LessThan <= s_Result(31) xor o_Overflow;
 
 end architecture mixed;
