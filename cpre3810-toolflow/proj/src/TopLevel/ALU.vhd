@@ -150,7 +150,9 @@ begin
                     s_Xor_result when "0011",
                     (31 downto 1 => '0') & s_SLT_result when "0111",
                     (31 downto 1 => '0') & s_SLTU_result when "1100",
-                    s_Shifter_result when "0100" | "0101" | "1101",
+                    s_Shifter_result when "0100",
+                    s_Shifter_result when "0101",
+                    s_Shifter_result when "1101",
                     (others => '0') when others; -- default to 0
 
     -- Branch condition met flag (for BEQ : 0110, BNE : 0110, BLT : 0111, BGE : 0111, BLTU : 1100, BGEU : 1100)
