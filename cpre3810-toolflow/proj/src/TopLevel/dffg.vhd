@@ -21,7 +21,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity dffg is
-
+  generic (INIT_BIT : std_logic := '0'); -- Initial value of the flip-flop
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input
        i_WE         : in std_logic;     -- Write enable input
@@ -51,7 +51,7 @@ begin
   process (i_CLK, i_RST)
   begin
     if (i_RST = '1') then
-      s_Q <= '0'; -- Use "(others => '0')" for N-bit values
+      s_Q <= INIT_BIT; -- Use "(others => '0')" for N-bit values
     elsif (rising_edge(i_CLK)) then
       s_Q <= s_D;
     end if;

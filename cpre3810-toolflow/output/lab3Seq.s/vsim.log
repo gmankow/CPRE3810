@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2025.1_2
 
 # vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
-# Start time: 17:00:39 on Oct 19,2025
+# Start time: 10:37:29 on Oct 20,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vsim-8611) Generating debug db.
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
@@ -455,6 +455,7 @@ Reading pref.tcl
 #         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(30)
 # ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(150): (vopt-3473) Component instance "output_mux_i : mux_2t1" is not bound.
 #         Region: /tb/MyRiscv/ALU_inst/shifter_inst/gen_output_mux(31)
+# ** Note: (vopt-4301) Memory core inferred for signal 'ram' width=32, depth=1024, type=RAM at location proj/src/TopLevel/mem.vhd:35
 # ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -16 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
 # ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -15 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
 # ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -14 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
@@ -486,7 +487,6 @@ Reading pref.tcl
 # ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(119): (vopt-1152) Index value -2 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
 # ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(119): (vopt-1152) Index value -1 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
 # ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(133): (vopt-1152) Index value -1 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
-# ** Note: (vopt-4301) Memory core inferred for signal 'ram' width=32, depth=1024, type=RAM at location proj/src/TopLevel/mem.vhd:35
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=256.
 # //  Questa Sim-64
 # //  Version 2025.1_2 linux_x86_64 Apr  7 2025
@@ -512,9 +512,11 @@ Reading pref.tcl
 # Loading work.riscv_processor(structure)#1
 # Loading ieee.numeric_std(body)
 # Loading work.mem(rtl)#1
+# Loading work.dmem_out_mux(behavioral)#1
 # Loading work.fetch(structural)#1
 # Loading work.register_n(structural)#1
 # Loading work.dffg(mixed)#1
+# Loading work.dffg(mixed)#2
 # Loading work.addsub_32bit(mixed)#1
 # Loading work.cla_4bit(behavioral)#1
 # Loading work.mux2t1_n(structural)#1
@@ -525,6 +527,7 @@ Reading pref.tcl
 # Loading work.controlsignals(behavioral)#1
 # Loading work.register_file(structural)#1
 # Loading work.decoder_5t32(behavioral)#1
+# Loading work.register_n(structural)#2
 # Loading work.mux_32t1(behavioral)#1
 # Loading work.immediategenerate(behavioral)#1
 # Loading work.alu(mixed)#1
@@ -987,11 +990,21 @@ Reading pref.tcl
 #    Time: 0 ns  Iteration: 0  Instance: /tb/MyRiscv/DMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /tb/MyRiscv/IMem
-# ** Note: Data structure takes 55980144 bytes of memory
-#          Process time 0.08 seconds
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 3  Instance: /tb/MyRiscv/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 9  Instance: /tb/MyRiscv/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 10  Instance: /tb/MyRiscv/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 11  Instance: /tb/MyRiscv/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 13  Instance: /tb/MyRiscv/DMem
+# ** Note: Data structure takes 56504432 bytes of memory
+#          Process time 0.07 seconds
 #          stop
 #    Time: 460 ns  Iteration: 1  Instance: /tb
 # Break in Process P_DUMP_STATE at /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/internal/testpy/tb.vhd line 150
 # Stopped at /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# End time: 17:00:41 on Oct 19,2025, Elapsed time: 0:00:02
-# Errors: 0, Warnings: 483
+# End time: 10:37:31 on Oct 20,2025, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 488

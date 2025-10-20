@@ -31,7 +31,10 @@ architecture structural of fetch is
 
   --32 bit register "program counter"
     component register_N
-        generic (N : integer := 32);
+        generic (
+            N : integer := 32;
+            INIT_VALUE : std_logic_vector(N-1 downto 0) := (others => '0')
+        );
         port (
             i_CLK : in std_logic;
             i_RST : in std_logic;
@@ -78,6 +81,7 @@ begin
     --Outputs to signal line
     --Input is the output of jump Mux
     PC :  register_N
+        generic map (INIT_VALUE => x"00400000")
         port map (
             i_CLK => i_CLK,
             i_WE => '1',

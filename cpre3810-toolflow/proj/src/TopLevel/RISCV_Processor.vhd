@@ -289,7 +289,7 @@ begin
     port map (
         i_S => s_ALUsrcA,
         i_D0 => s_RegData1,
-        i_D1 => s_PC_Out,
+        i_D1 => s_NextInstAddr,
         o_O => s_ALUinA
     );
     
