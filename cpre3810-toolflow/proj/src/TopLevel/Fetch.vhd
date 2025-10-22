@@ -25,9 +25,9 @@ architecture structural of fetch is
         generic(N : integer := 32);
         port(
         i_S  : in  std_logic;
-        i_D0 : in  std_logic_vector(N-1 downto 0);
-        i_D1 : in  std_logic_vector(N-1 downto 0);
-        o_O  : out std_logic_vector(N-1 downto 0)
+        i_D0 : in  std_logic_vector(31 downto 0);
+        i_D1 : in  std_logic_vector(31 downto 0);
+        o_O  : out std_logic_vector(31 downto 0)
         );
     end component mux2t1_N;
 
@@ -35,14 +35,14 @@ architecture structural of fetch is
     component register_N
         generic (
             N : integer := 32;
-            INIT_VALUE : std_logic_vector(N-1 downto 0) := (others => '0')
+            INIT_VALUE : std_logic_vector(31 downto 0) := (others => '0')
         );
         port (
             i_CLK : in std_logic;
             i_RST : in std_logic;
             i_WE : in std_logic;
-            i_D : in std_logic_vector(N-1 downto 0);
-            o_Q : out std_logic_vector(N-1 downto 0)
+            i_D : in std_logic_vector(31 downto 0);
+            o_Q : out std_logic_vector(31 downto 0)
         );
     end component;
 

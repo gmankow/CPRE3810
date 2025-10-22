@@ -103,6 +103,8 @@ architecture structure of RISCV_Processor is
 
   signal s_JALR_Select : std_logic; -- JALR select signal from control unit
   signal s_ALUsrcA0 : std_logic; -- ALU source A0 select (for LUI)
+  
+  signal s_ALUOut : std_logic_vector(31 downto 0); --ALU Output Signal
 
   component ALU is
       port (
@@ -215,7 +217,7 @@ begin
 
   s_RegWrAddr <= s_Inst(11 downto 7); -- Destination register address is bits [11:7] of instruction
   --s_RegWrData <= oALUOut; -- For now, write data comes from ALU output (just testing addi currently)
-
+  s_ALUOut <= oALUOut;
 
   IMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
@@ -247,7 +249,7 @@ begin
         i_Immediate => s_Immediate,
         i_CLK => iCLK,
         i_RST => iRST,
-        i_ALUout => oALUOut,
+        i_ALUout => s_ALUOut,
         c_jump => s_Jump,
         c_branch => s_Branch,
         c_branch_cond_met => s_BranchCondMet,
@@ -336,14 +338,14 @@ begin
         o_BranchCondMet => s_BranchCondMet,
         o_Overflow => s_Ovfl
     );
-    s_DMemAddr <= oALUOut; -- Data memory address comes from ALU output
+    s_DMemAddr <= s_ALUOut; -- Data memory address comes from ALU output
     s_DMemData <= s_RegData2; -- Data memory data input comes from source register 2
 
   Mux_PC4_Mem_Reg : mux3t1_N
     generic map (N => 32)
     port map (
         i_S => s_PCorMemtoReg,
-        i_D0 => oALUOut,
+        i_D0 => s_ALUOut,
         i_D1 => s_DMemOut_Muxed,
         i_D2 => s_PC_plus_4,
         o_O => s_RegWrData
