@@ -15,7 +15,8 @@ entity controlSignals is
         o_RegWrite : out std_logic; -- Register file write enable
         o_Jump : out std_logic; -- Jump signal
         o_ImmSel : out std_logic_vector(2 downto 0); -- Immediate selection
-        o_WFI : out std_logic -- Wait for interrupt signal
+        o_WFI : out std_logic; -- Wait for interrupt signal
+        o_JALR_Select : out std_logic -- JALR select signal
     );
 end entity controlSignals;
 
@@ -41,6 +42,9 @@ architecture behavioral of controlSignals is
     constant imm_UJ_TYPE: std_logic_vector(2 downto 0) := "100"; -- UJ type: 100
 
     begin
+
+        o_JALR_Select <= '1' when (i_Opcode = "1100111" and i_Funct3 = "000") -- jalr
+            else '0';
 
         -- WFI
         o_WFI <= '1' when (i_Opcode = "1110011") else '0'; -- wfi (used for HALT in toolflow)

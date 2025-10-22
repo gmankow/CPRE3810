@@ -7,9 +7,11 @@ entity fetch is
         i_Immediate : in std_logic_vector(31 downto 0);
         i_CLK : in std_logic;
         i_RST             : in  std_logic;
+        i_ALUout : in std_logic_vector(31 downto 0); -- ALU output for JALR target
         c_jump : in std_logic := '0';
         c_branch : in std_logic := '0';
         c_branch_cond_met : in std_logic := '0';
+        c_jalr : in std_logic := '0';
         o_PC_out : out std_logic_vector(31 downto 0);
         o_PC_plus_4_out : out std_logic_vector(31 downto 0);
         o_PC_final : out std_logic_vector(31 downto 0)
@@ -67,6 +69,9 @@ architecture structural of fetch is
     signal s_Jump_Select: std_logic;
     signal s_PC_Current : std_logic_vector(31 downto 0) := (others => '0');
     signal s_PC_Next : std_logic_vector(31 downto 0) := (others => '0');
+    signal s_JALR_Select : std_logic := '0'; -- '1' to select JALR target
+    signal s_JALR_Target : std_logic_vector(31 downto 0) := (others => '0'); -- ALU output for JALR target
+    signal s_MuxOut1 : std_logic_vector(31 downto 0) := (others => '0');
 
 begin
 
@@ -74,6 +79,9 @@ begin
     o_PC_plus_4_out <= s_Plus_4_Out;
     o_PC_out <= s_PC_Current;
     o_PC_final <= s_PC_Next;
+
+    s_JALR_Target <= i_ALUout;
+    s_JALR_Select <= c_jalr;
 
     --s_imm_shifted <= i_Immediate(30 downto 0) & '0';
 
@@ -122,6 +130,15 @@ begin
             i_S  => s_Jump_Select,
             i_D0 => s_Plus_4_Out,
             i_D1 => s_Plus_Imm_Out,
-            o_O  => s_PC_Next
+            o_O  => s_MuxOut1
+        );
+
+    
+    jalr_Mux : mux2t1_N
+        port map(
+            i_S => s_JALR_Select,
+            i_D0 => s_MuxOut1,
+            i_D1 => s_JALR_Target,
+            o_O => s_PC_Next
         );
 end;

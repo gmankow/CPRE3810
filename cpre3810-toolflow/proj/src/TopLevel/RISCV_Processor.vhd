@@ -100,6 +100,8 @@ architecture structure of RISCV_Processor is
 
   signal s_DMemOut_Muxed : std_logic_vector(31 downto 0); -- Muxed Data Memory Output
 
+  signal s_JALR_Select : std_logic; -- JALR select signal from control unit
+
   component ALU is
       port (
         i_A : in std_logic_vector(31 downto 0); -- Input A
@@ -129,7 +131,8 @@ architecture structure of RISCV_Processor is
         o_RegWrite : out std_logic; -- Register file write enable
         o_Jump : out std_logic; -- Jump signal
         o_ImmSel : out std_logic_vector(2 downto 0); -- Immediate selection
-        o_WFI : out std_logic -- Wait for interrupt signal
+        o_WFI : out std_logic; -- Wait for interrupt signal
+        o_JALR_Select : out std_logic -- JALR select signal
     );
   end component;
 
@@ -138,9 +141,11 @@ architecture structure of RISCV_Processor is
         i_Immediate : in std_logic_vector(31 downto 0);
         i_CLK : in std_logic;
         i_RST             : in  std_logic;
+        i_ALUout : in std_logic_vector(31 downto 0); -- ALU output for JALR target
         c_jump : in std_logic;
         c_branch : in std_logic;
         c_branch_cond_met : in std_logic;
+        c_jalr : in std_logic;
         o_PC_out : out std_logic_vector(31 downto 0);
         o_PC_plus_4_out : out std_logic_vector(31 downto 0);
         o_PC_final : out std_logic_vector(31 downto 0)
@@ -239,9 +244,11 @@ begin
         i_Immediate => s_Immediate,
         i_CLK => iCLK,
         i_RST => iRST,
+        i_ALUout => oALUOut,
         c_jump => s_Jump,
         c_branch => s_Branch,
         c_branch_cond_met => s_BranchCondMet,
+        c_jalr => s_JALR_Select,
         o_PC_out => s_NextInstAddr,
         o_PC_plus_4_out => s_PC_plus_4,
         o_PC_final => s_PC_Out
@@ -261,7 +268,8 @@ begin
         o_RegWrite => s_RegWr,
         o_Jump => s_Jump,
         o_ImmSel => s_ImmSel,
-        o_WFI => s_Halt
+        o_WFI => s_Halt,
+        o_JALR_Select => s_JALR_Select
     );
 
   regfile_inst : register_file
