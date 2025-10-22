@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2025.1_2
 
 # vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
-# Start time: 10:16:05 on Oct 22,2025
+# Start time: 11:00:38 on Oct 22,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vsim-8611) Generating debug db.
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
@@ -94,18 +94,14 @@ Reading pref.tcl
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 3  Instance: /tb/MyRiscv/DMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 9  Instance: /tb/MyRiscv/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 10  Instance: /tb/MyRiscv/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 11  Instance: /tb/MyRiscv/DMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 13  Instance: /tb/MyRiscv/DMem
-# ** Note: Data structure takes 58938824 bytes of memory
+#    Time: 0 ns  Iteration: 12  Instance: /tb/MyRiscv/DMem
+# ** Note: Data structure takes 59069896 bytes of memory
 #          Process time 0.10 seconds
 #          stop
 #    Time: 240 ns  Iteration: 1  Instance: /tb
 # Break in Process P_DUMP_STATE at /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/internal/testpy/tb.vhd line 150
 # Stopped at /home/gmankow/cpre381/CPRE3810/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# End time: 10:16:06 on Oct 22,2025, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 39
+# End time: 11:00:40 on Oct 22,2025, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 37

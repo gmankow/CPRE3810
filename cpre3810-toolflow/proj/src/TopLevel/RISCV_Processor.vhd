@@ -99,8 +99,10 @@ architecture structure of RISCV_Processor is
   signal s_CarryOut : std_logic; -- Carry out from ALU
 
   signal s_DMemOut_Muxed : std_logic_vector(31 downto 0); -- Muxed Data Memory Output
+  signal s_ALUsrcA1MuxOut : std_logic_vector(31 downto 0); -- ALU source A after mux1
 
   signal s_JALR_Select : std_logic; -- JALR select signal from control unit
+  signal s_ALUsrcA0 : std_logic; -- ALU source A0 select (for LUI)
 
   component ALU is
       port (
@@ -132,7 +134,8 @@ architecture structure of RISCV_Processor is
         o_Jump : out std_logic; -- Jump signal
         o_ImmSel : out std_logic_vector(2 downto 0); -- Immediate selection
         o_WFI : out std_logic; -- Wait for interrupt signal
-        o_JALR_Select : out std_logic -- JALR select signal
+        o_JALR_Select : out std_logic; -- JALR select signal
+        o_ALUsrcA0 : out std_logic -- ALU source A0 select (for LUI)
     );
   end component;
 
@@ -269,7 +272,8 @@ begin
         o_Jump => s_Jump,
         o_ImmSel => s_ImmSel,
         o_WFI => s_Halt,
-        o_JALR_Select => s_JALR_Select
+        o_JALR_Select => s_JALR_Select,
+        o_ALUsrcA0 => s_ALUsrcA0
     );
 
   regfile_inst : register_file
@@ -298,6 +302,15 @@ begin
         i_S => s_ALUsrcA,
         i_D0 => s_RegData1,
         i_D1 => s_NextInstAddr,
+        o_O => s_ALUsrcA1MuxOut
+    );
+
+  srcA2_mux : mux2t1_N
+    generic map (N => 32)
+    port map (
+        i_S => s_ALUsrcA0,
+        i_D0 => s_ALUsrcA1MuxOut,
+        i_D1 => (31 downto 0 => '0'),
         o_O => s_ALUinA
     );
     

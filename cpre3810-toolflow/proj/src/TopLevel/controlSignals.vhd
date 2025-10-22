@@ -16,7 +16,8 @@ entity controlSignals is
         o_Jump : out std_logic; -- Jump signal
         o_ImmSel : out std_logic_vector(2 downto 0); -- Immediate selection
         o_WFI : out std_logic; -- Wait for interrupt signal
-        o_JALR_Select : out std_logic -- JALR select signal
+        o_JALR_Select : out std_logic; -- JALR select signal
+        o_ALUsrcA0 : out std_logic -- ALU source A0 select (for LUI
     );
 end entity controlSignals;
 
@@ -44,6 +45,9 @@ architecture behavioral of controlSignals is
     begin
 
         o_JALR_Select <= '1' when (i_Opcode = "1100111" and i_Funct3 = "000") -- jalr
+            else '0';
+        
+        o_ALUsrcA0 <= '1' when (i_Opcode = "0110111") -- lui
             else '0';
 
         -- WFI
