@@ -12,6 +12,21 @@ end entity Barrel_Shifter;
 
 architecture structural of Barrel_Shifter is
 
+
+    function safe_shifter_access(
+        data_in: std_logic_vector;
+        index : integer;
+        default_bit : std_logic
+    ) return std_logic is
+    begin
+        if (index >= data_in'low and index <= data_in'high) then
+            return data_in(index);
+        else 
+            return default_bit;
+        end if;
+    end function;
+
+
     -- Component declaration for the 2-to-1 MUX
     component mux2t1 is
         port (
@@ -66,7 +81,7 @@ begin
         -- This signal caries the when statement I wrote in the design doc
         signal shift_src   : std_logic;
     begin
-        shift_src <= shifter_in(src_index) when src_index >= 0 else shift_in_bit;
+        shift_src <= safe_shifter_access(shifter_in, src_index, shift_in_bit);
         shift_mux_16: component mux2t1
             port map (
                 i_D0   => shifter_in(i),
@@ -84,7 +99,7 @@ begin
         -- This signal caries the when statement I wrote in the design doc
         signal shift_src   : std_logic;
     begin
-        shift_src <= stage_16_out(src_index) when src_index >= 0 else shift_in_bit;
+        shift_src <= safe_shifter_access(shifter_in, src_index, shift_in_bit);
         shift_mux_16: component mux2t1
             port map (
                 i_D0   => stage_16_out(i),
@@ -102,7 +117,7 @@ begin
         -- This signal caries the when statement I wrote in the design doc
         signal shift_src   : std_logic;
     begin
-        shift_src <= stage_8_out(src_index) when src_index >= 0 else shift_in_bit;
+        shift_src <= safe_shifter_access(shifter_in, src_index, shift_in_bit);
         shift_mux_16: component mux2t1
             port map (
                 i_D0   => stage_8_out(i),
@@ -116,7 +131,7 @@ begin
         constant src_index : integer := i - 2;
         signal shift_src   : std_logic;
     begin
-        shift_src <= stage_4_out(src_index) when src_index >= 0 else shift_in_bit;
+        shift_src <= safe_shifter_access(shifter_in, src_index, shift_in_bit);
         shift_mux_2: component mux2t1
             port map (
                 i_D0   => stage_4_out(i),
@@ -130,7 +145,7 @@ begin
         constant src_index : integer := i - 1;
         signal shift_src   : std_logic;
     begin
-        shift_src <= stage_2_out(src_index) when src_index >= 0 else shift_in_bit;
+        shift_src <= safe_shifter_access(shifter_in, src_index, shift_in_bit);
         shift_mux_1: component mux2t1
             port map (
                 i_D0   => stage_2_out(i),
