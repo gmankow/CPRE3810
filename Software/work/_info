@@ -1,0 +1,1224 @@
+m255
+K4
+z2
+!s11e vcom 2025.1_2 2025.04, Apr  7 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/gmankow/cpre381/CPRE3810/Software
+Eaddsub_32bit
+Z1 w1762374351
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 84
+R0
+Z5 8/home/gmankow/cpre381/CPRE3810/Software/addSub_32bit.vhd
+Z6 F/home/gmankow/cpre381/CPRE3810/Software/addSub_32bit.vhd
+l0
+L6 1
+VhULj;CkCFTN9X<56d;dmk2
+!s100 7fdd2_om0O4KT`A=jaQ8[1
+Z7 OL;C;2025.1_2;82
+33
+Z8 !s110 1762376792
+!i10b 1
+Z9 !s108 1762376792.000000
+Z10 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/addSub_32bit.vhd|
+Z11 !s107 /home/gmankow/cpre381/CPRE3810/Software/addSub_32bit.vhd|
+!i113 0
+Z12 o-work work
+Z13 tExplicit 1 NoCoverage 1 CvgOpt 0
+Amixed
+R2
+R3
+R4
+DEx4 work 12 addsub_32bit 0 22 hULj;CkCFTN9X<56d;dmk2
+!i122 84
+l35
+L19 47
+Vh:X07?el6PI8T66=C6hn22
+!s100 RER_PfFcmN^:Q@CKA`>XZ2
+R7
+33
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Ealu
+R1
+R2
+R3
+R4
+!i122 85
+R0
+Z14 8/home/gmankow/cpre381/CPRE3810/Software/ALU.vhd
+Z15 F/home/gmankow/cpre381/CPRE3810/Software/ALU.vhd
+l0
+L5 1
+ViUSi[gz;CP=MMzTZnc::`3
+!s100 YRkz;IzN3_1R`fbXPacV=1
+R7
+33
+R8
+!i10b 1
+R9
+Z16 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/ALU.vhd|
+Z17 !s107 /home/gmankow/cpre381/CPRE3810/Software/ALU.vhd|
+!i113 0
+R12
+R13
+Amixed
+R2
+R3
+R4
+DEx4 work 3 alu 0 22 iUSi[gz;CP=MMzTZnc::`3
+!i122 85
+l75
+L20 149
+Vg:T<BQ5UXH3z7KP8oFTZk0
+!s100 UHG2:Un^=bf7^^lRh@ZGS3
+R7
+33
+R8
+!i10b 1
+R9
+R16
+R17
+!i113 0
+R12
+R13
+Eandg2
+R1
+R3
+R4
+!i122 86
+R0
+Z18 8/home/gmankow/cpre381/CPRE3810/Software/andg2.vhd
+Z19 F/home/gmankow/cpre381/CPRE3810/Software/andg2.vhd
+l0
+Z20 L23 1
+VzJ2OoPJ=<ja2?Y;OcjQk;3
+!s100 YT?bGzEmcFo:DlnoC^B4_0
+R7
+33
+R8
+!i10b 1
+R9
+Z21 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/andg2.vhd|
+Z22 !s107 /home/gmankow/cpre381/CPRE3810/Software/andg2.vhd|
+!i113 0
+R12
+R13
+Adataflow
+R3
+R4
+DEx4 work 5 andg2 0 22 zJ2OoPJ=<ja2?Y;OcjQk;3
+!i122 86
+l32
+Z23 L31 6
+V3oa1[>iDZj;2zVo:oz1>e2
+!s100 I`@Z@UBObS]<7m8bPgKUS1
+R7
+33
+R8
+!i10b 1
+R9
+R21
+R22
+!i113 0
+R12
+R13
+Ebarrel_shifter
+R1
+R3
+R4
+!i122 87
+R0
+Z24 8/home/gmankow/cpre381/CPRE3810/Software/Barrel_Shifter.vhd
+Z25 F/home/gmankow/cpre381/CPRE3810/Software/Barrel_Shifter.vhd
+l0
+L4 1
+VC=5S>OVY_6P=@5:B;<XP:0
+!s100 hzY^ThI7o>=KBAjVF8<EW3
+R7
+33
+R8
+!i10b 1
+R9
+Z26 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/Barrel_Shifter.vhd|
+Z27 !s107 /home/gmankow/cpre381/CPRE3810/Software/Barrel_Shifter.vhd|
+!i113 0
+R12
+R13
+Astructural
+R3
+R4
+DEx4 work 14 barrel_shifter 0 22 C=5S>OVY_6P=@5:B;<XP:0
+!i122 87
+l40
+L13 147
+VYW^CRaPKC1ThAG<c81WVX3
+!s100 6>CGYf1MEWnoNnkLU;BeP1
+R7
+33
+R8
+!i10b 1
+R9
+R26
+R27
+!i113 0
+R12
+R13
+Ecla_4bit
+R1
+R3
+R4
+!i122 88
+R0
+Z28 8/home/gmankow/cpre381/CPRE3810/Software/cla_4bit.vhd
+Z29 F/home/gmankow/cpre381/CPRE3810/Software/cla_4bit.vhd
+l0
+L4 1
+V7l;Q2PXJm2jM>4@IUo5WG1
+!s100 5iI0`6XL1_F[l3@_b^fWP3
+R7
+33
+R8
+!i10b 1
+R9
+Z30 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/cla_4bit.vhd|
+Z31 !s107 /home/gmankow/cpre381/CPRE3810/Software/cla_4bit.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 8 cla_4bit 0 22 7l;Q2PXJm2jM>4@IUo5WG1
+!i122 88
+l22
+L14 29
+V1cH_=PeVPmklEiIGIee3N2
+!s100 kC>ILSPG@`KQ07Pn5>9cN0
+R7
+33
+R8
+!i10b 1
+R9
+R30
+R31
+!i113 0
+R12
+R13
+Econtrolsignals
+R1
+R3
+R4
+!i122 89
+R0
+Z32 8/home/gmankow/cpre381/CPRE3810/Software/controlSignals.vhd
+Z33 F/home/gmankow/cpre381/CPRE3810/Software/controlSignals.vhd
+l0
+L4 1
+V219lkmGGfIO4eAInZAA<A3
+!s100 69RQ:9_W0jj7cV9hzEH`f1
+R7
+33
+R8
+!i10b 1
+R9
+Z34 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/controlSignals.vhd|
+Z35 !s107 /home/gmankow/cpre381/CPRE3810/Software/controlSignals.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 14 controlsignals 0 22 219lkmGGfIO4eAInZAA<A3
+!i122 89
+l45
+L24 145
+VE0ePI;De8aRO5CYYWoMQP1
+!s100 VmI3P8EjWS]M8e6B7K`VJ3
+R7
+33
+R8
+!i10b 1
+R9
+R34
+R35
+!i113 0
+R12
+R13
+Edecoder_5t32
+R1
+R3
+R4
+!i122 90
+R0
+Z36 8/home/gmankow/cpre381/CPRE3810/Software/decoder_5t32.vhd
+Z37 F/home/gmankow/cpre381/CPRE3810/Software/decoder_5t32.vhd
+l0
+L4 1
+VQ7zlR[Ej_`BhM?JBSmbOB3
+!s100 8j:`k8U7KWfGYdacEP2Ak2
+R7
+33
+R8
+!i10b 1
+R9
+Z38 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/decoder_5t32.vhd|
+Z39 !s107 /home/gmankow/cpre381/CPRE3810/Software/decoder_5t32.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 12 decoder_5t32 0 22 Q7zlR[Ej_`BhM?JBSmbOB3
+!i122 90
+l14
+L12 39
+Vf1ahTo[hRO=mHWhR_ZCJZ0
+!s100 Y:0Z^eOQX[bhVC^9SbULn3
+R7
+33
+R8
+!i10b 1
+R9
+R38
+R39
+!i113 0
+R12
+R13
+Edffg
+R1
+R3
+R4
+!i122 91
+R0
+Z40 8/home/gmankow/cpre381/CPRE3810/Software/dffg.vhd
+Z41 F/home/gmankow/cpre381/CPRE3810/Software/dffg.vhd
+l0
+R20
+V70@zz_7X=CQ9[?9Z^JB:^3
+!s100 Agb1J;olSWc`d8G9U1K3e1
+R7
+33
+R8
+!i10b 1
+R9
+Z42 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/dffg.vhd|
+Z43 !s107 /home/gmankow/cpre381/CPRE3810/Software/dffg.vhd|
+!i113 0
+R12
+R13
+Amixed
+R3
+R4
+DEx4 work 4 dffg 0 22 70@zz_7X=CQ9[?9Z^JB:^3
+!i122 91
+l37
+Z44 L33 29
+VR_Dz4SK04LB_KRKElE]5z1
+!s100 I`fSo>4l:H97;z?_=ATgd1
+R7
+33
+R8
+!i10b 1
+R9
+R42
+R43
+!i113 0
+R12
+R13
+Edffgneg
+Z45 w1762375556
+R3
+R4
+!i122 92
+R0
+Z46 8/home/gmankow/cpre381/CPRE3810/Software/dffNeg.vhd
+Z47 F/home/gmankow/cpre381/CPRE3810/Software/dffNeg.vhd
+l0
+R20
+Vk7R0O3GWjc]?Y^=fWz:nj2
+!s100 Ql?QMHlATUgC5gQdg9SE=1
+R7
+33
+R8
+!i10b 1
+R9
+Z48 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/dffNeg.vhd|
+Z49 !s107 /home/gmankow/cpre381/CPRE3810/Software/dffNeg.vhd|
+!i113 0
+R12
+R13
+Amixed
+R3
+R4
+DEx4 work 7 dffgneg 0 22 k7R0O3GWjc]?Y^=fWz:nj2
+!i122 92
+l37
+R44
+VaG;KGmM1BjDLVeeFVF8;S2
+!s100 F=H[c`KJd_bGZT<SCWka:2
+R7
+33
+R8
+!i10b 1
+R9
+R48
+R49
+!i113 0
+R12
+R13
+Edmem_out_mux
+R1
+R3
+R4
+!i122 93
+R0
+Z50 8/home/gmankow/cpre381/CPRE3810/Software/dMem_Out_Mux.vhd
+Z51 F/home/gmankow/cpre381/CPRE3810/Software/dMem_Out_Mux.vhd
+l0
+L4 1
+V>hfH3g:SRh2Skm9loa^b52
+!s100 ll?W:?iUlY1O4lFZYLXGB0
+R7
+33
+R8
+!i10b 1
+R9
+Z52 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/dMem_Out_Mux.vhd|
+Z53 !s107 /home/gmankow/cpre381/CPRE3810/Software/dMem_Out_Mux.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 12 dmem_out_mux 0 22 >hfH3g:SRh2Skm9loa^b52
+!i122 93
+l20
+Z54 L12 35
+VDA4?AIHZ5_VCmC7P]ikah3
+!s100 H^0Rib1SPXSC:Tc9zHnF>3
+R7
+33
+R8
+!i10b 1
+R9
+R52
+R53
+!i113 0
+R12
+R13
+Eex_mem_reg
+Z55 w1762376781
+R2
+R3
+R4
+!i122 94
+R0
+Z56 8/home/gmankow/cpre381/CPRE3810/Software/EX_MEM_Reg.vhd
+Z57 F/home/gmankow/cpre381/CPRE3810/Software/EX_MEM_Reg.vhd
+l0
+L6 1
+VHTn<Z9WTaA^eIX3PG@ao31
+!s100 j3jZ9]ZY6e1P2mk>am7[12
+R7
+33
+R8
+!i10b 1
+R9
+Z58 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/EX_MEM_Reg.vhd|
+Z59 !s107 /home/gmankow/cpre381/CPRE3810/Software/EX_MEM_Reg.vhd|
+!i113 0
+R12
+R13
+Astructural
+R2
+R3
+R4
+DEx4 work 10 ex_mem_reg 0 22 HTn<Z9WTaA^eIX3PG@ao31
+!i122 94
+l67
+L38 163
+V;oZg2MKM9>RVJ=7ILa_530
+!s100 k[64_FNP?JJR5mKj_]Tgb2
+R7
+33
+R8
+!i10b 1
+R9
+R58
+R59
+!i113 0
+R12
+R13
+Efetch
+R1
+R2
+R3
+R4
+!i122 95
+R0
+Z60 8/home/gmankow/cpre381/CPRE3810/Software/Fetch.vhd
+Z61 F/home/gmankow/cpre381/CPRE3810/Software/Fetch.vhd
+l0
+L5 1
+V6oD`V4iU@bGod]ecG9G;W2
+!s100 _RNfcR2?R=8O>fVZgA7O]0
+R7
+33
+R8
+!i10b 1
+R9
+Z62 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/Fetch.vhd|
+Z63 !s107 /home/gmankow/cpre381/CPRE3810/Software/Fetch.vhd|
+!i113 0
+R12
+R13
+Astructural
+R2
+R3
+R4
+DEx4 work 5 fetch 0 22 6oD`V4iU@bGod]ecG9G;W2
+!i122 95
+l76
+L21 124
+Vm5>oCRJh1iF64zo0?B7zh2
+!s100 cja@n`9<RFAAnRkA7Dj7R1
+R7
+33
+R8
+!i10b 1
+R9
+R62
+R63
+!i113 0
+R12
+R13
+Eid_ex_reg
+Z64 w1762376518
+R2
+R3
+R4
+!i122 96
+R0
+Z65 8/home/gmankow/cpre381/CPRE3810/Software/ID_EX_Reg.vhd
+Z66 F/home/gmankow/cpre381/CPRE3810/Software/ID_EX_Reg.vhd
+l0
+L6 1
+V72lZ:_lBMec@e9R]XR?H20
+!s100 0o?5bKjS1YAl3[8kgfVaG2
+R7
+33
+R8
+!i10b 1
+R9
+Z67 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/ID_EX_Reg.vhd|
+Z68 !s107 /home/gmankow/cpre381/CPRE3810/Software/ID_EX_Reg.vhd|
+!i113 0
+R12
+R13
+Astructural
+R2
+R3
+R4
+DEx4 work 9 id_ex_reg 0 22 72lZ:_lBMec@e9R]XR?H20
+!i122 96
+l81
+L47 221
+VJQb`<Ol2<=;6YFjH7:_3f2
+!s100 F6zBaWzEbc=6QE5N]JRL63
+R7
+33
+R8
+!i10b 1
+R9
+R67
+R68
+!i113 0
+R12
+R13
+Eif_id_reg
+Z69 w1762375436
+R2
+R3
+R4
+!i122 97
+R0
+Z70 8/home/gmankow/cpre381/CPRE3810/Software/IF_ID_Reg.vhd
+Z71 F/home/gmankow/cpre381/CPRE3810/Software/IF_ID_Reg.vhd
+l0
+L6 1
+VGz=0VHe66?cn3cIj3]j=e2
+!s100 MQm`Jl5e94OTe1NIXlAgi2
+R7
+33
+R8
+!i10b 1
+R9
+Z72 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/IF_ID_Reg.vhd|
+Z73 !s107 /home/gmankow/cpre381/CPRE3810/Software/IF_ID_Reg.vhd|
+!i113 0
+R12
+R13
+Astructural
+R2
+R3
+R4
+DEx4 work 9 if_id_reg 0 22 Gz=0VHe66?cn3cIj3]j=e2
+!i122 97
+l39
+L19 56
+VoS;l]QzfPmfD9DT>eO9WY3
+!s100 dWXh]cY5;i;LkWbP4X8_S3
+R7
+33
+R8
+!i10b 1
+R9
+R72
+R73
+!i113 0
+R12
+R13
+Eimmediategenerate
+R1
+R3
+R4
+!i122 98
+R0
+Z74 8/home/gmankow/cpre381/CPRE3810/Software/immediateGenerate.vhd
+Z75 F/home/gmankow/cpre381/CPRE3810/Software/immediateGenerate.vhd
+l0
+L4 1
+Vl0<F:mP70jYI?^[>bB>VE0
+!s100 Wi]>eZ^142]S8]MBN3id@1
+R7
+33
+R8
+!i10b 1
+R9
+Z76 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/immediateGenerate.vhd|
+Z77 !s107 /home/gmankow/cpre381/CPRE3810/Software/immediateGenerate.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R3
+R4
+DEx4 work 17 immediategenerate 0 22 l0<F:mP70jYI?^[>bB>VE0
+!i122 98
+l20
+R54
+Vh<6<C>J2<mL;dR4jlnNWb0
+!s100 VBVC6Y?lA;GM3_@R?b01]0
+R7
+33
+R8
+!i10b 1
+R9
+R76
+R77
+!i113 0
+R12
+R13
+Einvg
+R1
+R3
+R4
+!i122 99
+R0
+Z78 8/home/gmankow/cpre381/CPRE3810/Software/invg.vhd
+Z79 F/home/gmankow/cpre381/CPRE3810/Software/invg.vhd
+l0
+R20
+VzJhOLc0g_4RfSF]IXa;:73
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+R7
+33
+R8
+!i10b 1
+R9
+Z80 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/invg.vhd|
+Z81 !s107 /home/gmankow/cpre381/CPRE3810/Software/invg.vhd|
+!i113 0
+R12
+R13
+Adataflow
+R3
+R4
+DEx4 work 4 invg 0 22 zJhOLc0g_4RfSF]IXa;:73
+!i122 99
+l31
+L30 6
+VT@AA60h>IXVJ?D^`RRiZk1
+!s100 bk7I76o8e1LURdoZEQb8H0
+R7
+33
+R8
+!i10b 1
+R9
+R80
+R81
+!i113 0
+R12
+R13
+Emem
+R1
+R2
+R3
+R4
+!i122 100
+R0
+Z82 8/home/gmankow/cpre381/CPRE3810/Software/mem.vhd
+Z83 F/home/gmankow/cpre381/CPRE3810/Software/mem.vhd
+l0
+L8 1
+VQ_Y953^@mg4h;HoXAPe2d2
+!s100 fRlcaiTJZJ1H;nZh;8=LI3
+R7
+33
+R8
+!i10b 1
+R9
+Z84 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/mem.vhd|
+Z85 !s107 /home/gmankow/cpre381/CPRE3810/Software/mem.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 3 mem 0 22 Q_Y953^@mg4h;HoXAPe2d2
+!i122 100
+l37
+L27 24
+VcdMDH_i8fEBbejOT7K`iC2
+!s100 OI8_3><BhDkT3l3n8`OXd3
+R7
+33
+R8
+!i10b 1
+R9
+R84
+R85
+!i113 0
+R12
+R13
+Emem_wb_reg
+Z86 w1762377624
+R2
+R3
+R4
+!i122 112
+R0
+Z87 8/home/gmankow/cpre381/CPRE3810/Software/MEM_WB_Reg.vhd
+Z88 F/home/gmankow/cpre381/CPRE3810/Software/MEM_WB_Reg.vhd
+l0
+L6 1
+V;KzAE`;Jjj<O6Y^A[Z=Tb3
+!s100 c3d<WTmM;I_JT0E>;nJBZ0
+R7
+33
+Z89 !s110 1762377625
+!i10b 1
+Z90 !s108 1762377625.000000
+Z91 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/MEM_WB_Reg.vhd|
+!s107 /home/gmankow/cpre381/CPRE3810/Software/MEM_WB_Reg.vhd|
+!i113 0
+R12
+R13
+Astructural
+R2
+R3
+R4
+DEx4 work 10 mem_wb_reg 0 22 ;KzAE`;Jjj<O6Y^A[Z=Tb3
+!i122 112
+l48
+L25 92
+V6Q>8kV9DVmL^Y38ikTfLJ2
+!s100 Ca1c;]:nQ6:7b0hWG1dRK2
+R7
+33
+R89
+!i10b 1
+R90
+R91
+Z92 !s107 /home/gmankow/cpre381/CPRE3810/Software/MEM_WB_Reg.vhd|
+!i113 0
+R12
+R13
+Emux2t1
+R1
+R3
+R4
+!i122 101
+R0
+Z93 8/home/gmankow/cpre381/CPRE3810/Software/mux2t1.vhd
+Z94 F/home/gmankow/cpre381/CPRE3810/Software/mux2t1.vhd
+l0
+L4 1
+VKXkk1TkzdVN=CA0[N0@OB3
+!s100 `HeV=WFX@AnTm=dClmXz=0
+R7
+33
+Z95 !s110 1762376793
+!i10b 1
+R9
+Z96 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/mux2t1.vhd|
+Z97 !s107 /home/gmankow/cpre381/CPRE3810/Software/mux2t1.vhd|
+!i113 0
+R12
+R13
+Astructual
+R3
+R4
+DEx4 work 6 mux2t1 0 22 KXkk1TkzdVN=CA0[N0@OB3
+!i122 101
+l37
+L11 52
+VD7:6Tccd=@je1Z4CKa^Y_1
+!s100 DTb6?_F1K9ICD`RUi0[V72
+R7
+33
+R95
+!i10b 1
+R9
+R96
+R97
+!i113 0
+R12
+R13
+Emux2t1_n
+R1
+R3
+R4
+!i122 102
+R0
+Z98 8/home/gmankow/cpre381/CPRE3810/Software/mux2t1_N.vhd
+Z99 F/home/gmankow/cpre381/CPRE3810/Software/mux2t1_N.vhd
+l0
+L21 1
+VX=8caLddO;GBDIdffNOz`3
+!s100 a8b75l9QH119Si`4JcQ1J0
+R7
+33
+R95
+!i10b 1
+Z100 !s108 1762376793.000000
+Z101 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/mux2t1_N.vhd|
+Z102 !s107 /home/gmankow/cpre381/CPRE3810/Software/mux2t1_N.vhd|
+!i113 0
+R12
+R13
+Astructural
+R3
+R4
+DEx4 work 8 mux2t1_n 0 22 X=8caLddO;GBDIdffNOz`3
+!i122 102
+l39
+L30 21
+VS;7^3=hDiT7zH78Vm1Xhk1
+!s100 W>5MMWO2LBg`K8[P>h>Ye1
+R7
+33
+R95
+!i10b 1
+R100
+R101
+R102
+!i113 0
+R12
+R13
+Emux3t1_n
+R1
+R2
+R3
+R4
+!i122 103
+R0
+Z103 8/home/gmankow/cpre381/CPRE3810/Software/mux3t1_N.vhd
+Z104 F/home/gmankow/cpre381/CPRE3810/Software/mux3t1_N.vhd
+l0
+L5 1
+VGF@SHB^d6@2;8Fn:LH]0n0
+!s100 I@6TVKQ>fei^bD5RoKXUg3
+R7
+33
+R95
+!i10b 1
+R100
+Z105 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/mux3t1_N.vhd|
+Z106 !s107 /home/gmankow/cpre381/CPRE3810/Software/mux3t1_N.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R2
+R3
+R4
+DEx4 work 8 mux3t1_n 0 22 GF@SHB^d6@2;8Fn:LH]0n0
+!i122 103
+l17
+L16 8
+V1PidF0L172N466o^nzoU40
+!s100 :W]z6ZQP][FTnSWnXQi0b0
+R7
+33
+R95
+!i10b 1
+R100
+R105
+R106
+!i113 0
+R12
+R13
+Emux_32t1
+R1
+Z107 DPx4 work 11 riscv_types 0 22 U_^_f<gQmYMTUmSPMZEmP0
+R3
+R4
+!i122 104
+R0
+Z108 8/home/gmankow/cpre381/CPRE3810/Software/mux_32t1.vhd
+Z109 F/home/gmankow/cpre381/CPRE3810/Software/mux_32t1.vhd
+l0
+L8 1
+V[7AV4feZ6T17c3@g3o5[e3
+!s100 :N]3YHNo3Dl@]_=;:>b>m3
+R7
+33
+R95
+!i10b 1
+R100
+Z110 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/mux_32t1.vhd|
+Z111 !s107 /home/gmankow/cpre381/CPRE3810/Software/mux_32t1.vhd|
+!i113 0
+R12
+R13
+Abehavioral
+R107
+R3
+R4
+DEx4 work 8 mux_32t1 0 22 [7AV4feZ6T17c3@g3o5[e3
+!i122 104
+l15
+L14 37
+VY[6XX[eiL[L739=df]5kZ0
+!s100 0BNGflhHzEP:dod=F?MKa0
+R7
+33
+R95
+!i10b 1
+R100
+R110
+R111
+!i113 0
+R12
+R13
+Eorg2
+R1
+R3
+R4
+!i122 105
+R0
+Z112 8/home/gmankow/cpre381/CPRE3810/Software/org2.vhd
+Z113 F/home/gmankow/cpre381/CPRE3810/Software/org2.vhd
+l0
+R20
+V0FzB9ATDX9TV=M:n@=VB83
+!s100 bGQ1F9eW^Q17OoL9h4g7z2
+R7
+33
+R95
+!i10b 1
+R100
+Z114 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/org2.vhd|
+Z115 !s107 /home/gmankow/cpre381/CPRE3810/Software/org2.vhd|
+!i113 0
+R12
+R13
+Adataflow
+R3
+R4
+DEx4 work 4 org2 0 22 0FzB9ATDX9TV=M:n@=VB83
+!i122 105
+l32
+R23
+V0JC>N7cRXc=9bni@>dg7o3
+!s100 h5_AzR3TdRA0a_K=dQ>mI2
+R7
+33
+R95
+!i10b 1
+R100
+R114
+R115
+!i113 0
+R12
+R13
+Eregister_file
+Z116 w1762375756
+R107
+R3
+R4
+!i122 106
+R0
+Z117 8/home/gmankow/cpre381/CPRE3810/Software/register_file.vhd
+Z118 F/home/gmankow/cpre381/CPRE3810/Software/register_file.vhd
+l0
+L5 1
+VdR?cUNA8fH:CHCU9UC9E>2
+!s100 =7gK_mRU<?Q8FQLH:o4Y23
+R7
+33
+R95
+!i10b 1
+R100
+Z119 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/register_file.vhd|
+Z120 !s107 /home/gmankow/cpre381/CPRE3810/Software/register_file.vhd|
+!i113 0
+R12
+R13
+Astructural
+R107
+R3
+R4
+DEx4 work 13 register_file 0 22 dR?cUNA8fH:CHCU9UC9E>2
+!i122 106
+l51
+L20 70
+V@diS8@Smf;TYGP?23:RJ[1
+!s100 iRSFRoZ[n@zLMQ^WQlPeU3
+R7
+33
+R95
+!i10b 1
+R100
+R119
+R120
+!i113 0
+R12
+R13
+Eregister_n
+Z121 w1762376034
+R3
+R4
+!i122 107
+R0
+Z122 8/home/gmankow/cpre381/CPRE3810/Software/register_N.vhd
+Z123 F/home/gmankow/cpre381/CPRE3810/Software/register_N.vhd
+l0
+L4 1
+VEbaWUfIN7>oR9l9EYj;[B1
+!s100 a?OV2VTa[TZ15IYz0hoaa3
+R7
+33
+R95
+!i10b 1
+R100
+Z124 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/register_N.vhd|
+Z125 !s107 /home/gmankow/cpre381/CPRE3810/Software/register_N.vhd|
+!i113 0
+R12
+R13
+Astructural
+R3
+R4
+DEx4 work 10 register_n 0 22 EbaWUfIN7>oR9l9EYj;[B1
+!i122 107
+l28
+Z126 L17 27
+VN@i>>ZNW;ToJ]ZcjAlC@;1
+!s100 UDAgCX[;`Enl^Kc5UT;CQ2
+R7
+33
+R95
+!i10b 1
+R100
+R124
+R125
+!i113 0
+R12
+R13
+Eregister_n_neg
+Z127 w1762375624
+R3
+R4
+!i122 108
+R0
+Z128 8/home/gmankow/cpre381/CPRE3810/Software/register_N_neg.vhd
+Z129 F/home/gmankow/cpre381/CPRE3810/Software/register_N_neg.vhd
+l0
+L4 1
+V=01fR`8L_D>zYkJ?h3kLN3
+!s100 Eg?9lckgI7PI^VLH@<k?e1
+R7
+33
+R95
+!i10b 1
+R100
+Z130 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/register_N_neg.vhd|
+Z131 !s107 /home/gmankow/cpre381/CPRE3810/Software/register_N_neg.vhd|
+!i113 0
+R12
+R13
+Astructural
+R3
+R4
+DEx4 work 14 register_n_neg 0 22 =01fR`8L_D>zYkJ?h3kLN3
+!i122 108
+l28
+R126
+VhaP2J44I^6ZVJB7CNlmbS2
+!s100 QDo`fPcTD02T`mH<M@C`J3
+R7
+33
+R95
+!i10b 1
+R100
+R130
+R131
+!i113 0
+R12
+R13
+Eriscv_processor
+R1
+R107
+R3
+R4
+!i122 109
+R0
+Z132 8/home/gmankow/cpre381/CPRE3810/Software/RISCV_Processor.vhd
+Z133 F/home/gmankow/cpre381/CPRE3810/Software/RISCV_Processor.vhd
+l0
+L24 1
+VOP1E1e0_MMdUMhk<g^Aza2
+!s100 2QlZ7gG0Tc=VN8QQV?oB71
+R7
+33
+R95
+!i10b 1
+R100
+Z134 !s90 -reportprogress|300|-work|work|/home/gmankow/cpre381/CPRE3810/Software/RISCV_Processor.vhd|
+Z135 !s107 /home/gmankow/cpre381/CPRE3810/Software/RISCV_Processor.vhd|
+!i113 0
+R12
+R13
+Astructure
+R107
+R3
+R4
+DEx4 work 15 riscv_processor 0 22 OP1E1e0_MMdUMhk<g^Aza2
+!i122 109
+l211
+L36 328
+V12;X2aXLogYMl`3UaRC3_2
+!s100 ICQ7^PRzZz>0Uc<<GHfR73
+R7
+33
+R95
+!i10b 1
+R100
+R134
+R135
+!i113 0
+R12
+R13
+Priscv_types
+R3
+R4
+!i122 110
+Z136 w1762374335
+R0
+Z137 8/home/gmankow/cpre381/CPRE3810/Software/RISCV_types.vhd
+Z138 F/home/gmankow/cpre381/CPRE3810/Software/RISCV_types.vhd
+l0
+L15 15
+VU_^_f<gQmYMTUmSPMZEmP0
+!s100 8bf=Ne2NEz4j5eA99V>K00
+R7
+33
+R95
+!i10b 1
+R100
+Z139 !s90 -reportprogress|30|-work|work|/home/gmankow/cpre381/CPRE3810/Software/RISCV_types.vhd|
+Z140 !s107 /home/gmankow/cpre381/CPRE3810/Software/RISCV_types.vhd|
+!i113 0
+R12
+R13
+Bbody
+R107
+R3
+R4
+!i122 110
+l0
+L31 3
+VG^f_52?:_FXS30F>zDizR0
+!s100 TeH8G`JY8=]8Uzk2_`a2b2
+R7
+33
+R95
+!i10b 1
+R100
+R139
+R140
+!i113 0
+R12
+R13
+Exorg2
+R1
+R3
+R4
+!i122 111
+R0
+Z141 8/home/gmankow/cpre381/CPRE3810/Software/xorg2.vhd
+Z142 F/home/gmankow/cpre381/CPRE3810/Software/xorg2.vhd
+l0
+R20
+VV6C:miP5l_oAXXFV_WP4`3
+!s100 [hI[mXFH4_j16U;>U1Lfn2
+R7
+33
+R95
+!i10b 1
+R100
+Z143 !s90 -reportprogress|30|-work|work|/home/gmankow/cpre381/CPRE3810/Software/xorg2.vhd|
+Z144 !s107 /home/gmankow/cpre381/CPRE3810/Software/xorg2.vhd|
+!i113 0
+R12
+R13
+Adataflow
+R3
+R4
+DEx4 work 5 xorg2 0 22 V6C:miP5l_oAXXFV_WP4`3
+!i122 111
+l32
+R23
+V0<8Ik`hGa2ooIj9K`Y3Wc0
+!s100 Z6[FAPS4fBLB`F?OO<AY72
+R7
+33
+R95
+!i10b 1
+R100
+R143
+R144
+!i113 0
+R12
+R13
