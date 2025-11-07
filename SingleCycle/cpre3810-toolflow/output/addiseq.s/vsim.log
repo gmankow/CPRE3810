@@ -3,12 +3,12 @@ Reading pref.tcl
 # 2025.1_2
 
 # vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
-# Start time: 13:53:16 on Nov 05,2025
+# Start time: 09:55:25 on Nov 07,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vsim-8611) Generating debug db.
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
 # ** Note: (vopt-4301) Memory core inferred for signal 'ram' width=32, depth=1024, type=RAM at location proj/src/TopLevel/mem.vhd:35
-# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -16 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
+	# ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -16 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
 # ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -15 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
 # ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -14 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
 # ** Warning: ../../proj/src/TopLevel/Barrel_Shifter.vhd(69): (vopt-1152) Index value -13 is out of index range 31 downto 0 of ieee.std_logic_1164.STD_LOGIC_VECTOR.
@@ -98,10 +98,10 @@ Reading pref.tcl
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 13  Instance: /tb/MyRiscv/DMem
 # ** Note: Data structure takes 58676680 bytes of memory
-#          Process time 0.08 seconds
+#          Process time 0.07 seconds
 #          stop
 #    Time: 240 ns  Iteration: 1  Instance: /tb
-# Break in Process P_DUMP_STATE at /home/blanef/CPRE3810/CPRE3810/SingleCycle/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# Stopped at /home/blanef/CPRE3810/CPRE3810/SingleCycle/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# End time: 13:53:18 on Nov 05,2025, Elapsed time: 0:00:02
+# Break in Process P_DUMP_STATE at /home/gmankow/cpre381/CPRE3810/SingleCycle/cpre3810-toolflow/internal/testpy/tb.vhd line 150
+# Stopped at /home/gmankow/cpre381/CPRE3810/SingleCycle/cpre3810-toolflow/internal/testpy/tb.vhd line 150
+# End time: 09:55:26 on Nov 07,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 37
