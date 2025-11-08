@@ -1,6 +1,6 @@
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-Start time: 11:12:03 on Nov 07,2025
-vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd internal/testpy/tb.vhd proj/src/RISCV_types.vhd proj/src/TopLevel/mux2t1.vhd proj/src/TopLevel/org2.vhd proj/src/TopLevel/dffg.vhd proj/src/TopLevel/dMem_Out_Mux.vhd proj/src/TopLevel/addSub_32bit.vhd proj/src/TopLevel/register_N.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/ALU.vhd proj/src/TopLevel/mux_32t1.vhd proj/src/TopLevel/Barrel_Shifter.vhd proj/src/TopLevel/xorg2.vhd proj/src/TopLevel/decoder_5t32.vhd proj/src/TopLevel/cla_4bit.vhd proj/src/TopLevel/andg2.vhd proj/src/TopLevel/register_file.vhd proj/src/TopLevel/Fetch.vhd proj/src/TopLevel/controlSignals.vhd proj/src/TopLevel/mux3t1_N.vhd proj/src/TopLevel/RISCV_Processor.vhd proj/src/TopLevel/immediateGenerate.vhd proj/src/TopLevel/invg.vhd proj/src/TopLevel/mux2t1_N.vhd 
+Start time: 13:33:04 on Nov 08,2025
+vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd internal/testpy/tb.vhd proj/src/RISCV_types.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/controlSignals.vhd proj/src/TopLevel/Fetch.vhd proj/src/TopLevel/andg2.vhd proj/src/TopLevel/cla_4bit.vhd proj/src/TopLevel/invg.vhd proj/src/TopLevel/mux2t1.vhd proj/src/TopLevel/mux3t1_N.vhd proj/src/TopLevel/register_N.vhd proj/src/TopLevel/mux2t1_N.vhd proj/src/TopLevel/RISCV_Processor.vhd proj/src/TopLevel/register_file.vhd proj/src/TopLevel/ALU.vhd proj/src/TopLevel/immediateGenerate.vhd proj/src/TopLevel/decoder_5t32.vhd proj/src/TopLevel/mux_32t1.vhd proj/src/TopLevel/dMem_Out_Mux.vhd proj/src/TopLevel/addSub_32bit.vhd proj/src/TopLevel/xorg2.vhd proj/src/TopLevel/org2.vhd proj/src/TopLevel/dffg.vhd proj/src/TopLevel/Barrel_Shifter.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -16,51 +16,51 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd intern
 ** Warning: proj/src/RISCV_types.vhd(31): (vcom-1615) Existing package body 'RISCV_types(body)' at line 31 will be overwritten.
 -- Compiling package body RISCV_types
 -- Loading package RISCV_types
+-- Loading package NUMERIC_STD
+-- Compiling entity mem
+-- Compiling architecture rtl of mem
+-- Compiling entity controlSignals
+-- Compiling architecture behavioral of controlSignals
+-- Compiling entity fetch
+-- Compiling architecture structural of fetch
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+-- Compiling entity cla_4bit
+-- Compiling architecture behavioral of cla_4bit
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
 -- Compiling entity mux2t1
 -- Compiling architecture structual of mux2t1
+-- Compiling entity mux3t1_N
+-- Compiling architecture behavioral of mux3t1_N
+-- Compiling entity register_N
+-- Compiling architecture structural of register_N
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
+-- Loading package RISCV_types
+-- Compiling entity RISCV_Processor
+-- Compiling architecture structure of RISCV_Processor
+-- Compiling entity register_file
+-- Compiling architecture structural of register_file
+-- Compiling entity ALU
+-- Compiling architecture mixed of ALU
+-- Compiling entity immediateGenerate
+-- Compiling architecture behavioral of immediateGenerate
+-- Compiling entity decoder_5t32
+-- Compiling architecture behavioral of decoder_5t32
+-- Compiling entity mux_32t1
+-- Compiling architecture behavioral of mux_32t1
+-- Compiling entity dMem_Out_Mux
+-- Compiling architecture behavioral of dMem_Out_Mux
+-- Compiling entity addSub_32bit
+-- Compiling architecture mixed of addSub_32bit
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
 -- Compiling entity org2
 -- Compiling architecture dataflow of org2
 -- Compiling entity dffg
 -- Compiling architecture mixed of dffg
--- Compiling entity dMem_Out_Mux
--- Compiling architecture behavioral of dMem_Out_Mux
--- Loading package NUMERIC_STD
--- Compiling entity addSub_32bit
--- Compiling architecture mixed of addSub_32bit
--- Compiling entity register_N
--- Compiling architecture structural of register_N
--- Compiling entity mem
--- Compiling architecture rtl of mem
--- Compiling entity ALU
--- Compiling architecture mixed of ALU
--- Loading package RISCV_types
--- Compiling entity mux_32t1
--- Compiling architecture behavioral of mux_32t1
 -- Compiling entity Barrel_Shifter
 -- Compiling architecture structural of Barrel_Shifter
--- Compiling entity xorg2
--- Compiling architecture dataflow of xorg2
--- Compiling entity decoder_5t32
--- Compiling architecture behavioral of decoder_5t32
--- Compiling entity cla_4bit
--- Compiling architecture behavioral of cla_4bit
--- Compiling entity andg2
--- Compiling architecture dataflow of andg2
--- Compiling entity register_file
--- Compiling architecture structural of register_file
--- Compiling entity fetch
--- Compiling architecture structural of fetch
--- Compiling entity controlSignals
--- Compiling architecture behavioral of controlSignals
--- Compiling entity mux3t1_N
--- Compiling architecture behavioral of mux3t1_N
--- Compiling entity RISCV_Processor
--- Compiling architecture structure of RISCV_Processor
--- Compiling entity immediateGenerate
--- Compiling architecture behavioral of immediateGenerate
--- Compiling entity invg
--- Compiling architecture dataflow of invg
--- Compiling entity mux2t1_N
--- Compiling architecture structural of mux2t1_N
-End time: 11:12:03 on Nov 07,2025, Elapsed time: 0:00:00
+End time: 13:33:04 on Nov 08,2025, Elapsed time: 0:00:00
 Errors: 0, Warnings: 2

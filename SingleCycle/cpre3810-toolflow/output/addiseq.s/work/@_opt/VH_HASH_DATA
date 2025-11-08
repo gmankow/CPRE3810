@@ -6,6 +6,8 @@
 10 ADDR_WIDTH
 10
 8 mux2t1_n
+1
+92 /home/blanef/CPRE3810/CPRE3810/SingleCycle/cpre3810-toolflow/containers/sim_container_0/work
 7
 1 N
 3
@@ -20,8 +22,6 @@
 9 structure
 9
 13 register_file
-1
-92 /home/gmankow/cpre381/CPRE3810/SingleCycle/cpre3810-toolflow/containers/sim_container_0/work
 16
 10 behavioral
 23
@@ -46,71 +46,6 @@
 4 dffg
 8
 10 INIT_VALUE
-]
-[G
-1
-21
-3
-1
-23
-0
-0
-0
-0
-8 8
-109
-115
-46
-116
-114
-97
-99
-101
-1
-1
-1 8 1 1
-]
-[G
-1
-11
-12
-1
-14
-1
-0
-10
-0
-0 0
-0
-0
-]
-[G
-1
-5
-6
-1
-7
-1
-0
-32
-0
-0 0
-0
-0
-]
-[G
-1
-5
-6
-2
-7
-1
-0
-32
-0
-0 0
-0
-0
 ]
 [G
 1
@@ -298,6 +233,71 @@
 9
 6
 1
+7
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
+21
+3
+1
+23
+0
+0
+0
+0
+8 8
+109
+115
+46
+116
+114
+97
+99
+101
+1
+1
+1 8 1 1
+]
+[G
+1
+11
+12
+1
+14
+1
+0
+10
+0
+0 0
+0
+0
+]
+[G
+1
+5
+6
+1
+7
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
+5
+6
+2
 7
 1
 0

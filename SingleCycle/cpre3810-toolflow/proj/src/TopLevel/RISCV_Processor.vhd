@@ -217,7 +217,7 @@ begin
 
   s_RegWrAddr <= s_Inst(11 downto 7); -- Destination register address is bits [11:7] of instruction
   --s_RegWrData <= oALUOut; -- For now, write data comes from ALU output (just testing addi currently)
-  s_ALUOut <= oALUOut;
+  oALUOut <= s_ALUOut;
 
   IMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
@@ -331,7 +331,7 @@ begin
         i_B => s_ALUinB,
         i_Control => s_ALUop,
         i_Func3 => s_Inst(14 downto 12),
-        o_Result => oALUOut,
+        o_Result => s_ALUOut,
         o_Zero => s_Zero,
         o_LessThan => s_LessThan,
         o_CarryOut => s_CarryOut,
