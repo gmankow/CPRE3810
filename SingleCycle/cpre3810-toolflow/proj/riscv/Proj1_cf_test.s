@@ -1,15 +1,14 @@
 .data
 
 .text
-.globl _start
+.globl main
 
-_start:
-# Set up the stack pointer to a high address.
-li sp, 0x800
 
+main:
 # Make space for one value (the final result) and the return address.
+# The stack pointer (sp) is already initialized by the system.
 addi sp, sp, -8
-sw ra, 4(sp)        # Save return address (though not critical for _start)
+sw ra, 4(sp)        # Save return address (though not critical for main)
 
 # Load an initial argument for the function chain.
 li a0, 5
@@ -21,12 +20,19 @@ jal func1
 # Store the final result (82) at the base of our stack frame.
 sw a0, 0(sp)
 
-# Jump to the end.
-j end_program
+# Standard program exit
+# Restore stack pointer (optional, but good practice)
+lw ra, 4(sp)
+addi sp, sp, 8
+
+# Exit ecall
+li a7, 10
+ecall
 
 
-(Called with a0 = 5)
-
+# -----------------------------------------------------------------
+# func1: (5) -> 5 + func2(6) = 5 + 77 = 82
+# -----------------------------------------------------------------
 func1:
 addi sp, sp, -8     # 1. Make stack space (for ra, s0)
 sw ra, 4(sp)        # 2. Save return address
@@ -50,8 +56,9 @@ addi sp, sp, 8      # 6. Clean up stack
 jr ra
 
 
-(Called with a0 = 6)
-
+# -----------------------------------------------------------------
+# func2: (6) -> 6 + func3(8) = 6 + 71 = 77
+# -----------------------------------------------------------------
 func2:
 addi sp, sp, -8     # 1. Make stack space (for ra, s0)
 sw ra, 4(sp)        # 2. Save return address
@@ -74,9 +81,9 @@ addi sp, sp, 8      # 6. Clean up stack
 # Return (jalr)
 jr ra
 
-
-(Called with a0 = 8)
-
+# -----------------------------------------------------------------
+# func3: (8) -> 8 + func4(11) = 8 + 63 = 71
+# -----------------------------------------------------------------
 func3:
 addi sp, sp, -8     # 1. Make stack space (for ra, s0)
 sw ra, 4(sp)        # 2. Save return address
@@ -100,7 +107,9 @@ addi sp, sp, 8      # 6. Clean up stack
 jr ra
 
 
-
+# -----------------------------------------------------------------
+# func4: (11) -> 63 (from branch tests)
+# -----------------------------------------------------------------
 func4:
 # t0 will hold the result. Start at 0.
 li t0, 0
@@ -174,8 +183,3 @@ mv a0, t0
 
 # Return (jalr)
 jr ra
-
-
-end_program:
-# Halt the processor
-wfi
