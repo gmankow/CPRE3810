@@ -172,6 +172,11 @@ architecture structure of RISCV_Processor is
   signal s_DMemWr_EX : std_logic; -- Data Memory Write signal in EX stage
   signal s_DMemWr_MEM : std_logic; -- Data Memory Write signal in MEM stage
 
+  signal s_dMemOut_WB : std_logic_vector(31 downto 0);   -- <<< NEW
+  signal s_PCPlus4_WB : std_logic_vector(31 downto 0);   -- <<< NEW
+  signal s_Func3_WB : std_logic_vector(2 downto 0);     -- <<< NEW
+  signal s_DMemOut_Muxed : std_logic_vector(31 downto 0); -- <<< NEW
+
   component ALU is
       port (
         i_A : in std_logic_vector(31 downto 0); -- Input A
@@ -442,8 +447,9 @@ begin
     port map (
       i_CLK => iCLK,
       i_RST => iRST,
-      i_WE => '1',
-      i_PCPlus4 => s_PC_plus_4,
+      i_Stall => '0',  -- Tie Stall and fetch to '0' (no hardware detection yet)
+      i_Flush => '0', -- TODO: update for hardware
+      i_PCPlus4 => s_PC_plus_4_IF,
       i_Instruction => s_Inst,
       i_PC => s_NextInstAddr,
       o_PCPlus4 => s_PC_plus_4_ID,
@@ -462,7 +468,7 @@ begin
       o_ALUsrcB => s_ALUsrcB_ID,
       o_PCorMemtoReg => s_PCorMemtoReg_ID,
       o_MemWrite => s_DMemWr_ID,
-      o_RegWrite => s_RegWr, --TODO MUST PASS REGWRITE SIGNAL THROUGH ALL PIPELINE STAGES?
+      o_RegWrite => s_RegWr_ID,
       o_Jump => s_Jump_ID,
       o_ImmSel => s_ImmSel_ID,
       o_WFI => s_Halt_ID,
@@ -474,10 +480,10 @@ begin
     port map (
       CLK => iCLK,
       RST => iRST,
-      WriteEnable => s_RegWr,
+      WriteEnable => s_RegWr_WB,
       i_Source1 => s_Inst_ID(19 downto 15),
       i_Source2 => s_Inst_ID(24 downto 20),
-      i_WriteReg => s_RegWrAddr, -- TODO FIX FIX FIX
+      i_WriteReg => s_RegWrAddr_WB,
       DIN => s_RegWrData, -- from WB stage
       Source1Out => s_RegData1_ID,
       Source2Out => s_RegData2_ID
@@ -506,142 +512,172 @@ begin
     port map (
       i_CLK => iCLK,
       i_RST => iRST,
-      i_WE => '1',
+      i_Stall => '0',  -- Tie Stall to '0'
+      i_Flush => '0',  -- Tie Flush to '0'
+      
+      -- Control Signals
       i_Halt => s_Halt_ID,
       i_ALUsrcA => s_ALUsrcA_ID,
       i_ALUsrcA0 => s_ALUsrcA0_ID,
       i_ALUsrcB => s_ALUsrcB_ID,
       i_ALUop => s_ALUop_ID,
-      i_Fuct3 => s_Inst_ID(14 downto 12),
       i_MemWrite => s_DMemWr_ID,
+      i_RegWrite => s_RegWr_ID,
       i_Jump => s_Jump_ID,
       i_Jalr => s_JALR_Select_ID,
       i_Branch => s_Branch_ID,
+      i_PCorMemtoReg => s_PCorMemtoReg_ID,
+      
+      -- Data Signals
+      i_Fuct3 => s_Inst_ID(14 downto 12),
       i_PC => s_CurPC_ID,
       i_PCPlus4 => s_PC_plus_4_ID,
       i_PCPlusImm => s_BranchImmed_ID,
       i_Immediate => s_Immediate_ID,
       i_Out1 => s_RegData1_ID,
       i_Out2 => s_RegData2_ID,
-      i_PCorMemtoReg => s_PCorMemtoReg_ID,
+      i_RegWrAddr => s_Inst_ID(11 downto 7),
+
+      -- Corresponding Outputs
       o_Halt => s_Halt_EX,
       o_ALUsrcA => s_ALUsrcA_EX,
       o_ALUsrcA0 => s_ALUsrcA0_EX,
       o_ALUsrcB => s_ALUsrcB_EX,
       o_ALUop => s_ALUop_EX,
-      o_Fuct3 => s_Func3_EX,
       o_MemWrite => s_DMemWr_EX,
+      o_RegWrite => s_RegWr_EX,    
       o_Jump => s_Jump_EX,
       o_Jalr => s_JALR_Select_EX,
       o_Branch => s_Branch_EX,
+      o_PCorMemtoReg => s_PCorMemtoReg_EX, 
+      o_Fuct3 => s_Func3_EX,
       o_PC => s_CurPC_EX,
       o_PCPlus4 => s_PC_plus_4_EX,
       o_PCPlusImm => s_BranchImmed_EX,
       o_Immediate => s_Immediate_EX,
       o_Out1 => s_RegData1_EX,
       o_Out2 => s_RegData2_EX,
-      o_PCorMemtoReg => s_PCorMemtoReg_EX
+      o_RegWrAddr => s_RegWrAddr_EX  
   );
 
   ALUsrcA_mux : mux2t1_N
     generic map (N => 32)
     port map (
-      i_S => open,
-      i_D0 => open,
-      i_D1 => open,
-      o_O => open
+      i_S => s_ALUsrcA_EX,
+      i_D0 => s_RegData1_EX,
+      i_D1 => s_CurPC_EX,
+      o_O => s_ALUsrcA1MuxOut
   );
 
   ALUscrA0_mux : mux2t1_N
     generic map (N => 32)
     port map (
-      i_S => open,
-      i_D0 => open,
+      i_S => s_ALUsrcA0_EX,
+      i_D0 => s_ALUsrcA1MuxOut,
       i_D1 => (others => '0'),
-      o_O => open
+      o_O => s_ALUinA
   );
 
   ALUsrcB_mux : mux2t1_N
     generic map (N => 32)
     port map (
-      i_S => open,
-      i_D0 => open,
-      i_D1 => open,
-      o_O => open
+      i_S => s_ALUsrcB_EX,
+      i_D0 => s_RegData2_EX,
+      i_D1 => s_Immediate_EX,
+      o_O => s_ALUinB
   );
 
   ALU_inst : ALU
     port map (
-      i_A => open,
-      i_B => open,
-      i_Control => open,
-      i_Func3 => open,
-      o_Result => open,
-      o_Zero => open,
-      o_LessThan => open,
-      o_CarryOut => open,
-      o_BranchCondMet => open,
-      o_Overflow => open
+      i_A => s_ALUinA,
+      i_B => s_ALUinB,
+      i_Control => s_ALUop_EX,
+      i_Func3 => s_Func3_EX,
+      o_Result => s_ALUOut_EX,
+      o_Zero => s_Zero_EX,
+      o_LessThan => s_LessThan_EX,
+      o_CarryOut => s_CarryOut_EX,
+      o_BranchCondMet => s_BranchCondMet_EX,
+      o_Overflow => s_Ovfl
   );
 
   EX_MEM_inst : EX_MEM_Reg
     port map (
       i_CLK => iCLK,
       i_RST => iRST,
-      i_WE => '1',
-      i_Halt => open,
-      i_MemWrite => open,
-      i_Fuct3 => open(14 downto 12),
-      i_PCorMemtoReg => open,
-      i_Jump => open,
-      i_Jalr => open,
-      i_Branch => open,
-      i_Branch_cond_met => open,
-      i_ALUOut => open,
-      i_Out2 => open,
-      i_PC => open,
-      i_PCPlus4 => open,
-      o_Halt => open,
-      o_MemWrite => open,
-      o_Fuct3 => open,
-      o_PCorMemtoReg => open,
-      o_Jump => open,
-      o_Jalr => open,
-      o_Branch => open,
-      o_Branch_cond_met => open,
-      o_ALUOut => open,
-      o_Out2 => open,
-      o_PC => open,
-      o_PCPlus4 => open
+      i_Halt => s_Halt_EX,
+      i_MemWrite => s_DMemWr_EX,
+      i_RegWrite => s_RegWr_EX,
+      i_Fuct3 => s_Func3_EX,
+      i_PCorMemtoReg => s_PCorMemtoReg_EX,
+      i_Jump => s_Jump_EX,
+      i_Jalr => s_JALR_Select_EX,
+      i_Branch => s_Branch_EX,
+      i_Branch_cond_met => s_BranchCondMet_EX,
+      i_PCPlus4 => s_PC_plus_4_EX,
+      i_ALUout => s_ALUOut_EX,
+      i_Out2 => s_RegData2_EX,
+      i_PCPlusImm => s_BranchImmed_EX,
+      i_RegWrAddr => s_RegWrAddr_EX,
+      o_Halt => s_Halt_MEM,
+      o_MemWrite => s_DMemWr_MEM,
+      o_RegWrite => s_RegWr_MEM,
+      o_Fuct3 => s_Func3_MEM,
+      o_PCorMemtoReg => s_PCorMemtoReg_MEM,
+      o_Jump => s_Jump_MEM,
+      o_Jalr => s_JALR_Select_MEM,
+      o_Branch => s_Branch_MEM,
+      o_Branch_cond_met => s_BranchCondMet_MEM,
+      o_ALUout => s_ALUOut_MEM,
+      o_Out2 => s_RegData2_MEM,
+      o_PCPlusImm => s_BranchImmed_MEM,
+      o_RegWrAddr => s_RegWrAddr_MEM
   );
 
   MEM_WB_inst : MEM_WB_Reg
     port map (
       i_CLK => iCLK,
       i_RST => iRST,
-      i_WE => '1',
-      i_Halt => open,
-      i_PCorMemtoReg => open,
-      i_ALUOut => open,
-      i_dMemOut => open,
-      i_PCPlus4 => open,
-      o_Halt => open,
-      o_PCorMemtoReg => open,
-      o_ALUOut => open,
-      o_dMemOut => open,
-      o_PCPlus4 => open
+      i_Halt => s_Halt_MEM,
+      i_RegWrite => s_RegWr_MEM,
+      i_PCorMemtoReg => s_PCorMemtoReg_MEM,
+      i_Fuct3 => s_Func3_MEM,
+      i_RegWrAddr => s_RegWrAddr_MEM,
+      i_ALUout => s_ALUOut_MEM,
+      i_dMemOut => s_DMemOut,
+      i_PCPlus4 => s_PC_plus_4_MEM,
+      o_Halt => s_Halt_WB,
+      o_RegWrite => s_RegWr_WB,
+      o_PCorMemtoReg => s_PCorMemtoReg_WB,
+      o_ALUout => s_ALUOut_WB,
+      o_dMemOut => s_dMemOut_WB,
+      o_PCPlus4 => s_PCPlus4_WB,
+      o_Fuct3 => s_Func3_WB,
+      o_RegWrAddr => s_RegWrAddr_WB
   );
 
   DMem_Out_Mux_inst : dMem_Out_Mux
     port map (
-      i_dMemOut => open,
-      i_Func3 => open(14 downto 12),
-      o_dMemOut_Muxed => open
+      i_dMemOut => s_dMemOut_WB,
+      i_Func3 => s_Func3_WB,
+      o_dMemOut_Muxed => s_DMemOut_Muxed
+  );
+
+  WB_Mux_inst : mux3t1_N
+    generic map (N => 32)
+    port map (
+      i_S => s_PCorMemtoReg_WB,
+      i_D0 => s_ALUOut_WB,
+      i_D1 => s_DMemOut_Muxed,
+      i_D2 => s_PCPlus4_WB,
+      o_O => s_RegWrData
   );
   
 
 
   -- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
+  s_Halt <= s_Halt_WB;
+  
   -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
 
   -- TODO: Implement the rest of your processor below this comment! 

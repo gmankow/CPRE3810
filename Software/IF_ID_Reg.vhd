@@ -7,6 +7,8 @@ entity IF_ID_Reg is
     port (
         i_CLK : in std_logic;
         i_RST : in std_logic; -- Reset signal to clear the pipeline stage
+        i_Stall : in std_logic; -- For future use, to hold current value
+        i_Flush : in std_logic; -- For future use, for nop clearing
         i_PCPlus4 : in std_logic_vector(31 downto 0); -- PC + 4 input
         i_PC : in std_logic_vector(31 downto 0); -- PC input
         i_Instruction : in std_logic_vector(31 downto 0); -- Instruction input
@@ -32,19 +34,41 @@ architecture structural of IF_ID_Reg is
         );
     end component;
 
+    -- This is for future use, nop instruction to force load
+    constant NOP_INSTRUCTION : std_logic_vector(31 downto 0) := x"00000013";
+
+    -- Internal signals for register inputs
+    signal s_WE : std_logic;
+    signal s_D_PCPlus4 : std_logic_vector(31 downto 0);
+    signal s_D_Instruction : std_logic_vector(31 downto 0);
+    signal s_D_PC : std_logic_vector(31 downto 0);
+
+    -- Internal signals for register outputs
     signal PCPlus4_reg : std_logic_vector(31 downto 0);
     signal Instruction_reg : std_logic_vector(31 downto 0);
     signal PC_reg : std_logic_vector(31 downto 0);
 
 begin
 
+    -- Stall logic, write enable is active only when not stalled
+    s_WE <= not i_Stall;
+
+    s_D_Instruction <= NOP_INSTRUCTION when i_Flush = '1' else
+        i_Instruction;
+
+    s_D_PCPlus4 <= (others => '0') when i_Flush = '1' else
+        i_PCPlus4;
+
+    s_D_PC <= (others => '0') when i_Flush = '1' else
+        i_PC;
+
     -- Instantiate registers for each output
     PCPlus4_reg_inst : register_N
         port map (
             i_CLK => i_CLK,
             i_RST => i_RST,
-            i_WE => '1',
-            i_D => i_PCPlus4,
+            i_WE => s_WE,
+            i_D => s_D_PCPlus4,
             o_Q => PCPlus4_reg
         );
 
@@ -52,8 +76,8 @@ begin
         port map (
             i_CLK => i_CLK,
             i_RST => i_RST,
-            i_WE => '1',
-            i_D => i_Instruction,
+            i_WE => s_WE,
+            i_D => d_D_Instruction,
             o_Q => Instruction_reg
         );
 
@@ -61,8 +85,8 @@ begin
         port map (
             i_CLK => i_CLK,
             i_RST => i_RST,
-            i_WE => '1',
-            i_D => i_PC,
+            i_WE => s_WE,
+            i_D => s_D_PC,
             o_Q => PC_reg
         );
 
