@@ -3,7 +3,9 @@ use IEEE.std_logic_1164.all;
 use work.RISCV_types.all;
 
 entity register_file is
-    generic (N : integer := 32);  -- Number of bits in each register
+    generic (
+        N : integer := 32  -- Number of bits in each register
+        );
     port (
         CLK : in std_logic;
         RST : in std_logic;
@@ -21,8 +23,11 @@ architecture structural of register_file is
     signal write_decoded : std_logic_vector(31 downto 0);
     signal registers_out : mux32_array; -- Array to hold outputs of 32 registers
 
-    component register_N_neg -- is now negative edge triggered
-        generic (N : integer := 32);
+    component register_N_neg
+        generic (
+            N : integer := 32;
+            INIT_VALUE : std_logic_vector(31 downto 0) := (others => '0') -- <== ADD THIS
+        );
         port (
             i_CLK : in std_logic;
             i_RST : in std_logic;
@@ -58,16 +63,31 @@ architecture structural of register_file is
             );
         
         gen_registers: for i in 1 to 31 generate
-            reg_i: register_N_neg
-                generic map (N => N)  -- Maps the generic N to each register
-                port map (
-                    i_CLK => CLK,
-                    i_RST => RST,
-                    i_WE => write_decoded(i),  -- Individual bit for each register
-                    i_D => DIN,
-                    o_Q => registers_out(i)    -- Individual output for each register
-                );
-        end generate;
+            gen_sp: if i = 2 generate
+                reg_2: register_N_neg
+                    generic map (N => N, INIT_VALUE => x"7FFFEFFC")
+                    port map (
+                        i_CLK => CLK,
+                        i_RST => RST,
+                        i_WE  => write_decoded(i),
+                        i_D   => DIN,
+                        o_Q   => registers_out(i)
+                    );
+            end generate gen_sp;
+
+            gen_other: if i /= 2 generate
+                reg_i: register_N_neg
+                    generic map (N => N, INIT_VALUE => (others => '0'))
+                    port map (
+                        i_CLK => CLK,
+                        i_RST => RST,
+                        i_WE  => write_decoded(i),
+                        i_D   => DIN,
+                        o_Q   => registers_out(i)
+                    );
+            end generate gen_other;
+
+        end generate gen_registers;
 
         -- Force register 0 to always be zero (RISC-V requirement)
         registers_out(0) <= (others => '0');

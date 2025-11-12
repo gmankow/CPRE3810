@@ -14,19 +14,40 @@ array_size: .word   8
 main:
     # Removed 3 NOPs from here, as they served no purpose.
     
-    # Load array address and size
-    lasw a0, array
-    lw a1, array_size
+    # Load array address (decomposed from 'lasw a0, array')
+    lui a0, %hi(array)
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
+    addi a0, a0, %lo(array)
+
+    # Load array size (decomposed from 'lw a1, array_size')
+    # We must use a temporary register (t0)
+    lui t0, %hi(array_size)
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
+    lw a1, %lo(array_size)(t0) # t0 holds upper 20 bits of address
 
     # Call merge_sort(array, array_size)
-    # The register-defining instructions (lasw, lw)
-    # will complete their write-back stages long before
-    # the merge_sort function reads a0 or a1.
+    # DATA HAZARD FIX: We must stall for the addi a0 and lw a1
+    # instructions to write back before merge_sort can read a0 and a1.
+    # The lw will be the last to finish, so 3 NOPs after it covers both.
+    nop
+    nop
+    nop
     jal ra, merge_sort
+    nop             # 
+    nop             # ...
+    nop             # ...
 
     # Exit program
-    li a7, 10       # ecall: exit
+    addi a7, x0, 10         # ecall: exit
     ecall
+    nop
+    nop
+    nop
+
 
 # -----------------------------------------------------------------------------
 # merge_sort(a0: base_address, a1: n)
@@ -39,13 +60,22 @@ merge_sort:
     # -16(sp): s1 (n)
     # -20(sp): s2 (n1, size of left array)
     # Total stack space = 20 bytes (must be 16-byte aligned, so we use 32)
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
 
     # Check base case: if (n <= 1), return
-    li t0, 1
+    addi t0, x0, 1
     nop             # Data hazard stall for t0
     nop             # ...
     nop             # ...
     ble a1, t0, ms_return
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
 
     
     addi sp, sp, -32
@@ -59,8 +89,11 @@ merge_sort:
 
     # Save arguments
     nop
-    mv s0, a0         # s0 = base_address
-    mv s1, a1         # s1 = n
+    addi s0, a0, 0
+    addi s1, a1, 0
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
 
     # --- Divide ---
     # Calculate middle point (n1 = n / 2)
@@ -73,6 +106,9 @@ merge_sort:
     nop
     mv a1, s2
     jal ra, merge_sort
+    nop
+    nop
+    nop
 
     # Recursive call for right
     # Calculate n2 (size of right array) = n - n1
@@ -91,6 +127,11 @@ merge_sort:
     mv a0, t2
     mv a1, t0
     jal ra, merge_sort
+
+    nop
+    nop
+    nop
+    
 
     # --- Allocate L and R on the stack ---
     # We need n1 * 4 bytes for L and n2 * 4 bytes for R.
@@ -112,7 +153,7 @@ merge_sort:
 
     # --- Copy data to L and R ---
     # Copy L array: for(i=0; i < n1; i++) L[i] = A[i]
-    li t4, 0          # i = 0
+    addi t4, x0, 0            # i = 0
 copy_L_loop:
     nop
     nop
@@ -146,7 +187,7 @@ end_copy_L_loop:
 
     # Copy R array: for(j=0; j < n2; j++) R[j] = A[n1 + j]
     sub t0, s1, s2    # t0 = n2
-    li t4, 0          # j = 0
+    addi t4, x0, 0       # j = 0
 copy_R_loop:
     bge t4, t0, end_copy_R_loop
     nop             # Control hazard stall
@@ -189,6 +230,10 @@ end_copy_R_loop:
     sub a4, s1, s2    # a4 = n2
     jal ra, merge
 
+    nop
+    nop
+    nop
+
     # Deallocate temporary arrays
     slli t0, s1, 2    # t0 = n * 4
     nop             # Data hazard stall for t0
@@ -208,6 +253,10 @@ end_copy_R_loop:
 
 ms_return:
     jalr zero, 0(ra)  # return
+
+    nop
+    nop
+    nop
 
 
 merge:
@@ -242,9 +291,9 @@ merge:
     mv s2, a3         # s2 = n1
 
     # Initialize counters
-    li s5, 0          # i = 0
-    li s6, 0          # j = 0
-    li s7, 0          # k = 0
+    addi s5, x0, 0  
+    addi s6, x0, 0  
+    addi t4, x0, 0  
 
 merge_loop:
     # while (i < n1 && j < n2)
@@ -403,3 +452,9 @@ merge_end:
     addi sp, sp, 32
 
     jalr zero, 0(ra)  # return
+
+    nop
+    nop
+    nop
+
+kill:
