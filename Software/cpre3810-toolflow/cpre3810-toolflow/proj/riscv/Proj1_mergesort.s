@@ -1,5 +1,8 @@
 # RISC-V Assembly Implementation of Merge Sort
 # Blane F
+#
+# Corrected for 5-stage pipeline with no forwarding
+# (3 NOPs required to resolve data or control hazards)
 
 .data
 array:      .word   38, 27, 43, 3, 9, 82, 10, -5
@@ -9,15 +12,20 @@ array_size: .word   8
 .global main
 
 main:
+    # Removed 3 NOPs from here, as they served no purpose.
+    
     # Load array address and size
     lasw a0, array
     lw a1, array_size
 
     # Call merge_sort(array, array_size)
+    # The register-defining instructions (lasw, lw)
+    # will complete their write-back stages long before
+    # the merge_sort function reads a0 or a1.
     jal ra, merge_sort
 
     # Exit program
-    li a7, 10         # ecall: exit
+    li a7, 10       # ecall: exit
     ecall
 
 # -----------------------------------------------------------------------------
@@ -34,13 +42,16 @@ merge_sort:
 
     # Check base case: if (n <= 1), return
     li t0, 1
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
     ble a1, t0, ms_return
 
     
     addi sp, sp, -32
+    nop             # HAZARD FIX: Stall for addi sp
+    nop             # ...
+    nop             # ...
     sw ra, 28(sp)     # Save return address
     sw s0, 24(sp)     # Save s0 (base_address)
     sw s1, 20(sp)     # Save s1 (n)
@@ -68,15 +79,15 @@ merge_sort:
     sub t0, s1, s2    # t0 = n2
     # Calculate base_address_right = base_address + (n1 * 4)
     slli t1, s2, 2    # t1 = n1 * 4 (byte offset)
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t1
+    nop             # ...
+    nop             # ...
     add t2, s0, t1    # t2 = base_address_right
 
     # merge_sort(base_address_right, n2)
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t2
+    nop             # ...
+    nop             # ...
     mv a0, t2
     mv a1, t0
     jal ra, merge_sort
@@ -85,18 +96,18 @@ merge_sort:
     # We need n1 * 4 bytes for L and n2 * 4 bytes for R.
     # Total bytes = (n1 + n2) * 4 = n * 4
     slli t0, s1, 2    # t0 = n * 4
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
     sub sp, sp, t0    # Allocate space on stack
     nop
     nop
     nop
     mv t1, sp         # t1 = base address of L
     slli t2, s2, 2    # t2 = n1 * 4 (size of L in bytes)
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t2
+    nop             # ...
+    nop             # ...
     add t3, t1, t2    # t3 = base address of R
 
     # --- Copy data to L and R ---
@@ -107,30 +118,30 @@ copy_L_loop:
     nop
     nop
     bge t4, s2, end_copy_L_loop
-    nop
-    nop
-    nop
+    nop             # Control hazard stall
+    nop             # ...
+    nop             # ...
     slli t5, t4, 2    # t5 = i * 4
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t5
+    nop             # ...
+    nop             # ...
     add t6, s0, t5    # t6 = &A[i]
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t6
+    nop             # ...
+    nop             # ...
     lw a0, 0(t6)      # a0 = A[i]
     add t6, t1, t5    # t6 = &L[i]
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t6
+    nop             # ...
+    nop             # ...
     sw a0, 0(t6)      # L[i] = A[i]
     addi t4, t4, 1
     nop
     nop
     j copy_L_loop
-    nop
-    nop
-    nop
+    nop             # Control hazard stall
+    nop             # ...
+    nop             # ...
 end_copy_L_loop:
 
     # Copy R array: for(j=0; j < n2; j++) R[j] = A[n1 + j]
@@ -138,36 +149,36 @@ end_copy_L_loop:
     li t4, 0          # j = 0
 copy_R_loop:
     bge t4, t0, end_copy_R_loop
-    nop
-    nop
-    nop
+    nop             # Control hazard stall
+    nop             # ...
+    nop             # ...
     add t5, s2, t4    # t5 = n1 + j
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t5
+    nop             # ...
+    nop             # ...
     slli t5, t5, 2    # t5 = (n1 + j) * 4
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t5
+    nop             # ...
+    nop             # ...
     add t6, s0, t5    # t6 = &A[n1 + j]
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t6
+    nop             # ...
+    nop             # ...
     lw a0, 0(t6)      # a0 = A[n1 + j]
     slli t5, t4, 2    # t5 = j * 4
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t5
+    nop             # ...
+    nop             # ...
     add t6, t3, t5    # t6 = &R[j]
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t6
+    nop             # ...
+    nop             # ...
     sw a0, 0(t6)      # R[j] = A[n1 + j]
     addi t4, t4, 1
     j copy_R_loop
-    nop
-    nop
-    nop
+    nop             # Control hazard stall
+    nop             # ...
+    nop             # ...
 end_copy_R_loop:
 
     # Call merge(A, L, R, n1, n2)
@@ -180,9 +191,9 @@ end_copy_R_loop:
 
     # Deallocate temporary arrays
     slli t0, s1, 2    # t0 = n * 4
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
     add sp, sp, t0    # Free stack space
     nop
     nop
@@ -238,63 +249,70 @@ merge:
 merge_loop:
     # while (i < n1 && j < n2)
     bge s5, s2, copy_R_remains  # if i >= n1, goto copy_R
-    nop
-    nop
-    nop
+    nop             # Control hazard stall
+    nop             # ...
+    nop             # ...
     bge s6, a4, copy_L_remains  # if j >= n2, goto copy_L
+    nop             # <<< FIX 1: Added 3 NOPs for control hazard
+    nop             # ...
+    nop             # ...
 
     # Load L[i] and R[j]
     slli t0, s5, 2    # t0 = i * 4
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
     add t1, s3, t0    # t1 = &L[i]
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t1
+    nop             # ...
+    nop             # ...
     lw t2, 0(t1)      # t2 = L[i]
 
     slli t0, s6, 2    # t0 = j * 4
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
     add t1, s4, t0    # t1 = &R[j]
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t1
+    nop             # ...
+    nop             # ...
     lw t3, 0(t1)      # t3 = R[j]
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t3 (lw)
+    nop             # ...
+    nop             # ...
 
     # if (L[i] <= R[j])
     bgt t2, t3, else_merge
+    nop             # <<< FIX 2: Added 3 NOPs for control hazard
+    nop             # ...
+    nop             # ...
+    
     # if_true: A[k] = L[i], i++
     slli t0, s7, 2    # t0 = k * 4
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
     add t1, s0, t0    # t1 = &A[k]
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t1
+    nop             # ...
+    nop             # ...
     sw t2, 0(t1)      # A[k] = L[i]
     addi s5, s5, 1    # i++
     j end_if_merge
-    nop
-    nop
-    nop
+    nop             # Control hazard stall
+    nop             # ...
+    nop             # ...
 
 else_merge:
     # else: A[k] = R[j], j++
     slli t0, s7, 2    # t0 = k * 4
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
     add t1, s0, t0    # t1 = &A[k]
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t1
+    nop             # ...
+    nop             # ...
     sw t3, 0(t1)      # A[k] = R[j]
     addi s6, s6, 1    # j++
 
@@ -302,75 +320,75 @@ end_if_merge:
     # k++
     addi s7, s7, 1
     j merge_loop
-    nop
-    nop
-    nop
+    nop             # Control hazard stall
+    nop             # ...
+    nop             # ...
 
 copy_L_remains:
     # while (i < n1)
     bge s5, s2, merge_end
-    nop
-    nop
-    nop
+    nop             # Control hazard stall
+    nop             # ...
+    nop             # ...
     # A[k] = L[i]
     slli t0, s5, 2
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
     add t1, s3, t0
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t1
+    nop             # ...
+    nop             # ...
     lw t2, 0(t1)      # t2 = L[i]
     slli t0, s7, 2
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
     add t1, s0, t0
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t1
+    nop             # ...
+    nop             # ...
     sw t2, 0(t1)      # A[k] = L[i]
     # i++, k++
     addi s5, s5, 1
     addi s7, s7, 1
     j copy_L_remains
-    nop
-    nop
-    nop
+    nop             # Control hazard stall
+    nop             # ...
+    nop             # ...
 
 copy_R_remains:
     # while (j < n2)
     bge s6, a4, merge_end
-    nop
-    nop
-    nop
+    nop             # Control hazard stall
+    nop             # ...
+    nop             # ...
     # A[k] = R[j]
     slli t0, s6, 2
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
     add t1, s4, t0
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t1
+    nop             # ...
+    nop             # ...
     lw t3, 0(t1)      # t3 = R[j]
     slli t0, s7, 2
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t0
+    nop             # ...
+    nop             # ...
     add t1, s0, t0
-    nop
-    nop
-    nop
+    nop             # Data hazard stall for t1
+    nop             # ...
+    nop             # ...
     sw t3, 0(t1)      # A[k] = R[j]
     # j++, k++
     addi s6, s6, 1
     addi s7, s7, 1
     j copy_R_remains
-    nop
-    nop
-    nop
+    nop             # Control hazard stall
+    nop             # ...
+    nop             # ...
 
 merge_end:
     # --- Epilogue ---
@@ -385,5 +403,3 @@ merge_end:
     addi sp, sp, 32
 
     jalr zero, 0(ra)  # return
-
-
