@@ -439,10 +439,6 @@ begin
     s_IMemAddr <= s_NextInstAddr when '0',
       iInstAddr when others;
 
-  s_RegWrAddr <= s_RegWrAddr_WB; -- Destination register address is bits [11:7] of instruction
-  --s_RegWrData <= oALUOut; -- For now, write data comes from ALU output (just testing addi currently)
-  oALUOut <= s_ALUOut_EX;
-
   IMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
                 DATA_WIDTH => N)
@@ -705,7 +701,7 @@ begin
       i_S => s_PCorMemtoReg_WB,
       i_D0 => s_ALUOut_WB,
       i_D1 => s_DMemOut_Muxed,
-      i_D2 => s_PCPlus4_WB,
+      i_D2 => s_PC_plus_4_WB,
       o_O => s_RegWrData
   );
   
@@ -713,6 +709,10 @@ begin
 
   -- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
   s_Halt <= s_Halt_WB;
+
+  s_RegWrAddr <= s_RegWrAddr_WB; -- Destination register address is bits [11:7] of instruction
+  --s_RegWrData <= oALUOut; -- For now, write data comes from ALU output (just testing addi currently)
+  oALUOut <= s_ALUOut_EX;
   
   -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
 
