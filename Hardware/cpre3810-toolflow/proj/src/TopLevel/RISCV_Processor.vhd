@@ -469,6 +469,7 @@ architecture structure of RISCV_Processor is
         rs1_id       : in std_logic_vector(4 downto 0);
         rs2_id       : in std_logic_vector(4 downto 0);
         rd_ex        : in std_logic_vector(4 downto 0);
+        is_Imm       : in std_logic;
         mem_read_ex  : in std_logic;
         branch_taken : in std_logic; -- Branch AND Branch_cond_met
         pc_write     : out std_logic;
@@ -553,11 +554,14 @@ begin
       o_ALUsrcA0 => s_ALUsrcA0_ID
   );
 
+  --When s_ALUsrcB_EX = 1, an immediate value is being used.
+  --When this is the case, we don't want to check the rs2 field for consumption
   HDU : hazardDetectionUnit
     port map (
       rs1_id => s_Inst_ID(19 downto 15),
       rs2_id => s_Inst_ID(24 downto 20),
       rd_ex => s_RegWrAddr_EX, -- from ID/EX Register
+      is_Imm => s_ALUsrcB_EX,
       mem_read_ex => s_PCorMemtoReg_EX(0), -- least sig bit is for load instructions
       branch_taken => (s_Branch_EX AND s_BranchCondMet_EX) OR s_Jump_EX OR s_JALR_Select_EX, -- Branch AND Branch_cond_met
       pc_write => PC_Write,

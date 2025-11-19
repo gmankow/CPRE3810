@@ -6,6 +6,7 @@ entity hazardDetectionUnit is
         rs1_id       : in std_logic_vector(4 downto 0);
         rs2_id       : in std_logic_vector(4 downto 0);
         rd_ex        : in std_logic_vector(4 downto 0);
+        is_Imm       : in std_Logic;
         mem_read_ex  : in std_logic;
         branch_taken : in std_logic; -- Branch AND Branch_cond_met
         pc_write     : out std_logic;
@@ -24,7 +25,9 @@ architecture dataflow of hazardDetectionUnit is
 begin
 
     -- load use hazard, ie, LW followed by ADD which uses that LW
-    load_use_hazard <= '1' when (mem_read_ex = '1' and (rd_ex = rs1_id or rd_ex = rs2_id)) else '0';
+    load_use_hazard <= '1' when (mem_read_ex = '1' and 
+                                 (rd_ex = rs1_id or (rd_ex = rs2_id and is_Imm = '0'))) 
+                           else '0';
 
     -- Stall PC
     pc_write <= '0' when (load_use_hazard = '1') else '1';
