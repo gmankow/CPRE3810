@@ -559,7 +559,7 @@ begin
       rs2_id => s_Inst_ID(24 downto 20),
       rd_ex => s_RegWrAddr_EX, -- from ID/EX Register
       mem_read_ex => s_PCorMemtoReg_EX(0), -- least sig bit is for load instructions
-      branch_taken => s_Branch_EX AND s_BranchCondMet_EX, -- Branch AND Branch_cond_met
+      branch_taken => (s_Branch_EX AND s_BranchCondMet_EX) OR s_Jump_EX OR s_JALR_Select_EX, -- Branch AND Branch_cond_met
       pc_write => PC_Write,
       if_id_write => IF_ID_Write,
       if_id_flush => IF_ID_Flush,
@@ -734,7 +734,7 @@ begin
   EX_MEM_inst : EX_MEM_Reg
     port map (
       i_CLK => iCLK,
-      i_RST => iRST OR EX_MEM_Flush,
+      i_RST => iRST,
       i_Halt => s_Halt_EX,
       i_MemWrite => s_DMemWr_EX,
       i_RegWrite => s_RegWr_EX,

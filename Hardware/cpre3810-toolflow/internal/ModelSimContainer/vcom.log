@@ -1,5 +1,5 @@
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-Start time: 13:07:53 on Nov 19,2025
+Start time: 13:23:50 on Nov 19,2025
 vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd internal/testpy/tb.vhd proj/src/RISCV_types.vhd proj/src/TopLevel/addSub_32bit.vhd proj/src/TopLevel/hazardDetectionUnit.vhd proj/src/TopLevel/dffNeg.vhd proj/src/TopLevel/controlSignals.vhd proj/src/TopLevel/dMem_Out_Mux.vhd proj/src/TopLevel/ID_EX_Reg.vhd proj/src/TopLevel/mux2t1_N.vhd proj/src/TopLevel/register_N.vhd proj/src/TopLevel/decoder_5t32.vhd proj/src/TopLevel/mux3t1_N.vhd proj/src/TopLevel/BranchCalc.vhd proj/src/TopLevel/forwardingUnit.vhd proj/src/TopLevel/cla_4bit.vhd proj/src/TopLevel/Fetch.vhd proj/src/TopLevel/andg2.vhd proj/src/TopLevel/invg.vhd proj/src/TopLevel/MEM_WB_Reg.vhd proj/src/TopLevel/IF_ID_Reg.vhd proj/src/TopLevel/mux2t1.vhd proj/src/TopLevel/xorg2.vhd proj/src/TopLevel/immediateGenerate.vhd proj/src/TopLevel/EX_MEM_Reg.vhd proj/src/TopLevel/org2.vhd proj/src/TopLevel/dffg.vhd proj/src/TopLevel/register_file.vhd proj/src/TopLevel/ALU.vhd proj/src/TopLevel/mux_32t1.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/register_N_neg.vhd proj/src/TopLevel/Barrel_Shifter.vhd proj/src/TopLevel/RISCV_Processor.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -80,5 +80,5 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd intern
 -- Compiling architecture structural of Barrel_Shifter
 -- Compiling entity RISCV_Processor
 -- Compiling architecture structure of RISCV_Processor
-End time: 13:07:53 on Nov 19,2025, Elapsed time: 0:00:00
+End time: 13:23:50 on Nov 19,2025, Elapsed time: 0:00:00
 Errors: 0, Warnings: 2
