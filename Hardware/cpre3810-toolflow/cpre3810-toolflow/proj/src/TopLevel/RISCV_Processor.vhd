@@ -185,6 +185,17 @@ architecture structure of RISCV_Processor is
   signal s_RegWrAddr_EX : std_logic_vector(4 downto 0);
   signal s_RegWrAddr_MEM : std_logic_vector(4 downto 0);
   signal s_RegWrAddr_WB : std_logic_vector(4 downto 0);
+
+  signal PC_Write : std_logic;
+  signal IF_ID_Write : std_logic;
+  signal IF_ID_Flush : std_logic;
+  signal ID_EX_Flush : std_logic;
+
+  signal forwardA : std_logic_vector(1 downto 0);
+  signal forwardB : std_logic_vector(1 downto 0);
+
+  signal forwardOutA : std_logic_vector(31 downto 0);
+  signal forwardOutB : std_logic_vector(31 downto 0);
   
   component ALU is
       port (
@@ -223,6 +234,7 @@ architecture structure of RISCV_Processor is
 
   component Fetch is
     port (
+        i_Stall : in std_Logic;
         i_BranchAddr : in std_logic_vector(31 downto 0);
         i_CLK : in std_logic;
         i_RST : in std_logic;
@@ -432,6 +444,33 @@ architecture structure of RISCV_Processor is
       );
   end component;
 
+  component forwardingUnit is
+    port (
+        rs1_ex        : in std_logic_vector(4 downto 0);
+        rs2_ex        : in std_logic_vector(4 downto 0);
+        rd_mem        : in std_logic_vector(4 downto 0);
+        reg_write_mem : in std_logic;
+        rd_wb         : in std_logic_vector(4 downto 0);
+        reg_write_wb  : in std_logic;
+        forward_a     : out std_logic_vector(1 downto 0);
+        forward_b     : out std_logic_vector(1 downto 0)
+    );
+  end component;
+
+  component hazardDetectionUnit is
+    port (
+        rs1_id       : in std_logic_vector(4 downto 0);
+        rs2_id       : in std_logic_vector(4 downto 0);
+        rd_ex        : in std_logic_vector(4 downto 0);
+        mem_read_ex  : in std_logic;
+        branch_taken : in std_logic; -- Branch AND Branch_cond_met
+        pc_write     : out std_logic;
+        if_id_write  : out std_logic;
+        if_id_flush  : out std_logic;
+        id_ex_flush  : out std_logic
+    );
+  end component;
+
 begin
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
@@ -459,6 +498,7 @@ begin
             
   fetch_inst : Fetch
     port map (
+        i_Stall => PC_Write, -- TODO put in stall signal from HDU
         i_BranchAddr => s_BranchImmed_MEM,
         i_CLK => iCLK,
         i_RST => iRST,
@@ -476,8 +516,8 @@ begin
     port map (
       i_CLK => iCLK,
       i_RST => iRST,
-      i_Stall => '0',  -- Tie Stall and fetch to '0' (no hardware detection yet)
-      i_Flush => '0', -- TODO: update for hardware
+      i_Stall => IF_ID_Write,  -- Tie Stall and fetch to '0' (no hardware detection yet)
+      i_Flush => IF_ID_Flush, -- TODO: update for hardware
       i_PCPlus4 => s_PC_plus_4_IF,
       i_Instruction => s_Inst,
       i_PC => s_NextInstAddr,
@@ -504,6 +544,19 @@ begin
       o_JALR_Select => s_JALR_Select_ID,
       o_ALUsrcA0 => s_ALUsrcA0_ID
   );
+
+  HDU : hazardDetectionUnit
+    port map (
+      rs1_id => s_Inst_ID(19 downto 15),
+      rs2_id => s_Inst_ID(24 downto 20),
+      rd_ex => s_RegWrAddr_EX, -- from ID/EX Register
+      mem_read_ex => s_PCorMemtoReg_EX(0), -- least sig bit is for load instructions
+      branch_taken => s_Branch_EX AND s_BranchCondMet_EX, -- Branch AND Branch_cond_met
+      pc_write => PC_Write,
+      if_id_write => IF_ID_Write,
+      if_id_flush => IF_ID_Flush,
+      id_ex_flush => ID_EX_Flush
+    );
 
   regFile_inst : register_file
     port map (
@@ -542,7 +595,7 @@ begin
       i_CLK => iCLK,
       i_RST => iRST,
       i_Stall => '0',  -- Tie Stall to '0'
-      i_Flush => '0',  -- Tie Flush to '0'
+      i_Flush => ID_EX_Flush,  -- Tie Flush to '0'
       
       -- Control Signals
       i_Halt => s_Halt_ID,
@@ -589,6 +642,18 @@ begin
       o_RegWrAddr => s_RegWrAddr_EX  
   );
 
+  ForwardUnit : forwardingUnit
+    port map (
+      rs1_ex => s_ALUsrcA_EX,
+      rs2_ex => s_ALUsrcB_EX,
+      rd_mem => s_RegWrAddr_MEM,
+      reg_write_mem => s_RegWr_MEM,
+      rd_wb => s_RegWrAddr,
+      reg_write_wb => s_RegWr,
+      forward_a => forwardA,
+      forward_b => forwardB
+    )
+
   ALUsrcA_mux : mux2t1_N
     generic map (N => 32)
     port map (
@@ -616,10 +681,30 @@ begin
       o_O => s_ALUinB
   );
 
+  forwardA_mux : mux3t1_N
+    generic map (N => 32)
+    port map (
+      i_S => forwardA,
+      i_D0 => s_ALUinA,
+      i_D1 => s_ALUOut_MEM,
+      i_D2 => s_RegWrData,
+      o_O => forwardOutA
+  );
+
+  forwardB_mux : mux3t1_N
+    generic map (N => 32)
+    port map (
+      i_S => forwardB,
+      i_D0 => s_ALUinB,
+      i_D1 => s_ALUOut_MEM,
+      i_D2 => s_RegWrData,
+      o_O => forwardOutB
+  );
+
   ALU_inst : ALU
     port map (
-      i_A => s_ALUinA,
-      i_B => s_ALUinB,
+      i_A => forwardOutA, -- TODO change
+      i_B => forwardOutB, -- TODO change
       i_Control => s_ALUop_EX,
       i_Func3 => s_Func3_EX,
       o_Result => s_ALUOut_EX,

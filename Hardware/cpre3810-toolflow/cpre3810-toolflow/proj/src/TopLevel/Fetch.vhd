@@ -4,6 +4,7 @@ use ieee.numeric_std.all;
 
 entity fetch is 
     port(
+        i_Stall : in std_logic := '0'; -- stall
         i_BranchAddr : in std_logic_vector(31 downto 0); -- Branch target address from BranchCalc
         i_CLK : in std_logic;
         i_RST             : in  std_logic;
@@ -92,7 +93,7 @@ begin
         generic map (INIT_VALUE => x"00400000")
         port map (
             i_CLK => i_CLK,
-            i_WE => '1',
+            i_WE => i_Stall,
             i_RST => i_RST,
             i_D => s_PC_Next,
             o_Q => s_PC_Current
