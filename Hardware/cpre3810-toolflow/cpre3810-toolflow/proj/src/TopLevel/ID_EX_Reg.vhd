@@ -30,6 +30,8 @@ entity ID_EX_Reg is
         i_Out1 : in std_logic_vector(31 downto 0); -- Read data 1 input
         i_Out2 : in std_logic_vector(31 downto 0); -- Read data 2 input
         i_RegWrAddr : in std_logic_vector(4 downto 0);
+        i_Rs1Addr : in std_logic_vector(4 downto 0);
+        i_Rs2Addr : in std_logic_vector(4 downto 0);
         
         o_Halt : out std_logic; -- Halt signal output
         o_ALUsrcA : out std_logic; -- ALU source A output
@@ -49,7 +51,9 @@ entity ID_EX_Reg is
         o_Immediate : out std_logic_vector(31 downto 0); -- Immediate value output
         o_Out1 : out std_logic_vector(31 downto 0); -- Read data 1 output
         o_Out2 : out std_logic_vector(31 downto 0); -- Read data 2 output
-        o_RegWrAddr : out std_logic_vector(4 downto 0)
+        o_RegWrAddr : out std_logic_vector(4 downto 0);
+        o_Rs1Addr : out std_logic_vector(4 downto 0);
+        o_Rs2Addr : out std_logic_vector(4 downto 0)
         
     );
 end entity ID_EX_Reg;
@@ -90,6 +94,8 @@ architecture structural of ID_EX_Reg is
     signal s_D_Out1 : std_logic_vector(31 downto 0);
     signal s_D_Out2 : std_logic_vector(31 downto 0);
     signal s_D_RegWrAddr : std_logic_vector(4 downto 0);
+    signal s_D_Rs1Addr : std_logic_vector(4 downto 0);
+    signal s_D_Rs2Addr : std_logic_vector(4 downto 0);
 
     -- Internal signals for register outputs
     signal Halt_reg : std_logic_vector(0 downto 0);
@@ -112,6 +118,8 @@ architecture structural of ID_EX_Reg is
     signal Out2_reg : std_logic_vector(31 downto 0);
     signal RegWrAddr_reg : std_logic_vector(4 downto 0);
     signal s_WE : std_logic;
+    signal Rs1Addr_reg : std_logic_vector(4 downto 0);
+    signal Rs2Addr_reg : std_logic_vector(4 downto 0);
 
 begin
 
@@ -139,6 +147,28 @@ begin
     s_D_Out1 <= (others => '0') when i_Flush = '1' else i_Out1;
     s_D_Out2 <= (others => '0') when i_Flush = '1' else i_Out2;
     s_D_RegWrAddr <= (others => '0') when i_Flush = '1' else i_RegWrAddr;
+    s_D_Rs1Addr <= (others => '0') when i_Flush = '1' else i_Rs1Addr;
+    s_D_Rs2Addr <= (others => '0') when i_Flush = '1' else i_Rs2Addr;
+
+    RS1_Reg : register_N
+        generic map (N => 5)
+        port map (
+            i_CLK => i_CLK,
+            i_RST => i_RST,
+            i_WE => s_WE,
+            i_D => s_D_Rs1Addr,
+            o_Q => Rs1Addr_reg
+        );
+    
+    RS2_Reg : register_N
+        generic map (N => 5)
+        port map (
+            i_CLK => i_CLK,
+            i_RST => i_RST,
+            i_WE => s_WE,
+            i_D => s_D_Rs2Addr,
+            o_Q => Rs2Addr_reg
+        );
 
 
     -- Instantiate registers for each output
@@ -349,5 +379,7 @@ begin
     o_Out2 <= Out2_reg;
     o_PCorMemtoReg <= PCorMemtoReg_reg; -- <<< MODIFIED
     o_RegWrAddr <= RegWrAddr_reg;     -- <<< ADDED
+    o_Rs1Addr <= Rs1Addr_reg;
+    o_Rs2Addr <= Rs2Addr_reg;
 
 end architecture structural;

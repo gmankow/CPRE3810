@@ -196,6 +196,8 @@ architecture structure of RISCV_Processor is
 
   signal forwardOutA : std_logic_vector(31 downto 0);
   signal forwardOutB : std_logic_vector(31 downto 0);
+  signal rs1Addr_EX : std_logic_vector(4 downto 0);
+  signal rs2Addr_EX : std_logic_vector(4 downto 0);
   
   component ALU is
       port (
@@ -383,6 +385,8 @@ architecture structure of RISCV_Processor is
         i_Out2 : in std_logic_vector(31 downto 0); -- Read data 2 input
         i_PCPlusImm : in std_logic_vector(31 downto 0); -- PC + Immediate input
         i_RegWrAddr : in std_logic_vector(4 downto 0);
+        i_Rs1Addr : in std_logic_vector(4 downto 0);
+        i_Rs2Addr : in std_logic_vector(4 downto 0);
 
         o_Halt : out std_logic; -- Halt signal output
         o_MemWrite : out std_logic; -- Memory write enable output
@@ -397,7 +401,9 @@ architecture structure of RISCV_Processor is
         o_ALUout : out std_logic_vector(31 downto 0); -- ALU output output
         o_Out2 : out std_logic_vector(31 downto 0); -- Read data 2 output
         o_PCPlusImm : out std_logic_vector(31 downto 0); -- PC + Immediate output
-        o_RegWrAddr : out std_logic_vector(4 downto 0)
+        o_RegWrAddr : out std_logic_vector(4 downto 0);
+        o_Rs1Addr : out std_logic_vector(4 downto 0);
+        o_Rs2Addr : out std_logic_vector(4 downto 0)
     );
   end component;
 
@@ -619,6 +625,10 @@ begin
       i_Out1 => s_RegData1_ID,
       i_Out2 => s_RegData2_ID,
       i_RegWrAddr => s_Inst_ID(11 downto 7),
+      i_Rs1Addr => s_Inst_ID(19 downto 15),
+      i_Rs2Addr => s_Inst_ID(24 downto 20),
+
+
 
       -- Corresponding Outputs
       o_Halt => s_Halt_EX,
@@ -639,26 +649,38 @@ begin
       o_Immediate => s_Immediate_EX,
       o_Out1 => s_RegData1_EX,
       o_Out2 => s_RegData2_EX,
-      o_RegWrAddr => s_RegWrAddr_EX  
+      o_RegWrAddr => s_RegWrAddr_EX,
+      o_Rs1Addr => rs1Addr_EX,
+      o_Rs2Addr => rs2Addr_EX
   );
 
   ForwardUnit : forwardingUnit
     port map (
-      rs1_ex => s_ALUsrcA_EX,
-      rs2_ex => s_ALUsrcB_EX,
+      rs1_ex => rs1Addr_EX,
+      rs2_ex => rs2Addr_EX,
       rd_mem => s_RegWrAddr_MEM,
       reg_write_mem => s_RegWr_MEM,
       rd_wb => s_RegWrAddr,
       reg_write_wb => s_RegWr,
       forward_a => forwardA,
       forward_b => forwardB
-    )
+    );
+
+  forwardA_mux : mux3t1_N
+    generic map (N => 32)
+    port map (
+      i_S => forwardA,
+      i_D0 => s_RegData1_EX,
+      i_D1 => s_ALUOut_MEM,
+      i_D2 => s_RegWrData,
+      o_O => forwardOutA
+  );
 
   ALUsrcA_mux : mux2t1_N
     generic map (N => 32)
     port map (
       i_S => s_ALUsrcA_EX,
-      i_D0 => s_RegData1_EX,
+      i_D0 => forwardOutA,
       i_D1 => s_CurPC_EX,
       o_O => s_ALUsrcA1MuxOut
   );
@@ -672,39 +694,30 @@ begin
       o_O => s_ALUinA
   );
 
-  ALUsrcB_mux : mux2t1_N
-    generic map (N => 32)
-    port map (
-      i_S => s_ALUsrcB_EX,
-      i_D0 => s_RegData2_EX,
-      i_D1 => s_Immediate_EX,
-      o_O => s_ALUinB
-  );
-
-  forwardA_mux : mux3t1_N
-    generic map (N => 32)
-    port map (
-      i_S => forwardA,
-      i_D0 => s_ALUinA,
-      i_D1 => s_ALUOut_MEM,
-      i_D2 => s_RegWrData,
-      o_O => forwardOutA
-  );
-
   forwardB_mux : mux3t1_N
     generic map (N => 32)
     port map (
       i_S => forwardB,
-      i_D0 => s_ALUinB,
+      i_D0 => s_RegData2_EX,
       i_D1 => s_ALUOut_MEM,
       i_D2 => s_RegWrData,
       o_O => forwardOutB
   );
 
+  ALUsrcB_mux : mux2t1_N
+    generic map (N => 32)
+    port map (
+      i_S => s_ALUsrcB_EX,
+      i_D0 => forwardOutB,
+      i_D1 => s_Immediate_EX,
+      o_O => s_ALUinB
+  );
+
+
   ALU_inst : ALU
     port map (
-      i_A => forwardOutA, -- TODO change
-      i_B => forwardOutB, -- TODO change
+      i_A => s_ALUinA, -- TODO change
+      i_B => s_ALUinB, -- TODO change
       i_Control => s_ALUop_EX,
       i_Func3 => s_Func3_EX,
       o_Result => s_ALUOut_EX,
@@ -730,7 +743,7 @@ begin
       i_Branch_cond_met => s_BranchCondMet_EX,
       i_PCPlus4 => s_PC_plus_4_EX,
       i_ALUout => s_ALUOut_EX,
-      i_Out2 => s_RegData2_EX,
+      i_Out2 => forwardOutB,
       i_PCPlusImm => s_BranchImmed_EX,
       i_RegWrAddr => s_RegWrAddr_EX,
       o_Halt => s_Halt_MEM,
