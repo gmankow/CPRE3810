@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity fetch is 
     port(
-        i_Stall : in std_logic := '0'; -- stall
+        i_Stall : in std_logic; -- stall
         i_BranchAddr : in std_logic_vector(31 downto 0); -- Branch target address from BranchCalc
         i_CLK : in std_logic;
         i_RST             : in  std_logic;

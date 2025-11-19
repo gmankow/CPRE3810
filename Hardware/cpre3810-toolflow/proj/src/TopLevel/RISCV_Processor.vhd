@@ -199,6 +199,11 @@ architecture structure of RISCV_Processor is
   signal forwardOutB : std_logic_vector(31 downto 0);
   signal rs1Addr_EX : std_logic_vector(4 downto 0);
   signal rs2Addr_EX : std_logic_vector(4 downto 0);
+
+  signal s_ForwardVal_MEM : std_logic_vector(31 downto 0);
+
+  signal s_RF_CompareOut : std_logic;
+  signal s_BranchAdder_A : std_logic_vector(31 downto 0);
   
   component ALU is
       port (
@@ -269,8 +274,10 @@ architecture structure of RISCV_Processor is
         i_Source2 : in std_logic_vector(4 downto 0);
         i_WriteReg : in std_logic_vector(4 downto 0);
         DIN : in std_logic_vector(N-1 downto 0);
+        i_func3 : in std_logic_vector(2 downto 0);
         Source1Out : out std_logic_vector(N-1 downto 0);
-        Source2Out : out std_logic_vector(N-1 downto 0)
+        Source2Out : out std_logic_vector(N-1 downto 0);
+        CompareOut : out std_logic
     );
   end component;
 
@@ -469,14 +476,28 @@ architecture structure of RISCV_Processor is
         rs1_id       : in std_logic_vector(4 downto 0);
         rs2_id       : in std_logic_vector(4 downto 0);
         rd_ex        : in std_logic_vector(4 downto 0);
+        rd_mem       : in std_logic_vector(4 downto 0);
+        reg_write_ex : in std_logic;
+        reg_write_mem: in std_logic;
+        rd_wb        : in std_logic_vector(4 downto 0);
+        reg_write_wb : in std_logic;
         is_Imm       : in std_logic;
         mem_read_ex  : in std_logic;
+        is_branch_id : in std_logic;
         branch_taken : in std_logic; -- Branch AND Branch_cond_met
         pc_write     : out std_logic;
         if_id_write  : out std_logic;
         if_id_flush  : out std_logic;
         id_ex_flush  : out std_logic;
         ex_mem_flush : out std_logic
+    );
+  end component;
+
+  component BranchCalc is
+    port (
+        i_PC : in std_logic_vector(31 downto 0);
+        i_Immediate : in std_logic_vector(31 downto 0);
+        o_BranchAddr : out std_logic_vector(31 downto 0)
     );
   end component;
 
@@ -508,14 +529,14 @@ begin
   fetch_inst : Fetch
     port map (
         i_Stall => PC_Write, -- TODO put in stall signal from HDU
-        i_BranchAddr => s_BranchImmed_MEM,
+        i_BranchAddr => s_BranchImmed_ID,
         i_CLK => iCLK,
         i_RST => iRST,
-        i_ALUout => s_ALUOut_MEM,
-        c_jump => s_Jump_MEM,
-        c_branch => s_Branch_MEM,
-        c_branch_cond_met => s_BranchCondMet_MEM,
-        c_jalr => s_JALR_Select_MEM,
+        i_ALUout => s_BranchImmed_ID,
+        c_jump => s_Jump_ID,
+        c_branch => s_Branch_ID,
+        c_branch_cond_met => s_RF_CompareOut,
+        c_jalr => s_JALR_Select_ID,
         o_PC_out => s_NextInstAddr,
         o_PC_plus_4_out => s_PC_plus_4_IF,
         o_PC_final => s_PC_Out
@@ -524,7 +545,7 @@ begin
   IF_ID_inst : IF_ID_Reg
     port map (
       i_CLK => iCLK,
-      i_RST => iRST OR IF_ID_Flush,
+      i_RST => iRST,
       i_Stall => IF_ID_Write,  -- Tie Stall and fetch to '0' (no hardware detection yet)
       i_Flush => IF_ID_Flush, -- TODO: update for hardware
       i_PCPlus4 => s_PC_plus_4_IF,
@@ -561,9 +582,15 @@ begin
       rs1_id => s_Inst_ID(19 downto 15),
       rs2_id => s_Inst_ID(24 downto 20),
       rd_ex => s_RegWrAddr_EX, -- from ID/EX Register
-      is_Imm => s_ALUsrcB_EX,
+      rd_mem => s_RegWrAddr_MEM, -- from EX/MEM Register
+      reg_write_ex => s_RegWr_EX,
+      reg_write_mem => s_RegWr_MEM,
+      rd_wb => s_RegWrAddr, -- from MEM/WB Register
+      reg_write_wb => s_RegWr,
+      is_Imm => s_ALUsrcB_ID,
       mem_read_ex => s_PCorMemtoReg_EX(0), -- least sig bit is for load instructions
-      branch_taken => (s_Branch_EX AND s_BranchCondMet_EX) OR s_Jump_EX OR s_JALR_Select_EX, -- Branch AND Branch_cond_met
+      is_branch_id => s_Branch_ID,
+      branch_taken => (s_Branch_ID AND s_RF_CompareOut) OR s_Jump_ID, -- Branch AND Branch_cond_met
       pc_write => PC_Write,
       if_id_write => IF_ID_Write,
       if_id_flush => IF_ID_Flush,
@@ -580,8 +607,10 @@ begin
       i_Source2 => s_Inst_ID(24 downto 20),
       i_WriteReg => s_RegWrAddr,
       DIN => s_RegWrData, -- from WB stage
+      i_func3 => s_Inst_ID(14 downto 12),
       Source1Out => s_RegData1_ID,
-      Source2Out => s_RegData2_ID
+      Source2Out => s_RegData2_ID,
+      CompareOut => s_RF_CompareOut
   );
 
   immediate_gen_inst : immediateGenerate
@@ -591,9 +620,11 @@ begin
       o_Immediate => s_Immediate_ID
   );
 
+  s_BranchAdder_A <= s_RegData1_ID when s_JALR_Select_ID = '1' else s_CurPC_ID;
+
   branch_adder_inst : addSub_32bit
     port map (
-      i_A => s_CurPC_ID,
+      i_A => s_BranchAdder_A,
       i_B => s_Immediate_ID,
       i_Cin => '0',
       o_Sum => s_BranchImmed_ID,
@@ -606,9 +637,9 @@ begin
   ID_EX_inst : ID_EX_Reg
     port map (
       i_CLK => iCLK,
-      i_RST => iRST OR ID_EX_Flush,
-      i_Stall => '1',  -- Tie Stall to '0'
-      i_Flush => ID_EX_Flush,  -- Tie Flush to '0'
+      i_RST => iRST,
+      i_Stall => '1',  -- 1 to always allow updates
+      i_Flush => ID_EX_Flush,  -- 1 to flush
       
       -- Control Signals
       i_Halt => s_Halt_ID,
@@ -672,13 +703,14 @@ begin
       forward_a => forwardA,
       forward_b => forwardB
     );
+  s_ForwardVal_MEM <= s_PC_plus_4_MEM when s_PCorMemtoReg_MEM = "10" else s_ALUOut_MEM;
 
   forwardA_mux : mux3t1_N
     generic map (N => 32)
     port map (
       i_S => forwardA,
       i_D0 => s_RegData1_EX,
-      i_D1 => s_ALUOut_MEM,
+      i_D1 => s_ForwardVal_MEM,
       i_D2 => s_RegWrData,
       o_O => forwardOutA
   );
@@ -706,7 +738,7 @@ begin
     port map (
       i_S => forwardB,
       i_D0 => s_RegData2_EX,
-      i_D1 => s_ALUOut_MEM,
+      i_D1 => s_ForwardVal_MEM,
       i_D2 => s_RegWrData,
       o_O => forwardOutB
   );

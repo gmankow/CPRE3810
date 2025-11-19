@@ -14,8 +14,10 @@ entity register_file is
         i_Source2 : in std_logic_vector(4 downto 0);
         i_WriteReg : in std_logic_vector(4 downto 0);
         DIN : in std_logic_vector(N-1 downto 0);
+        i_func3 : in std_logic_vector(2 downto 0);
         Source1Out : out std_logic_vector(N-1 downto 0);
-        Source2Out : out std_logic_vector(N-1 downto 0)
+        Source2Out : out std_logic_vector(N-1 downto 0);
+        CompareOut : out std_logic
     );
 end entity register_file;
 
@@ -105,6 +107,11 @@ architecture structural of register_file is
                 i_D => registers_out,
                 o_Y => Source2Out
             );
+        
+        -- Compare Source1Out and Source2Out for equality
+        CompareOut <= '1' when (i_func3 = "000" and Source1Out = Source2Out) else
+                       '1' when (i_func3 = "001" and Source1Out /= Source2Out) else
+                       '0';
 
 end structural;
 
