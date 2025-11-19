@@ -344,6 +344,8 @@ architecture structure of RISCV_Processor is
         i_Out1 : in std_logic_vector(31 downto 0); -- Read data 1 input
         i_Out2 : in std_logic_vector(31 downto 0); -- Read data 2 input
         i_RegWrAddr : in std_logic_vector(4 downto 0);
+        i_Rs1Addr : in std_logic_vector(4 downto 0);
+        i_Rs2Addr : in std_logic_vector(4 downto 0);
         
         o_Halt : out std_logic; -- Halt signal output
         o_ALUsrcA : out std_logic; -- ALU source A output
@@ -363,7 +365,9 @@ architecture structure of RISCV_Processor is
         o_Immediate : out std_logic_vector(31 downto 0); -- Immediate value output
         o_Out1 : out std_logic_vector(31 downto 0); -- Read data 1 output
         o_Out2 : out std_logic_vector(31 downto 0); -- Read data 2 output
-        o_RegWrAddr : out std_logic_vector(4 downto 0)
+        o_RegWrAddr : out std_logic_vector(4 downto 0);
+        o_Rs1Addr : out std_logic_vector(4 downto 0);
+        o_Rs2Addr : out std_logic_vector(4 downto 0)
     );
   end component;
 
@@ -385,8 +389,6 @@ architecture structure of RISCV_Processor is
         i_Out2 : in std_logic_vector(31 downto 0); -- Read data 2 input
         i_PCPlusImm : in std_logic_vector(31 downto 0); -- PC + Immediate input
         i_RegWrAddr : in std_logic_vector(4 downto 0);
-        i_Rs1Addr : in std_logic_vector(4 downto 0);
-        i_Rs2Addr : in std_logic_vector(4 downto 0);
 
         o_Halt : out std_logic; -- Halt signal output
         o_MemWrite : out std_logic; -- Memory write enable output
@@ -401,9 +403,7 @@ architecture structure of RISCV_Processor is
         o_ALUout : out std_logic_vector(31 downto 0); -- ALU output output
         o_Out2 : out std_logic_vector(31 downto 0); -- Read data 2 output
         o_PCPlusImm : out std_logic_vector(31 downto 0); -- PC + Immediate output
-        o_RegWrAddr : out std_logic_vector(4 downto 0);
-        o_Rs1Addr : out std_logic_vector(4 downto 0);
-        o_Rs2Addr : out std_logic_vector(4 downto 0)
+        o_RegWrAddr : out std_logic_vector(4 downto 0)
     );
   end component;
 
