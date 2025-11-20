@@ -1,6 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use work.RISCV_types.all;
+use IEEE.numeric_std.all;
 
 entity register_file is
     generic (
