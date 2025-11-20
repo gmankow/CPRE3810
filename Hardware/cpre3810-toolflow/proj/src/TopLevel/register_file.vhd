@@ -109,8 +109,12 @@ architecture structural of register_file is
             );
         
         -- Compare Source1Out and Source2Out for equality
-        CompareOut <= '1' when (i_func3 = "000" and Source1Out = Source2Out) else
-                       '1' when (i_func3 = "001" and Source1Out /= Source2Out) else
+        CompareOut <= '1' when (i_func3 = "000" and Source1Out = Source2Out) else -- BEQ
+                        '1' when (i_func3 = "001" and Source1Out /= Source2Out) else -- BNE
+                        '1' when (i_func3 = "100" and signed(Source1Out) < signed(Source2Out)) else -- BLT
+                        '1' when (i_func3 = "101" and signed(Source1Out) >= signed(Source2Out)) else -- BGE
+                        '1' when (i_func3 = "110" and unsigned(Source1Out) < unsigned(Source2Out)) else -- BLTU
+                        '1' when (i_func3 = "111" and unsigned(Source1Out) >= unsigned(Source2Out)) else -- BGEU
                        '0';
 
 end structural;
