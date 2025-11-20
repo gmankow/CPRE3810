@@ -11,7 +11,9 @@ entity hazardDetectionUnit is
         reg_write_mem : in std_logic;
         rd_wb        : in std_logic_vector(4 downto 0);
         reg_write_wb : in std_logic;
-        is_Imm       : in std_Logic;
+        is_Imm       : in std_logic;
+        is_store_id  : in std_logic;
+        is_JALR_id   : in std_logic;
         mem_read_ex  : in std_logic;
         is_branch_id : in std_logic;
         branch_taken : in std_logic; -- Branch AND Branch_cond_met
@@ -29,29 +31,34 @@ architecture dataflow of hazardDetectionUnit is
     signal load_use_hazard : std_logic;
     signal branch_data_hazard : std_logic;
     signal stall_pipeline : std_logic;
+    signal uses_rs2 : std_logic;
 
 begin
 
+    uses_rs2 <= '1' when (is_Imm = '0' or is_store_id = '1') else '0';
+
     -- 1. Load-Use Hazard (Standard)
     -- Stalls if ID instruction needs result of LW in EX
-    load_use_hazard <= '1' when (mem_read_ex = '1' and (rd_ex = rs1_id or rd_ex = rs2_id) and rd_ex /= "00000") else '0';
+    load_use_hazard <= '1' when (mem_read_ex = '1' and rd_ex /= "00000" and 
+                        ((rd_ex = rs1_id) or (rd_ex = rs2_id and uses_rs2 = '1'))) -- Gated rs2 check
+                        else '0';
 
     -- 2. Branch Data Hazard
-    -- Stalls if Branch in ID needs result from EX, MEM, **OR WB**
-    branch_data_hazard <= '1' when (is_branch_id = '1' and (
-                                     -- Check Hazard with EX Stage
-                                     (reg_write_ex = '1' and rd_ex /= "00000" and 
-                                     (rd_ex = rs1_id or rd_ex = rs2_id)) 
-                                     OR
-                                     -- Check Hazard with MEM Stage
-                                     (reg_write_mem = '1' and rd_mem /= "00000" and 
-                                     (rd_mem = rs1_id or rd_mem = rs2_id))
-                                     OR
-                                     -- NEW: Check Hazard with WB Stage
-                                     (reg_write_wb = '1' and rd_wb /= "00000" and 
-                                     (rd_wb = rs1_id or rd_wb = rs2_id))
-                                   )) 
-                             else '0';
+    -- Stalls if Branch in ID needs result from EX, MEM
+    branch_data_hazard <= '1' when ( (is_branch_id = '1' or is_jalr_id = '1') and -- Check Trigger
+                                     (
+                                        -- Check Hazard with EX Stage (ALU Result not yet written)
+                                        (reg_write_ex = '1' and rd_ex /= "00000" and 
+                                        (rd_ex = rs1_id or (rd_ex = rs2_id and uses_rs2 = '1')))
+                                        
+                                        OR
+                                        
+                                        -- Check Hazard with MEM Stage (Memory/ALU result not yet written)
+                                        (reg_write_mem = '1' and rd_mem /= "00000" and 
+                                        (rd_mem = rs1_id or (rd_mem = rs2_id and uses_rs2 = '1')))
+                                     )
+                                   ) 
+                          else '0';
     -- Combined Stall Signal
     stall_pipeline <= load_use_hazard OR branch_data_hazard;
 

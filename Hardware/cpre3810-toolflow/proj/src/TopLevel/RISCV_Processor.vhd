@@ -482,6 +482,8 @@ architecture structure of RISCV_Processor is
         rd_wb        : in std_logic_vector(4 downto 0);
         reg_write_wb : in std_logic;
         is_Imm       : in std_logic;
+        is_store_id  : in std_logic;
+        is_JALR_id   : in std_logic;
         mem_read_ex  : in std_logic;
         is_branch_id : in std_logic;
         branch_taken : in std_logic; -- Branch AND Branch_cond_met
@@ -588,9 +590,11 @@ begin
       rd_wb => s_RegWrAddr, -- from MEM/WB Register
       reg_write_wb => s_RegWr,
       is_Imm => s_ALUsrcB_ID,
+      is_store_id => s_DMemWr_ID,
+      is_JALR_id => s_JALR_Select_ID,
       mem_read_ex => s_PCorMemtoReg_EX(0), -- least sig bit is for load instructions
       is_branch_id => s_Branch_ID,
-      branch_taken => (s_Branch_ID AND s_RF_CompareOut) OR s_Jump_ID, -- Branch AND Branch_cond_met
+      branch_taken => (s_Branch_ID AND s_RF_CompareOut) OR s_Jump_ID OR s_JALR_Select_ID, -- Branch AND Branch_cond_met
       pc_write => PC_Write,
       if_id_write => IF_ID_Write,
       if_id_flush => IF_ID_Flush,
