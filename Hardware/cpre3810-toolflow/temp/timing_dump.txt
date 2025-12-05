@@ -1,0 +1,516 @@
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
+    Info: Copyright (C) 2020  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Wed Dec  3 12:19:46 2025
+Info: Command: quartus_sta --sdc=toolflow.sdc toolflow --do_report_timing
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (21076): High junction temperature operating condition is not set. Assuming a default value of '85'.
+Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '0'.
+Info (332104): Reading SDC File: 'toolflow.sdc'
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -1.405
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.405             -69.082 iCLK 
+Info (332146): Worst-case hold slack is 0.387
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.387               0.000 iCLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.625
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.625               0.000 iCLK 
+Info (332115): Report Timing: Found 1 setup paths (1 violated).  Worst case slack is -1.405
+    Info (332115): -to_clock [get_clocks {iCLK}]
+    Info (332115): -setup
+    Info (332115): -stdout
+Info (332115): Path #1: Setup slack is -1.405 (VIOLATED)
+    Info (332115): ===================================================================
+    Info (332115): From Node    : register_file:regFile_inst|register_N_neg:\gen_registers:4:gen_other:reg_i|dffgNeg:\gen_dffg:2:dffg_inst|s_Q
+    Info (332115): To Node      : IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+    Info (332115): Launch Clock : iCLK (INVERTED)
+    Info (332115): Latch Clock  : iCLK
+    Info (332115): Data Arrival Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):     10.000     10.000           launch edge time
+    Info (332115):     13.100      3.100  F        clock network delay
+    Info (332115):     13.332      0.232     uTco  register_file:regFile_inst|register_N_neg:\gen_registers:4:gen_other:reg_i|dffgNeg:\gen_dffg:2:dffg_inst|s_Q
+    Info (332115):     13.332      0.000 FF  CELL  regFile_inst|\gen_registers:4:gen_other:reg_i|\gen_dffg:2:dffg_inst|s_Q|q
+    Info (332115):     13.728      0.396 FF    IC  regFile_inst|mux|Mux29~12|dataa
+    Info (332115):     14.132      0.404 FF  CELL  regFile_inst|mux|Mux29~12|combout
+    Info (332115):     14.360      0.228 FF    IC  regFile_inst|mux|Mux29~13|datad
+    Info (332115):     14.510      0.150 FR  CELL  regFile_inst|mux|Mux29~13|combout
+    Info (332115):     15.175      0.665 RR    IC  regFile_inst|mux|Mux29~14|datad
+    Info (332115):     15.330      0.155 RR  CELL  regFile_inst|mux|Mux29~14|combout
+    Info (332115):     15.534      0.204 RR    IC  regFile_inst|mux|Mux29~15|datad
+    Info (332115):     15.689      0.155 RR  CELL  regFile_inst|mux|Mux29~15|combout
+    Info (332115):     16.722      1.033 RR    IC  regFile_inst|mux|Mux29~16|datad
+    Info (332115):     16.877      0.155 RR  CELL  regFile_inst|mux|Mux29~16|combout
+    Info (332115):     17.082      0.205 RR    IC  regFile_inst|mux|Mux29~19|datad
+    Info (332115):     17.221      0.139 RF  CELL  regFile_inst|mux|Mux29~19|combout
+    Info (332115):     18.229      1.008 FF    IC  regFile_inst|LessThan2~5|dataa
+    Info (332115):     18.727      0.498 FR  CELL  regFile_inst|LessThan2~5|cout
+    Info (332115):     18.727      0.000 RR    IC  regFile_inst|LessThan2~7|cin
+    Info (332115):     18.793      0.066 RF  CELL  regFile_inst|LessThan2~7|cout
+    Info (332115):     18.793      0.000 FF    IC  regFile_inst|LessThan2~9|cin
+    Info (332115):     18.859      0.066 FR  CELL  regFile_inst|LessThan2~9|cout
+    Info (332115):     18.859      0.000 RR    IC  regFile_inst|LessThan2~11|cin
+    Info (332115):     18.925      0.066 RF  CELL  regFile_inst|LessThan2~11|cout
+    Info (332115):     18.925      0.000 FF    IC  regFile_inst|LessThan2~13|cin
+    Info (332115):     18.991      0.066 FR  CELL  regFile_inst|LessThan2~13|cout
+    Info (332115):     18.991      0.000 RR    IC  regFile_inst|LessThan2~15|cin
+    Info (332115):     19.057      0.066 RF  CELL  regFile_inst|LessThan2~15|cout
+    Info (332115):     19.057      0.000 FF    IC  regFile_inst|LessThan2~17|cin
+    Info (332115):     19.123      0.066 FR  CELL  regFile_inst|LessThan2~17|cout
+    Info (332115):     19.123      0.000 RR    IC  regFile_inst|LessThan2~19|cin
+    Info (332115):     19.189      0.066 RF  CELL  regFile_inst|LessThan2~19|cout
+    Info (332115):     19.189      0.000 FF    IC  regFile_inst|LessThan2~21|cin
+    Info (332115):     19.255      0.066 FR  CELL  regFile_inst|LessThan2~21|cout
+    Info (332115):     19.255      0.000 RR    IC  regFile_inst|LessThan2~23|cin
+    Info (332115):     19.321      0.066 RF  CELL  regFile_inst|LessThan2~23|cout
+    Info (332115):     19.321      0.000 FF    IC  regFile_inst|LessThan2~25|cin
+    Info (332115):     19.387      0.066 FR  CELL  regFile_inst|LessThan2~25|cout
+    Info (332115):     19.387      0.000 RR    IC  regFile_inst|LessThan2~27|cin
+    Info (332115):     19.453      0.066 RF  CELL  regFile_inst|LessThan2~27|cout
+    Info (332115):     19.453      0.000 FF    IC  regFile_inst|LessThan2~29|cin
+    Info (332115):     19.519      0.066 FR  CELL  regFile_inst|LessThan2~29|cout
+    Info (332115):     19.519      0.000 RR    IC  regFile_inst|LessThan2~31|cin
+    Info (332115):     19.585      0.066 RF  CELL  regFile_inst|LessThan2~31|cout
+    Info (332115):     19.585      0.000 FF    IC  regFile_inst|LessThan2~33|cin
+    Info (332115):     19.651      0.066 FR  CELL  regFile_inst|LessThan2~33|cout
+    Info (332115):     19.651      0.000 RR    IC  regFile_inst|LessThan2~35|cin
+    Info (332115):     19.717      0.066 RF  CELL  regFile_inst|LessThan2~35|cout
+    Info (332115):     19.717      0.000 FF    IC  regFile_inst|LessThan2~37|cin
+    Info (332115):     19.783      0.066 FR  CELL  regFile_inst|LessThan2~37|cout
+    Info (332115):     19.783      0.000 RR    IC  regFile_inst|LessThan2~39|cin
+    Info (332115):     19.849      0.066 RF  CELL  regFile_inst|LessThan2~39|cout
+    Info (332115):     19.849      0.000 FF    IC  regFile_inst|LessThan2~41|cin
+    Info (332115):     19.915      0.066 FR  CELL  regFile_inst|LessThan2~41|cout
+    Info (332115):     19.915      0.000 RR    IC  regFile_inst|LessThan2~43|cin
+    Info (332115):     19.981      0.066 RF  CELL  regFile_inst|LessThan2~43|cout
+    Info (332115):     19.981      0.000 FF    IC  regFile_inst|LessThan2~45|cin
+    Info (332115):     20.047      0.066 FR  CELL  regFile_inst|LessThan2~45|cout
+    Info (332115):     20.047      0.000 RR    IC  regFile_inst|LessThan2~47|cin
+    Info (332115):     20.113      0.066 RF  CELL  regFile_inst|LessThan2~47|cout
+    Info (332115):     20.113      0.000 FF    IC  regFile_inst|LessThan2~49|cin
+    Info (332115):     20.179      0.066 FR  CELL  regFile_inst|LessThan2~49|cout
+    Info (332115):     20.179      0.000 RR    IC  regFile_inst|LessThan2~51|cin
+    Info (332115):     20.245      0.066 RF  CELL  regFile_inst|LessThan2~51|cout
+    Info (332115):     20.245      0.000 FF    IC  regFile_inst|LessThan2~53|cin
+    Info (332115):     20.311      0.066 FR  CELL  regFile_inst|LessThan2~53|cout
+    Info (332115):     20.311      0.000 RR    IC  regFile_inst|LessThan2~55|cin
+    Info (332115):     20.377      0.066 RF  CELL  regFile_inst|LessThan2~55|cout
+    Info (332115):     20.377      0.000 FF    IC  regFile_inst|LessThan2~57|cin
+    Info (332115):     20.443      0.066 FR  CELL  regFile_inst|LessThan2~57|cout
+    Info (332115):     20.443      0.000 RR    IC  regFile_inst|LessThan2~59|cin
+    Info (332115):     20.509      0.066 RF  CELL  regFile_inst|LessThan2~59|cout
+    Info (332115):     20.509      0.000 FF    IC  regFile_inst|LessThan2~61|cin
+    Info (332115):     20.575      0.066 FR  CELL  regFile_inst|LessThan2~61|cout
+    Info (332115):     20.575      0.000 RR    IC  regFile_inst|LessThan2~62|cin
+    Info (332115):     21.111      0.536 RR  CELL  regFile_inst|LessThan2~62|combout
+    Info (332115):     21.477      0.366 RR    IC  fetch_inst|s_Jump_Select~0|datad
+    Info (332115):     21.616      0.139 RF  CELL  fetch_inst|s_Jump_Select~0|combout
+    Info (332115):     21.842      0.226 FF    IC  fetch_inst|s_Jump_Select~4|datad
+    Info (332115):     21.967      0.125 FF  CELL  fetch_inst|s_Jump_Select~4|combout
+    Info (332115):     22.206      0.239 FF    IC  fetch_inst|s_Jump_Select|datad
+    Info (332115):     22.331      0.125 FF  CELL  fetch_inst|s_Jump_Select|combout
+    Info (332115):     24.581      2.250 FF    IC  IF_ID_inst|s_D_Instruction[20]~22|datad
+    Info (332115):     24.731      0.150 FR  CELL  IF_ID_inst|s_D_Instruction[20]~22|combout
+    Info (332115):     24.731      0.000 RR    IC  IF_ID_inst|Instruction_reg_inst|\gen_dffg:20:dffg_inst|s_Q|d
+    Info (332115):     24.818      0.087 RR  CELL  IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+    Info (332115): Data Required Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):     20.000     20.000           latch edge time
+    Info (332115):     23.407      3.407  R        clock network delay
+    Info (332115):     23.415      0.008           clock pessimism removed
+    Info (332115):     23.395     -0.020           clock uncertainty
+    Info (332115):     23.413      0.018     uTsu  IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+    Info (332115): Data Arrival Time  :    24.818
+    Info (332115): Data Required Time :    23.413
+    Info (332115): Slack              :    -1.405 (VIOLATED)
+    Info (332115): ===================================================================
+Info (332115): Report Timing: Found 1 hold paths (0 violated).  Worst case slack is 0.387
+    Info (332115): -to_clock [get_clocks {iCLK}]
+    Info (332115): -hold
+    Info (332115): -stdout
+Info (332115): Path #1: Hold slack is 0.387 
+    Info (332115): ===================================================================
+    Info (332115): From Node    : fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:28:dffg_inst|s_Q
+    Info (332115): To Node      : fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:28:dffg_inst|s_Q
+    Info (332115): Launch Clock : iCLK
+    Info (332115): Latch Clock  : iCLK
+    Info (332115): Data Arrival Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           launch edge time
+    Info (332115):      3.330      3.330  R        clock network delay
+    Info (332115):      3.562      0.232     uTco  fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:28:dffg_inst|s_Q
+    Info (332115):      3.562      0.000 FF  CELL  fetch_inst|PC|\gen_dffg:28:dffg_inst|s_Q|q
+    Info (332115):      3.562      0.000 FF    IC  fetch_inst|jalr_Mux|\G_NBit_MUX:28:MUXI|or_gate|o_F~0|datac
+    Info (332115):      3.923      0.361 FF  CELL  fetch_inst|jalr_Mux|\G_NBit_MUX:28:MUXI|or_gate|o_F~0|combout
+    Info (332115):      3.923      0.000 FF    IC  fetch_inst|PC|\gen_dffg:28:dffg_inst|s_Q|d
+    Info (332115):      3.999      0.076 FF  CELL  fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:28:dffg_inst|s_Q
+    Info (332115): Data Required Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           latch edge time
+    Info (332115):      3.458      3.458  R        clock network delay
+    Info (332115):      3.426     -0.032           clock pessimism removed
+    Info (332115):      3.426      0.000           clock uncertainty
+    Info (332115):      3.612      0.186      uTh  fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:28:dffg_inst|s_Q
+    Info (332115): Data Arrival Time  :     3.999
+    Info (332115): Data Required Time :     3.612
+    Info (332115): Slack              :     0.387 
+    Info (332115): ===================================================================
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.341
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.341              -3.225 iCLK 
+Info (332146): Worst-case hold slack is 0.340
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.340               0.000 iCLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.646
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.646               0.000 iCLK 
+Info (332115): Report Timing: Found 1 setup paths (1 violated).  Worst case slack is -0.341
+    Info (332115): -to_clock [get_clocks {iCLK}]
+    Info (332115): -setup
+    Info (332115): -stdout
+Info (332115): Path #1: Setup slack is -0.341 (VIOLATED)
+    Info (332115): ===================================================================
+    Info (332115): From Node    : register_file:regFile_inst|register_N_neg:\gen_registers:4:gen_other:reg_i|dffgNeg:\gen_dffg:2:dffg_inst|s_Q
+    Info (332115): To Node      : IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+    Info (332115): Launch Clock : iCLK (INVERTED)
+    Info (332115): Latch Clock  : iCLK
+    Info (332115): Data Arrival Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):     10.000     10.000           launch edge time
+    Info (332115):     12.785      2.785  F        clock network delay
+    Info (332115):     12.998      0.213     uTco  register_file:regFile_inst|register_N_neg:\gen_registers:4:gen_other:reg_i|dffgNeg:\gen_dffg:2:dffg_inst|s_Q
+    Info (332115):     12.998      0.000 FF  CELL  regFile_inst|\gen_registers:4:gen_other:reg_i|\gen_dffg:2:dffg_inst|s_Q|q
+    Info (332115):     13.355      0.357 FF    IC  regFile_inst|mux|Mux29~12|dataa
+    Info (332115):     13.715      0.360 FF  CELL  regFile_inst|mux|Mux29~12|combout
+    Info (332115):     13.923      0.208 FF    IC  regFile_inst|mux|Mux29~13|datad
+    Info (332115):     14.057      0.134 FR  CELL  regFile_inst|mux|Mux29~13|combout
+    Info (332115):     14.684      0.627 RR    IC  regFile_inst|mux|Mux29~14|datad
+    Info (332115):     14.828      0.144 RR  CELL  regFile_inst|mux|Mux29~14|combout
+    Info (332115):     15.016      0.188 RR    IC  regFile_inst|mux|Mux29~15|datad
+    Info (332115):     15.160      0.144 RR  CELL  regFile_inst|mux|Mux29~15|combout
+    Info (332115):     16.122      0.962 RR    IC  regFile_inst|mux|Mux29~16|datad
+    Info (332115):     16.266      0.144 RR  CELL  regFile_inst|mux|Mux29~16|combout
+    Info (332115):     16.455      0.189 RR    IC  regFile_inst|mux|Mux29~19|datad
+    Info (332115):     16.580      0.125 RF  CELL  regFile_inst|mux|Mux29~19|combout
+    Info (332115):     17.484      0.904 FF    IC  regFile_inst|LessThan2~5|dataa
+    Info (332115):     17.919      0.435 FR  CELL  regFile_inst|LessThan2~5|cout
+    Info (332115):     17.919      0.000 RR    IC  regFile_inst|LessThan2~7|cin
+    Info (332115):     17.977      0.058 RF  CELL  regFile_inst|LessThan2~7|cout
+    Info (332115):     17.977      0.000 FF    IC  regFile_inst|LessThan2~9|cin
+    Info (332115):     18.035      0.058 FR  CELL  regFile_inst|LessThan2~9|cout
+    Info (332115):     18.035      0.000 RR    IC  regFile_inst|LessThan2~11|cin
+    Info (332115):     18.093      0.058 RF  CELL  regFile_inst|LessThan2~11|cout
+    Info (332115):     18.093      0.000 FF    IC  regFile_inst|LessThan2~13|cin
+    Info (332115):     18.151      0.058 FR  CELL  regFile_inst|LessThan2~13|cout
+    Info (332115):     18.151      0.000 RR    IC  regFile_inst|LessThan2~15|cin
+    Info (332115):     18.209      0.058 RF  CELL  regFile_inst|LessThan2~15|cout
+    Info (332115):     18.209      0.000 FF    IC  regFile_inst|LessThan2~17|cin
+    Info (332115):     18.267      0.058 FR  CELL  regFile_inst|LessThan2~17|cout
+    Info (332115):     18.267      0.000 RR    IC  regFile_inst|LessThan2~19|cin
+    Info (332115):     18.325      0.058 RF  CELL  regFile_inst|LessThan2~19|cout
+    Info (332115):     18.325      0.000 FF    IC  regFile_inst|LessThan2~21|cin
+    Info (332115):     18.383      0.058 FR  CELL  regFile_inst|LessThan2~21|cout
+    Info (332115):     18.383      0.000 RR    IC  regFile_inst|LessThan2~23|cin
+    Info (332115):     18.441      0.058 RF  CELL  regFile_inst|LessThan2~23|cout
+    Info (332115):     18.441      0.000 FF    IC  regFile_inst|LessThan2~25|cin
+    Info (332115):     18.499      0.058 FR  CELL  regFile_inst|LessThan2~25|cout
+    Info (332115):     18.499      0.000 RR    IC  regFile_inst|LessThan2~27|cin
+    Info (332115):     18.557      0.058 RF  CELL  regFile_inst|LessThan2~27|cout
+    Info (332115):     18.557      0.000 FF    IC  regFile_inst|LessThan2~29|cin
+    Info (332115):     18.615      0.058 FR  CELL  regFile_inst|LessThan2~29|cout
+    Info (332115):     18.615      0.000 RR    IC  regFile_inst|LessThan2~31|cin
+    Info (332115):     18.673      0.058 RF  CELL  regFile_inst|LessThan2~31|cout
+    Info (332115):     18.673      0.000 FF    IC  regFile_inst|LessThan2~33|cin
+    Info (332115):     18.731      0.058 FR  CELL  regFile_inst|LessThan2~33|cout
+    Info (332115):     18.731      0.000 RR    IC  regFile_inst|LessThan2~35|cin
+    Info (332115):     18.789      0.058 RF  CELL  regFile_inst|LessThan2~35|cout
+    Info (332115):     18.789      0.000 FF    IC  regFile_inst|LessThan2~37|cin
+    Info (332115):     18.847      0.058 FR  CELL  regFile_inst|LessThan2~37|cout
+    Info (332115):     18.847      0.000 RR    IC  regFile_inst|LessThan2~39|cin
+    Info (332115):     18.905      0.058 RF  CELL  regFile_inst|LessThan2~39|cout
+    Info (332115):     18.905      0.000 FF    IC  regFile_inst|LessThan2~41|cin
+    Info (332115):     18.963      0.058 FR  CELL  regFile_inst|LessThan2~41|cout
+    Info (332115):     18.963      0.000 RR    IC  regFile_inst|LessThan2~43|cin
+    Info (332115):     19.021      0.058 RF  CELL  regFile_inst|LessThan2~43|cout
+    Info (332115):     19.021      0.000 FF    IC  regFile_inst|LessThan2~45|cin
+    Info (332115):     19.079      0.058 FR  CELL  regFile_inst|LessThan2~45|cout
+    Info (332115):     19.079      0.000 RR    IC  regFile_inst|LessThan2~47|cin
+    Info (332115):     19.137      0.058 RF  CELL  regFile_inst|LessThan2~47|cout
+    Info (332115):     19.137      0.000 FF    IC  regFile_inst|LessThan2~49|cin
+    Info (332115):     19.195      0.058 FR  CELL  regFile_inst|LessThan2~49|cout
+    Info (332115):     19.195      0.000 RR    IC  regFile_inst|LessThan2~51|cin
+    Info (332115):     19.253      0.058 RF  CELL  regFile_inst|LessThan2~51|cout
+    Info (332115):     19.253      0.000 FF    IC  regFile_inst|LessThan2~53|cin
+    Info (332115):     19.311      0.058 FR  CELL  regFile_inst|LessThan2~53|cout
+    Info (332115):     19.311      0.000 RR    IC  regFile_inst|LessThan2~55|cin
+    Info (332115):     19.369      0.058 RF  CELL  regFile_inst|LessThan2~55|cout
+    Info (332115):     19.369      0.000 FF    IC  regFile_inst|LessThan2~57|cin
+    Info (332115):     19.427      0.058 FR  CELL  regFile_inst|LessThan2~57|cout
+    Info (332115):     19.427      0.000 RR    IC  regFile_inst|LessThan2~59|cin
+    Info (332115):     19.485      0.058 RF  CELL  regFile_inst|LessThan2~59|cout
+    Info (332115):     19.485      0.000 FF    IC  regFile_inst|LessThan2~61|cin
+    Info (332115):     19.543      0.058 FR  CELL  regFile_inst|LessThan2~61|cout
+    Info (332115):     19.543      0.000 RR    IC  regFile_inst|LessThan2~62|cin
+    Info (332115):     20.026      0.483 RR  CELL  regFile_inst|LessThan2~62|combout
+    Info (332115):     20.373      0.347 RR    IC  fetch_inst|s_Jump_Select~0|datad
+    Info (332115):     20.517      0.144 RR  CELL  fetch_inst|s_Jump_Select~0|combout
+    Info (332115):     20.704      0.187 RR    IC  fetch_inst|s_Jump_Select~4|datad
+    Info (332115):     20.848      0.144 RR  CELL  fetch_inst|s_Jump_Select~4|combout
+    Info (332115):     21.044      0.196 RR    IC  fetch_inst|s_Jump_Select|datad
+    Info (332115):     21.188      0.144 RR  CELL  fetch_inst|s_Jump_Select|combout
+    Info (332115):     23.231      2.043 RR    IC  IF_ID_inst|s_D_Instruction[20]~22|datad
+    Info (332115):     23.356      0.125 RF  CELL  IF_ID_inst|s_D_Instruction[20]~22|combout
+    Info (332115):     23.356      0.000 FF    IC  IF_ID_inst|Instruction_reg_inst|\gen_dffg:20:dffg_inst|s_Q|d
+    Info (332115):     23.446      0.090 FF  CELL  IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+    Info (332115): Data Required Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):     20.000     20.000           latch edge time
+    Info (332115):     23.099      3.099  R        clock network delay
+    Info (332115):     23.106      0.007           clock pessimism removed
+    Info (332115):     23.086     -0.020           clock uncertainty
+    Info (332115):     23.105      0.019     uTsu  IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+    Info (332115): Data Arrival Time  :    23.446
+    Info (332115): Data Required Time :    23.105
+    Info (332115): Slack              :    -0.341 (VIOLATED)
+    Info (332115): ===================================================================
+Info (332115): Report Timing: Found 1 hold paths (0 violated).  Worst case slack is 0.340
+    Info (332115): -to_clock [get_clocks {iCLK}]
+    Info (332115): -hold
+    Info (332115): -stdout
+Info (332115): Path #1: Hold slack is 0.340 
+    Info (332115): ===================================================================
+    Info (332115): From Node    : fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:24:dffg_inst|s_Q
+    Info (332115): To Node      : fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:24:dffg_inst|s_Q
+    Info (332115): Launch Clock : iCLK
+    Info (332115): Latch Clock  : iCLK
+    Info (332115): Data Arrival Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           launch edge time
+    Info (332115):      3.026      3.026  R        clock network delay
+    Info (332115):      3.239      0.213     uTco  fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:24:dffg_inst|s_Q
+    Info (332115):      3.239      0.000 FF  CELL  fetch_inst|PC|\gen_dffg:24:dffg_inst|s_Q|q
+    Info (332115):      3.239      0.000 FF    IC  fetch_inst|jalr_Mux|\G_NBit_MUX:24:MUXI|or_gate|o_F~0|datac
+    Info (332115):      3.558      0.319 FF  CELL  fetch_inst|jalr_Mux|\G_NBit_MUX:24:MUXI|or_gate|o_F~0|combout
+    Info (332115):      3.558      0.000 FF    IC  fetch_inst|PC|\gen_dffg:24:dffg_inst|s_Q|d
+    Info (332115):      3.623      0.065 FF  CELL  fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:24:dffg_inst|s_Q
+    Info (332115): Data Required Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           latch edge time
+    Info (332115):      3.140      3.140  R        clock network delay
+    Info (332115):      3.112     -0.028           clock pessimism removed
+    Info (332115):      3.112      0.000           clock uncertainty
+    Info (332115):      3.283      0.171      uTh  fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:24:dffg_inst|s_Q
+    Info (332115): Data Arrival Time  :     3.623
+    Info (332115): Data Required Time :     3.283
+    Info (332115): Slack              :     0.340 
+    Info (332115): ===================================================================
+Info: Analyzing Fast 1200mV 0C Model
+Info (332146): Worst-case setup slack is 3.887
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     3.887               0.000 iCLK 
+Info (332146): Worst-case hold slack is 0.175
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.175               0.000 iCLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.365
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.365               0.000 iCLK 
+Info (332115): Report Timing: Found 1 setup paths (0 violated).  Worst case slack is 3.887
+    Info (332115): -to_clock [get_clocks {iCLK}]
+    Info (332115): -setup
+    Info (332115): -stdout
+Info (332115): Path #1: Setup slack is 3.887 
+    Info (332115): ===================================================================
+    Info (332115): From Node    : register_file:regFile_inst|register_N_neg:\gen_registers:4:gen_other:reg_i|dffgNeg:\gen_dffg:2:dffg_inst|s_Q
+    Info (332115): To Node      : IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+    Info (332115): Launch Clock : iCLK (INVERTED)
+    Info (332115): Latch Clock  : iCLK
+    Info (332115): Data Arrival Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):     10.000     10.000           launch edge time
+    Info (332115):     11.967      1.967  F        clock network delay
+    Info (332115):     12.072      0.105     uTco  register_file:regFile_inst|register_N_neg:\gen_registers:4:gen_other:reg_i|dffgNeg:\gen_dffg:2:dffg_inst|s_Q
+    Info (332115):     12.072      0.000 FF  CELL  regFile_inst|\gen_registers:4:gen_other:reg_i|\gen_dffg:2:dffg_inst|s_Q|q
+    Info (332115):     12.264      0.192 FF    IC  regFile_inst|mux|Mux29~12|dataa
+    Info (332115):     12.457      0.193 FF  CELL  regFile_inst|mux|Mux29~12|combout
+    Info (332115):     12.565      0.108 FF    IC  regFile_inst|mux|Mux29~13|datad
+    Info (332115):     12.628      0.063 FF  CELL  regFile_inst|mux|Mux29~13|combout
+    Info (332115):     12.959      0.331 FF    IC  regFile_inst|mux|Mux29~14|datad
+    Info (332115):     13.022      0.063 FF  CELL  regFile_inst|mux|Mux29~14|combout
+    Info (332115):     13.130      0.108 FF    IC  regFile_inst|mux|Mux29~15|datad
+    Info (332115):     13.193      0.063 FF  CELL  regFile_inst|mux|Mux29~15|combout
+    Info (332115):     13.743      0.550 FF    IC  regFile_inst|mux|Mux29~16|datad
+    Info (332115):     13.806      0.063 FF  CELL  regFile_inst|mux|Mux29~16|combout
+    Info (332115):     13.915      0.109 FF    IC  regFile_inst|mux|Mux29~19|datad
+    Info (332115):     13.978      0.063 FF  CELL  regFile_inst|mux|Mux29~19|combout
+    Info (332115):     14.525      0.547 FF    IC  regFile_inst|LessThan2~5|dataa
+    Info (332115):     14.775      0.250 FR  CELL  regFile_inst|LessThan2~5|cout
+    Info (332115):     14.775      0.000 RR    IC  regFile_inst|LessThan2~7|cin
+    Info (332115):     14.809      0.034 RF  CELL  regFile_inst|LessThan2~7|cout
+    Info (332115):     14.809      0.000 FF    IC  regFile_inst|LessThan2~9|cin
+    Info (332115):     14.843      0.034 FR  CELL  regFile_inst|LessThan2~9|cout
+    Info (332115):     14.843      0.000 RR    IC  regFile_inst|LessThan2~11|cin
+    Info (332115):     14.877      0.034 RF  CELL  regFile_inst|LessThan2~11|cout
+    Info (332115):     14.877      0.000 FF    IC  regFile_inst|LessThan2~13|cin
+    Info (332115):     14.911      0.034 FR  CELL  regFile_inst|LessThan2~13|cout
+    Info (332115):     14.911      0.000 RR    IC  regFile_inst|LessThan2~15|cin
+    Info (332115):     14.945      0.034 RF  CELL  regFile_inst|LessThan2~15|cout
+    Info (332115):     14.945      0.000 FF    IC  regFile_inst|LessThan2~17|cin
+    Info (332115):     14.979      0.034 FR  CELL  regFile_inst|LessThan2~17|cout
+    Info (332115):     14.979      0.000 RR    IC  regFile_inst|LessThan2~19|cin
+    Info (332115):     15.013      0.034 RF  CELL  regFile_inst|LessThan2~19|cout
+    Info (332115):     15.013      0.000 FF    IC  regFile_inst|LessThan2~21|cin
+    Info (332115):     15.047      0.034 FR  CELL  regFile_inst|LessThan2~21|cout
+    Info (332115):     15.047      0.000 RR    IC  regFile_inst|LessThan2~23|cin
+    Info (332115):     15.081      0.034 RF  CELL  regFile_inst|LessThan2~23|cout
+    Info (332115):     15.081      0.000 FF    IC  regFile_inst|LessThan2~25|cin
+    Info (332115):     15.115      0.034 FR  CELL  regFile_inst|LessThan2~25|cout
+    Info (332115):     15.115      0.000 RR    IC  regFile_inst|LessThan2~27|cin
+    Info (332115):     15.149      0.034 RF  CELL  regFile_inst|LessThan2~27|cout
+    Info (332115):     15.149      0.000 FF    IC  regFile_inst|LessThan2~29|cin
+    Info (332115):     15.183      0.034 FR  CELL  regFile_inst|LessThan2~29|cout
+    Info (332115):     15.183      0.000 RR    IC  regFile_inst|LessThan2~31|cin
+    Info (332115):     15.217      0.034 RF  CELL  regFile_inst|LessThan2~31|cout
+    Info (332115):     15.217      0.000 FF    IC  regFile_inst|LessThan2~33|cin
+    Info (332115):     15.251      0.034 FR  CELL  regFile_inst|LessThan2~33|cout
+    Info (332115):     15.251      0.000 RR    IC  regFile_inst|LessThan2~35|cin
+    Info (332115):     15.285      0.034 RF  CELL  regFile_inst|LessThan2~35|cout
+    Info (332115):     15.285      0.000 FF    IC  regFile_inst|LessThan2~37|cin
+    Info (332115):     15.319      0.034 FR  CELL  regFile_inst|LessThan2~37|cout
+    Info (332115):     15.319      0.000 RR    IC  regFile_inst|LessThan2~39|cin
+    Info (332115):     15.353      0.034 RF  CELL  regFile_inst|LessThan2~39|cout
+    Info (332115):     15.353      0.000 FF    IC  regFile_inst|LessThan2~41|cin
+    Info (332115):     15.387      0.034 FR  CELL  regFile_inst|LessThan2~41|cout
+    Info (332115):     15.387      0.000 RR    IC  regFile_inst|LessThan2~43|cin
+    Info (332115):     15.421      0.034 RF  CELL  regFile_inst|LessThan2~43|cout
+    Info (332115):     15.421      0.000 FF    IC  regFile_inst|LessThan2~45|cin
+    Info (332115):     15.455      0.034 FR  CELL  regFile_inst|LessThan2~45|cout
+    Info (332115):     15.455      0.000 RR    IC  regFile_inst|LessThan2~47|cin
+    Info (332115):     15.489      0.034 RF  CELL  regFile_inst|LessThan2~47|cout
+    Info (332115):     15.489      0.000 FF    IC  regFile_inst|LessThan2~49|cin
+    Info (332115):     15.523      0.034 FR  CELL  regFile_inst|LessThan2~49|cout
+    Info (332115):     15.523      0.000 RR    IC  regFile_inst|LessThan2~51|cin
+    Info (332115):     15.557      0.034 RF  CELL  regFile_inst|LessThan2~51|cout
+    Info (332115):     15.557      0.000 FF    IC  regFile_inst|LessThan2~53|cin
+    Info (332115):     15.591      0.034 FR  CELL  regFile_inst|LessThan2~53|cout
+    Info (332115):     15.591      0.000 RR    IC  regFile_inst|LessThan2~55|cin
+    Info (332115):     15.625      0.034 RF  CELL  regFile_inst|LessThan2~55|cout
+    Info (332115):     15.625      0.000 FF    IC  regFile_inst|LessThan2~57|cin
+    Info (332115):     15.659      0.034 FR  CELL  regFile_inst|LessThan2~57|cout
+    Info (332115):     15.659      0.000 RR    IC  regFile_inst|LessThan2~59|cin
+    Info (332115):     15.693      0.034 RF  CELL  regFile_inst|LessThan2~59|cout
+    Info (332115):     15.693      0.000 FF    IC  regFile_inst|LessThan2~61|cin
+    Info (332115):     15.727      0.034 FR  CELL  regFile_inst|LessThan2~61|cout
+    Info (332115):     15.727      0.000 RR    IC  regFile_inst|LessThan2~62|cin
+    Info (332115):     15.969      0.242 RR  CELL  regFile_inst|LessThan2~62|combout
+    Info (332115):     16.128      0.159 RR    IC  fetch_inst|s_Jump_Select~0|datad
+    Info (332115):     16.194      0.066 RF  CELL  fetch_inst|s_Jump_Select~0|combout
+    Info (332115):     16.301      0.107 FF    IC  fetch_inst|s_Jump_Select~4|datad
+    Info (332115):     16.364      0.063 FF  CELL  fetch_inst|s_Jump_Select~4|combout
+    Info (332115):     16.479      0.115 FF    IC  fetch_inst|s_Jump_Select|datad
+    Info (332115):     16.542      0.063 FF  CELL  fetch_inst|s_Jump_Select|combout
+    Info (332115):     17.796      1.254 FF    IC  IF_ID_inst|s_D_Instruction[20]~22|datad
+    Info (332115):     17.868      0.072 FR  CELL  IF_ID_inst|s_D_Instruction[20]~22|combout
+    Info (332115):     17.868      0.000 RR    IC  IF_ID_inst|Instruction_reg_inst|\gen_dffg:20:dffg_inst|s_Q|d
+    Info (332115):     17.905      0.037 RR  CELL  IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+    Info (332115): Data Required Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):     20.000     20.000           latch edge time
+    Info (332115):     21.801      1.801  R        clock network delay
+    Info (332115):     21.805      0.004           clock pessimism removed
+    Info (332115):     21.785     -0.020           clock uncertainty
+    Info (332115):     21.792      0.007     uTsu  IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+    Info (332115): Data Arrival Time  :    17.905
+    Info (332115): Data Required Time :    21.792
+    Info (332115): Slack              :     3.887 
+    Info (332115): ===================================================================
+Info (332115): Report Timing: Found 1 hold paths (0 violated).  Worst case slack is 0.175
+    Info (332115): -to_clock [get_clocks {iCLK}]
+    Info (332115): -hold
+    Info (332115): -stdout
+Info (332115): Path #1: Hold slack is 0.175 
+    Info (332115): ===================================================================
+    Info (332115): From Node    : fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:24:dffg_inst|s_Q
+    Info (332115): To Node      : fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:24:dffg_inst|s_Q
+    Info (332115): Launch Clock : iCLK
+    Info (332115): Latch Clock  : iCLK
+    Info (332115): Data Arrival Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           launch edge time
+    Info (332115):      1.728      1.728  R        clock network delay
+    Info (332115):      1.833      0.105     uTco  fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:24:dffg_inst|s_Q
+    Info (332115):      1.833      0.000 RR  CELL  fetch_inst|PC|\gen_dffg:24:dffg_inst|s_Q|q
+    Info (332115):      1.833      0.000 RR    IC  fetch_inst|jalr_Mux|\G_NBit_MUX:24:MUXI|or_gate|o_F~0|datac
+    Info (332115):      2.004      0.171 RR  CELL  fetch_inst|jalr_Mux|\G_NBit_MUX:24:MUXI|or_gate|o_F~0|combout
+    Info (332115):      2.004      0.000 RR    IC  fetch_inst|PC|\gen_dffg:24:dffg_inst|s_Q|d
+    Info (332115):      2.035      0.031 RR  CELL  fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:24:dffg_inst|s_Q
+    Info (332115): Data Required Path:
+    Info (332115): Total (ns)  Incr (ns)     Type  Element
+    Info (332115): ==========  ========= ==  ====  ===================================
+    Info (332115):      0.000      0.000           latch edge time
+    Info (332115):      1.796      1.796  R        clock network delay
+    Info (332115):      1.776     -0.020           clock pessimism removed
+    Info (332115):      1.776      0.000           clock uncertainty
+    Info (332115):      1.860      0.084      uTh  fetch:fetch_inst|register_N:PC|dffg:\gen_dffg:24:dffg_inst|s_Q
+    Info (332115): Data Arrival Time  :     2.035
+    Info (332115): Data Required Time :     1.860
+    Info (332115): Slack              :     0.175 
+    Info (332115): ===================================================================
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 1351 megabytes
+    Info: Processing ended: Wed Dec  3 12:20:00 2025
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:18

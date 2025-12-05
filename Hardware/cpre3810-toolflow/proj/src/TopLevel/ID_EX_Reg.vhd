@@ -63,7 +63,7 @@ architecture structural of ID_EX_Reg is
     component register_N
         generic (
             N : integer := 32;
-            INIT_VALUE : std_logic_vector(N-1 downto 0) := (others => '0')
+            INIT_VALUE : std_logic_vector(32-1 downto 0) := (others => '0')
         );
         port(
             i_CLK : in std_logic;

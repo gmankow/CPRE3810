@@ -1,0 +1,206 @@
+# //  Questa Sim-64
+# //  Version 2025.1_2 linux_x86_64 Apr  7 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+vsim work.tb_pipelines
+# vsim work.tb_pipelines 
+# Start time: 11:06:36 on Dec 04,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_pipelines(behavioral)#1
+# Loading work.register_n(structural)#1
+# Loading work.id_ex_reg(structural)#1
+# Loading work.register_n(structural)#3
+run 300
+add wave -position insertpoint sim:/tb_pipelines/*
+run 300
+run 300
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+run 300
+vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 11:13:56 on Dec 04,2025
+# vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_pipelines
+# -- Compiling architecture behavioral of tb_pipelines
+# ** Error: /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd(299): near "=>": (vcom-1576) expecting == or '+' or '-' or '&'.
+# ** Note: /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd(564): VHDL Compiler exiting
+# End time: 11:13:56 on Dec 04,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 11:14:39 on Dec 04,2025
+# vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_pipelines
+# -- Compiling architecture behavioral of tb_pipelines
+# ** Error: /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd(301): Illegal target for signal assignment.
+# ** Error: /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd(301): (vcom-1136) Unknown identifier "s_IDEX_i_Instruction".
+# ** Note: /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd(564): VHDL Compiler exiting
+# End time: 11:14:39 on Dec 04,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 11:15:06 on Dec 04,2025
+# vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_pipelines
+# -- Compiling architecture behavioral of tb_pipelines
+# End time: 11:15:06 on Dec 04,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_pipelines(behavioral)#1
+# Loading work.register_n(structural)#1
+# Loading work.id_ex_reg(structural)#1
+# Loading work.register_n(structural)#3
+run 300
+add wave -position insertpoint sim:/tb_pipelines/UUT_IF_ID/*
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+run 300
+vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 11:16:56 on Dec 04,2025
+# vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_pipelines
+# -- Compiling architecture behavioral of tb_pipelines
+# End time: 11:16:56 on Dec 04,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 11:16:56 on Dec 04,2025
+# vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_pipelines
+# -- Compiling architecture behavioral of tb_pipelines
+# End time: 11:16:56 on Dec 04,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_pipelines(behavioral)#1
+# Loading work.register_n(structural)#1
+# Loading work.id_ex_reg(structural)#1
+# Loading work.register_n(structural)#3
+run 300
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+add wave -position insertpoint sim:/tb_pipelines/*
+run 300
+vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 11:28:02 on Dec 04,2025
+# vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_pipelines
+# -- Compiling architecture behavioral of tb_pipelines
+# End time: 11:28:02 on Dec 04,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_pipelines(behavioral)#1
+# Loading work.register_n(structural)#1
+# Loading work.id_ex_reg(structural)#1
+# Loading work.register_n(structural)#3
+# Warning in wave window restart: (vish-4014) No objects found matching '/tb_pipelines/s_IFID_o_PCPlus4'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tb_pipelines/s_EXMEM_o_PCPlus4'. 
+run 300
+vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 11:32:56 on Dec 04,2025
+# vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_pipelines
+# -- Compiling architecture behavioral of tb_pipelines
+# End time: 11:32:57 on Dec 04,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_pipelines(behavioral)#1
+# Loading work.register_n(structural)#1
+# Loading work.id_ex_reg(structural)#1
+# Loading work.register_n(structural)#3
+run 300
+add wave -position insertpoint sim:/tb_pipelines/UUT_IF_ID/PCPlus4_reg_inst/*
+add wave -position insertpoint sim:/tb_pipelines/*
+add wave -position insertpoint sim:/tb_pipelines/UUT_IF_ID/PCPlus4_reg_inst/*
+add wave -position insertpoint sim:/tb_pipelines/UUT_ID_EX/PCPlus4_reg_inst/*
+add wave -position insertpoint sim:/tb_pipelines/UUT_EX_MEM/PCPlus4_reg_inst/*
+add wave -position insertpoint sim:/tb_pipelines/UUT_EX_MEM/PCPlus4_reg_inst/*
+add wave -position insertpoint sim:/tb_pipelines/UUT_MEM_WB/PCPlus4_reg_inst/*
+vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 11:47:45 on Dec 04,2025
+# vcom -reportprogress 300 -work work /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/proj/src/TopLevel/tb_pipelines.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_pipelines
+# -- Compiling architecture behavioral of tb_pipelines
+# End time: 11:47:45 on Dec 04,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_pipelines(behavioral)#1
+# Loading work.register_n(structural)#1
+# Loading work.id_ex_reg(structural)#1
+# Loading work.register_n(structural)#3
+run 300

@@ -1,5 +1,5 @@
 Assembler report for toolflow
-Fri Nov  7 11:46:33 2025
+Wed Dec  3 12:19:45 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Nov  7 11:46:33 2025 ;
+; Assembler Status      ; Successful - Wed Dec  3 12:19:45 2025 ;
 ; Revision Name         ; toolflow                              ;
 ; Top-level Entity Name ; RISCV_Processor                       ;
 ; Family                ; Cyclone IV E                          ;
@@ -79,13 +79,13 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------+----------------+----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                                   ;
-+-------------------------------------------------------------------------------------------------------------+
-; File Name                                                                                                   ;
-+-------------------------------------------------------------------------------------------------------------+
-; /home/gmankow/cpre381/CPRE3810/SingleCycle/cpre3810-toolflow/internal/QuartusWork/output_files/toolflow.sof ;
-+-------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                ;
++----------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                ;
++----------------------------------------------------------------------------------------------------------+
+; /home/gmankow/cpre381/CPRE3810/Hardware/cpre3810-toolflow/internal/QuartusWork/output_files/toolflow.sof ;
++----------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------+
@@ -93,8 +93,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+-----------------------+
 ; Option         ; Setting               ;
 +----------------+-----------------------+
-; JTAG usercode  ; 0x03D961D3            ;
-; Checksum       ; 0x03D961D3            ;
+; JTAG usercode  ; 0x01DD2D0B            ;
+; Checksum       ; 0x01DD2D0B            ;
 +----------------+-----------------------+
 
 
@@ -118,15 +118,15 @@ Info: Running Quartus Prime Assembler
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Fri Nov  7 11:46:28 2025
+    Info: Processing started: Wed Dec  3 12:19:42 2025
 Info: Command: quartus_asm --read_settings_files=on --write_settings_files=off toolflow -c toolflow
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 849 megabytes
-    Info: Processing ended: Fri Nov  7 11:46:33 2025
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 710 megabytes
+    Info: Processing ended: Wed Dec  3 12:19:45 2025
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

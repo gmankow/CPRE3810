@@ -1,0 +1,115 @@
+
+#
+# CprE 381 toolflow Timing dump
+#
+
+FMax: 46.72mhz Clk Constraint: 20.00ns Slack: -1.41ns
+
+The path is given below
+
+ ===================================================================
+ From Node    : register_file:regFile_inst|register_N_neg:\gen_registers:4:gen_other:reg_i|dffgNeg:\gen_dffg:2:dffg_inst|s_Q
+ To Node      : IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+ Launch Clock : iCLK (INVERTED)
+ Latch Clock  : iCLK
+ Data Arrival Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+     10.000     10.000           launch edge time
+     13.100      3.100  F        clock network delay
+     13.332      0.232     uTco  register_file:regFile_inst|register_N_neg:\gen_registers:4:gen_other:reg_i|dffgNeg:\gen_dffg:2:dffg_inst|s_Q
+     13.332      0.000 FF  CELL  regFile_inst|\gen_registers:4:gen_other:reg_i|\gen_dffg:2:dffg_inst|s_Q|q
+     13.728      0.396 FF    IC  regFile_inst|mux|Mux29~12|dataa
+     14.132      0.404 FF  CELL  regFile_inst|mux|Mux29~12|combout
+     14.360      0.228 FF    IC  regFile_inst|mux|Mux29~13|datad
+     14.510      0.150 FR  CELL  regFile_inst|mux|Mux29~13|combout
+     15.175      0.665 RR    IC  regFile_inst|mux|Mux29~14|datad
+     15.330      0.155 RR  CELL  regFile_inst|mux|Mux29~14|combout
+     15.534      0.204 RR    IC  regFile_inst|mux|Mux29~15|datad
+     15.689      0.155 RR  CELL  regFile_inst|mux|Mux29~15|combout
+     16.722      1.033 RR    IC  regFile_inst|mux|Mux29~16|datad
+     16.877      0.155 RR  CELL  regFile_inst|mux|Mux29~16|combout
+     17.082      0.205 RR    IC  regFile_inst|mux|Mux29~19|datad
+     17.221      0.139 RF  CELL  regFile_inst|mux|Mux29~19|combout
+     18.229      1.008 FF    IC  regFile_inst|LessThan2~5|dataa
+     18.727      0.498 FR  CELL  regFile_inst|LessThan2~5|cout
+     18.727      0.000 RR    IC  regFile_inst|LessThan2~7|cin
+     18.793      0.066 RF  CELL  regFile_inst|LessThan2~7|cout
+     18.793      0.000 FF    IC  regFile_inst|LessThan2~9|cin
+     18.859      0.066 FR  CELL  regFile_inst|LessThan2~9|cout
+     18.859      0.000 RR    IC  regFile_inst|LessThan2~11|cin
+     18.925      0.066 RF  CELL  regFile_inst|LessThan2~11|cout
+     18.925      0.000 FF    IC  regFile_inst|LessThan2~13|cin
+     18.991      0.066 FR  CELL  regFile_inst|LessThan2~13|cout
+     18.991      0.000 RR    IC  regFile_inst|LessThan2~15|cin
+     19.057      0.066 RF  CELL  regFile_inst|LessThan2~15|cout
+     19.057      0.000 FF    IC  regFile_inst|LessThan2~17|cin
+     19.123      0.066 FR  CELL  regFile_inst|LessThan2~17|cout
+     19.123      0.000 RR    IC  regFile_inst|LessThan2~19|cin
+     19.189      0.066 RF  CELL  regFile_inst|LessThan2~19|cout
+     19.189      0.000 FF    IC  regFile_inst|LessThan2~21|cin
+     19.255      0.066 FR  CELL  regFile_inst|LessThan2~21|cout
+     19.255      0.000 RR    IC  regFile_inst|LessThan2~23|cin
+     19.321      0.066 RF  CELL  regFile_inst|LessThan2~23|cout
+     19.321      0.000 FF    IC  regFile_inst|LessThan2~25|cin
+     19.387      0.066 FR  CELL  regFile_inst|LessThan2~25|cout
+     19.387      0.000 RR    IC  regFile_inst|LessThan2~27|cin
+     19.453      0.066 RF  CELL  regFile_inst|LessThan2~27|cout
+     19.453      0.000 FF    IC  regFile_inst|LessThan2~29|cin
+     19.519      0.066 FR  CELL  regFile_inst|LessThan2~29|cout
+     19.519      0.000 RR    IC  regFile_inst|LessThan2~31|cin
+     19.585      0.066 RF  CELL  regFile_inst|LessThan2~31|cout
+     19.585      0.000 FF    IC  regFile_inst|LessThan2~33|cin
+     19.651      0.066 FR  CELL  regFile_inst|LessThan2~33|cout
+     19.651      0.000 RR    IC  regFile_inst|LessThan2~35|cin
+     19.717      0.066 RF  CELL  regFile_inst|LessThan2~35|cout
+     19.717      0.000 FF    IC  regFile_inst|LessThan2~37|cin
+     19.783      0.066 FR  CELL  regFile_inst|LessThan2~37|cout
+     19.783      0.000 RR    IC  regFile_inst|LessThan2~39|cin
+     19.849      0.066 RF  CELL  regFile_inst|LessThan2~39|cout
+     19.849      0.000 FF    IC  regFile_inst|LessThan2~41|cin
+     19.915      0.066 FR  CELL  regFile_inst|LessThan2~41|cout
+     19.915      0.000 RR    IC  regFile_inst|LessThan2~43|cin
+     19.981      0.066 RF  CELL  regFile_inst|LessThan2~43|cout
+     19.981      0.000 FF    IC  regFile_inst|LessThan2~45|cin
+     20.047      0.066 FR  CELL  regFile_inst|LessThan2~45|cout
+     20.047      0.000 RR    IC  regFile_inst|LessThan2~47|cin
+     20.113      0.066 RF  CELL  regFile_inst|LessThan2~47|cout
+     20.113      0.000 FF    IC  regFile_inst|LessThan2~49|cin
+     20.179      0.066 FR  CELL  regFile_inst|LessThan2~49|cout
+     20.179      0.000 RR    IC  regFile_inst|LessThan2~51|cin
+     20.245      0.066 RF  CELL  regFile_inst|LessThan2~51|cout
+     20.245      0.000 FF    IC  regFile_inst|LessThan2~53|cin
+     20.311      0.066 FR  CELL  regFile_inst|LessThan2~53|cout
+     20.311      0.000 RR    IC  regFile_inst|LessThan2~55|cin
+     20.377      0.066 RF  CELL  regFile_inst|LessThan2~55|cout
+     20.377      0.000 FF    IC  regFile_inst|LessThan2~57|cin
+     20.443      0.066 FR  CELL  regFile_inst|LessThan2~57|cout
+     20.443      0.000 RR    IC  regFile_inst|LessThan2~59|cin
+     20.509      0.066 RF  CELL  regFile_inst|LessThan2~59|cout
+     20.509      0.000 FF    IC  regFile_inst|LessThan2~61|cin
+     20.575      0.066 FR  CELL  regFile_inst|LessThan2~61|cout
+     20.575      0.000 RR    IC  regFile_inst|LessThan2~62|cin
+     21.111      0.536 RR  CELL  regFile_inst|LessThan2~62|combout
+     21.477      0.366 RR    IC  fetch_inst|s_Jump_Select~0|datad
+     21.616      0.139 RF  CELL  fetch_inst|s_Jump_Select~0|combout
+     21.842      0.226 FF    IC  fetch_inst|s_Jump_Select~4|datad
+     21.967      0.125 FF  CELL  fetch_inst|s_Jump_Select~4|combout
+     22.206      0.239 FF    IC  fetch_inst|s_Jump_Select|datad
+     22.331      0.125 FF  CELL  fetch_inst|s_Jump_Select|combout
+     24.581      2.250 FF    IC  IF_ID_inst|s_D_Instruction[20]~22|datad
+     24.731      0.150 FR  CELL  IF_ID_inst|s_D_Instruction[20]~22|combout
+     24.731      0.000 RR    IC  IF_ID_inst|Instruction_reg_inst|\gen_dffg:20:dffg_inst|s_Q|d
+     24.818      0.087 RR  CELL  IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+ Data Required Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+     20.000     20.000           latch edge time
+     23.407      3.407  R        clock network delay
+     23.415      0.008           clock pessimism removed
+     23.395     -0.020           clock uncertainty
+     23.413      0.018     uTsu  IF_ID_Reg:IF_ID_inst|register_N:Instruction_reg_inst|dffg:\gen_dffg:20:dffg_inst|s_Q
+ Data Arrival Time  :    24.818
+ Data Required Time :    23.413
+ Slack              :    -1.405 (VIOLATED)
+ ===================================================================
