@@ -1,0 +1,41 @@
+
+#
+# CprE 381 toolflow Timing dump
+#
+
+FMax: 53.25mhz Clk Constraint: 20.00ns Slack: 1.22ns
+
+The path is given below
+
+ ===================================================================
+ From Node    : mem:DMem|altsyncram:ram_rtl_0|altsyncram_eg81:auto_generated|ram_block1a5~porta_we_reg
+ To Node      : register_file:regFile_inst|register_N_neg:\gen_registers:29:gen_other:reg_i|dffgNeg:\gen_dffg:29:dffg_inst|s_Q
+ Launch Clock : iCLK
+ Latch Clock  : iCLK (INVERTED)
+ Data Arrival Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+      0.000      0.000           launch edge time
+      3.435      3.435  R        clock network delay
+      3.698      0.263     uTco  mem:DMem|altsyncram:ram_rtl_0|altsyncram_eg81:auto_generated|ram_block1a5~porta_we_reg
+      6.547      2.849 FR  CELL  DMem|ram_rtl_0|auto_generated|ram_block1a5|portadataout[4]
+      7.889      1.342 RR    IC  DMem|ram~64|datad
+      8.044      0.155 RR  CELL  DMem|ram~64|combout
+      8.765      0.721 RR    IC  WB_Mux_inst|Mux2~1|dataa
+      9.182      0.417 RR  CELL  WB_Mux_inst|Mux2~1|combout
+      9.385      0.203 RR    IC  WB_Mux_inst|Mux2~2|datac
+      9.672      0.287 RR  CELL  WB_Mux_inst|Mux2~2|combout
+     11.457      1.785 RR    IC  regFile_inst|\gen_registers:29:gen_other:reg_i|\gen_dffg:29:dffg_inst|s_Q|asdata
+     11.863      0.406 RR  CELL  register_file:regFile_inst|register_N_neg:\gen_registers:29:gen_other:reg_i|dffgNeg:\gen_dffg:29:dffg_inst|s_Q
+ Data Required Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+     10.000     10.000           latch edge time
+     13.077      3.077  F        clock network delay
+     13.085      0.008           clock pessimism removed
+     13.065     -0.020           clock uncertainty
+     13.083      0.018     uTsu  register_file:regFile_inst|register_N_neg:\gen_registers:29:gen_other:reg_i|dffgNeg:\gen_dffg:29:dffg_inst|s_Q
+ Data Arrival Time  :    11.863
+ Data Required Time :    13.083
+ Slack              :     1.220
+ ===================================================================
