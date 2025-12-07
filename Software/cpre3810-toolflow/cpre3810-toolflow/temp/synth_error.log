@@ -1,0 +1,118 @@
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
+    Info: Copyright (C) 2020  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Sun Dec  7 14:56:16 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off toolflow -c toolflow
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 0 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/RISCV_types.vhd
+    Info (12022): Found design unit 1: RISCV_types File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/RISCV_types.vhd Line: 15
+    Info (12022): Found design unit 2: RISCV_types-body File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/RISCV_types.vhd Line: 31
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd
+    Info (12022): Found design unit 1: ALU-mixed File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd Line: 20
+    Info (12023): Found entity 1: ALU File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/ALU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd
+    Info (12022): Found design unit 1: Barrel_Shifter-structural File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd Line: 13
+    Info (12023): Found entity 1: Barrel_Shifter File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/Barrel_Shifter.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/BranchCalc.vhd
+    Info (12022): Found design unit 1: BranchCalc-structural File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/BranchCalc.vhd Line: 14
+    Info (12023): Found entity 1: BranchCalc File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/BranchCalc.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/EX_MEM_Reg.vhd
+    Info (12022): Found design unit 1: EX_MEM_Reg-structural File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/EX_MEM_Reg.vhd Line: 42
+    Info (12023): Found entity 1: EX_MEM_Reg File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/EX_MEM_Reg.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/Fetch.vhd
+    Info (12022): Found design unit 1: fetch-structural File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/Fetch.vhd Line: 21
+    Info (12023): Found entity 1: fetch File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/Fetch.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/ID_EX_Reg.vhd
+    Info (12022): Found design unit 1: ID_EX_Reg-structural File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/ID_EX_Reg.vhd Line: 57
+    Info (12023): Found entity 1: ID_EX_Reg File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/ID_EX_Reg.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/IF_ID_Reg.vhd
+    Info (12022): Found design unit 1: IF_ID_Reg-structural File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/IF_ID_Reg.vhd Line: 21
+    Info (12023): Found entity 1: IF_ID_Reg File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/IF_ID_Reg.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/MEM_WB_Reg.vhd
+    Info (12022): Found design unit 1: MEM_WB_Reg-structural File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/MEM_WB_Reg.vhd Line: 40
+    Info (12023): Found entity 1: MEM_WB_Reg File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/MEM_WB_Reg.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd
+    Info (12022): Found design unit 1: RISCV_Processor-structure File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 36
+    Info (12023): Found entity 1: RISCV_Processor File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 24
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/addSub_32bit.vhd
+    Info (12022): Found design unit 1: addSub_32bit-mixed File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/addSub_32bit.vhd Line: 19
+    Info (12023): Found entity 1: addSub_32bit File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/addSub_32bit.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/andg2.vhd
+    Info (12022): Found design unit 1: andg2-dataflow File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/andg2.vhd Line: 31
+    Info (12023): Found entity 1: andg2 File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/andg2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/cla_4bit.vhd
+    Info (12022): Found design unit 1: cla_4bit-behavioral File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/cla_4bit.vhd Line: 14
+    Info (12023): Found entity 1: cla_4bit File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/cla_4bit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/controlSignals.vhd
+    Info (12022): Found design unit 1: controlSignals-behavioral File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/controlSignals.vhd Line: 24
+    Info (12023): Found entity 1: controlSignals File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/controlSignals.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/dMem_Out_Mux.vhd
+    Info (12022): Found design unit 1: dMem_Out_Mux-behavioral File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/dMem_Out_Mux.vhd Line: 12
+    Info (12023): Found entity 1: dMem_Out_Mux File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/dMem_Out_Mux.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/decoder_5t32.vhd
+    Info (12022): Found design unit 1: decoder_5t32-behavioral File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/decoder_5t32.vhd Line: 12
+    Info (12023): Found entity 1: decoder_5t32 File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/decoder_5t32.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/dffNeg.vhd
+    Info (12022): Found design unit 1: dffgNeg-mixed File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/dffNeg.vhd Line: 33
+    Info (12023): Found entity 1: dffgNeg File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/dffNeg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/dffg.vhd
+    Info (12022): Found design unit 1: dffg-mixed File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/dffg.vhd Line: 33
+    Info (12023): Found entity 1: dffg File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/dffg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/immediateGenerate.vhd
+    Info (12022): Found design unit 1: immediateGenerate-behavioral File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/immediateGenerate.vhd Line: 12
+    Info (12023): Found entity 1: immediateGenerate File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/immediateGenerate.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/invg.vhd
+    Info (12022): Found design unit 1: invg-dataflow File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/invg.vhd Line: 30
+    Info (12023): Found entity 1: invg File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/invg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mem.vhd
+    Info (12022): Found design unit 1: mem-rtl File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mem.vhd Line: 27
+    Info (12023): Found entity 1: mem File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mem.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux2t1.vhd
+    Info (12022): Found design unit 1: mux2t1-structual File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux2t1.vhd Line: 11
+    Info (12023): Found entity 1: mux2t1 File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux2t1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux2t1_N.vhd
+    Info (12022): Found design unit 1: mux2t1_N-structural File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux2t1_N.vhd Line: 30
+    Info (12023): Found entity 1: mux2t1_N File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux2t1_N.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux3t1_N.vhd
+    Info (12022): Found design unit 1: mux3t1_N-behavioral File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux3t1_N.vhd Line: 16
+    Info (12023): Found entity 1: mux3t1_N File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux3t1_N.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux_32t1.vhd
+    Info (12022): Found design unit 1: mux_32t1-behavioral File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux_32t1.vhd Line: 14
+    Info (12023): Found entity 1: mux_32t1 File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/mux_32t1.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/org2.vhd
+    Info (12022): Found design unit 1: org2-dataflow File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/org2.vhd Line: 31
+    Info (12023): Found entity 1: org2 File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/org2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/register_N.vhd
+    Info (12022): Found design unit 1: register_N-structural File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/register_N.vhd Line: 17
+    Info (12023): Found entity 1: register_N File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/register_N.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/register_N_neg.vhd
+    Info (12022): Found design unit 1: register_N_neg-structural File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/register_N_neg.vhd Line: 17
+    Info (12023): Found entity 1: register_N_neg File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/register_N_neg.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/register_file.vhd
+    Info (12022): Found design unit 1: register_file-structural File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/register_file.vhd Line: 22
+    Info (12023): Found entity 1: register_file File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/register_file.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/xorg2.vhd
+    Info (12022): Found design unit 1: xorg2-dataflow File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/xorg2.vhd Line: 31
+    Info (12023): Found entity 1: xorg2 File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/xorg2.vhd Line: 23
+Error (10552): VHDL expression error at EX_MEM_Reg.vhd(47): illegal N in expression File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/EX_MEM_Reg.vhd Line: 47
+Error (10556): VHDL error at EX_MEM_Reg.vhd(46): generic "N" cannot be used in its own interface list File: /home/gmankow/cpre381/CPRE3810/Software/cpre3810-toolflow/cpre3810-toolflow/proj/src/TopLevel/EX_MEM_Reg.vhd Line: 46
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
+    Error: Peak virtual memory: 628 megabytes
+    Error: Processing ended: Sun Dec  7 14:56:25 2025
+    Error: Elapsed time: 00:00:09
+    Error: Total CPU time (on all processors): 00:00:14
