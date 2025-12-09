@@ -1,6 +1,4 @@
--- Simplified VHDL Testbench for immediateGenerate
--- Sets inputs sequentially.
--- Added 'wait for 10 ns;' between tests to see each in a waveform.
+
 
 library ieee;
 use ieee.std_logic_1164.all;

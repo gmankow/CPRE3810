@@ -1,10 +1,3 @@
--- Simplified VHDL Testbench for the RISC-V Fetch Stage
--- This testbench *must* use a clock as Fetch is sequential.
--- Inputs are set, and the clock is allowed to run.
--- Comments indicate the state at each clock cycle.
---
--- UPDATED: To match new Fetch.vhd entity (JALR, new start address)
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -15,7 +8,6 @@ end tb_fetch;
 architecture testbench of tb_fetch is
 
     -- Component declaration for the unit under test (UUT)
-    -- UPDATED to match Fetch.vhd
     component fetch is
         port(
             i_Immediate       : in  std_logic_vector(31 downto 0);
@@ -88,7 +80,6 @@ begin
         s_jalr <= '0';
         s_ALUout <= (others => '0');
         wait for CLK_PERIOD;
-        -- On this rising edge:
         -- Expected: o_PC_out = x"00400000", o_PC_plus_4_out = x"00400004"
 
 
@@ -98,11 +89,9 @@ begin
         s_branch_cond_met <= '0';
         s_Immediate       <= (others => '0');
         wait for CLK_PERIOD;
-        -- On this rising edge:
         -- Expected: o_PC_out = x"00400004", o_PC_plus_4_out = x"00400008"
 
         wait for CLK_PERIOD;
-        -- On this rising edge:
         -- Expected: o_PC_out = x"00400008", o_PC_plus_4_out = x"0040000C"
 
 
@@ -111,7 +100,6 @@ begin
         s_branch_cond_met <= '0';
         s_Immediate       <= std_logic_vector(to_signed(20, 32)); -- Branch offset of 20
         wait for CLK_PERIOD;
-        -- On this rising edge (Branch not taken):
         -- Expected: o_PC_out = x"0040000C", o_PC_plus_4_out = x"00400010"
 
 
@@ -120,7 +108,6 @@ begin
         s_branch_cond_met <= '1';
         s_Immediate       <= std_logic_vector(to_signed(16, 32)); -- Branch offset of 16 bytes
         wait for CLK_PERIOD;
-        -- On this rising edge (Branch taken):
         -- Current PC is x"00400010". Branch target = PC + Imm = x"00400010" + 16 = x"00400020"
         -- Expected: o_PC_out = x"00400020", o_PC_plus_4_out = x"00400024"
 
@@ -130,7 +117,6 @@ begin
         s_jump            <= '1';
         s_Immediate       <= std_logic_vector(to_signed(100, 32)); -- Jump to PC + 100
         wait for CLK_PERIOD;
-        -- On this rising edge (Jump taken):
         -- Current PC is x"00400020". Jump target = PC + Imm = x"00400020" + 100 = x"00400084"
         -- Expected: o_PC_out = x"00400084", o_PC_plus_4_out = x"00400088"
         

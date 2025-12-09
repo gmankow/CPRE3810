@@ -71,7 +71,7 @@ begin
         );
 
     -- Test process
-    process
+    process 
     begin
         -- For non-branch tests, i_Func3 doesn't matter for o_Result
         -- but we set it to '000' for clarity.

@@ -1,7 +1,3 @@
--- Simplified VHDL Testbench for Barrel_Shifter
--- Sets inputs sequentially.
--- Added 'wait for 10 ns;' between tests to see each in a waveform.
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

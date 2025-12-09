@@ -4,7 +4,7 @@ use IEEE.std_logic_1164.all;
 entity register_N is
   generic (
     N : integer := 32;
-    INIT_VALUE : std_logic_vector(N-1 downto 0) := (others => '0')
+    INIT_VALUE : std_logic_vector(31 downto 0) := (others => '0')
   );
   port(i_CLK        : in std_logic;                 -- Clock input
        i_RST        : in std_logic;                 -- Reset input
@@ -16,7 +16,7 @@ end register_N;
 
 architecture structural of register_N is
     
-  component dffg is
+  component dffg is 
     generic (INIT_BIT : std_logic := '0'); -- Initial value of the flip-flop
     port(i_CLK        : in std_logic;     -- Clock input
          i_RST        : in std_logic;     -- Reset input
